@@ -1,7 +1,7 @@
 <template>
   <header class="site-header" id="top">
     <div class="section-container header-row">
-      <a href="#top" class="logo-link" aria-label="Noek home">
+      <a href="/" class="logo-link" aria-label="Noek home">
         <site-logo :compact="isCompactLogo" />
       </a>
 
@@ -9,7 +9,7 @@
         <a v-for="item in navItems" :key="item.href" class="nav-link" :href="item.href">{{ item.label }}</a>
       </nav>
 
-      <base-button class="desktop-cta" href="#contact" label="Boek een demo" />
+      <base-button class="desktop-cta" href="/#contact" label="Boek een demo" />
 
       <button
         class="menu-toggle"
@@ -30,7 +30,7 @@
           <a v-for="item in navItems" :key="item.href" class="drawer-link" :href="item.href" @click="menuOpen = false">
             {{ item.label }}
           </a>
-          <a class="drawer-link" href="#contact" @click="menuOpen = false">Boek een Demo</a>
+          <a class="drawer-link" href="/#contact" @click="menuOpen = false">Boek een Demo</a>
         </nav>
 
         <span class="drawer-divider" aria-hidden="true"></span>
@@ -53,11 +53,11 @@ const menuOpen = ref(false);
 const viewportWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 1280);
 
 const navItems = [
-  { label: 'Home', href: '#top' },
-  { label: 'Over Ons', href: '#over-ons' },
-  { label: 'Features', href: '#features' },
-  { label: 'Veelgestelde Vragen', href: '#faq' },
-  { label: 'Contact', href: '#contact' }
+  { label: 'Home', href: '/' },
+  { label: 'Over ons', href: '/over-ons' },
+  { label: 'Features', href: '/#features' },
+  { label: 'F.A.Q', href: '/#faq' },
+  { label: 'Contact', href: '/#contact' }
 ];
 
 const isCompactLogo = computed(() => viewportWidth.value <= 1024);

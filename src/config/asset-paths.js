@@ -8,6 +8,8 @@ export const assetPaths = {
   },
   images: {
     heroBackground: '/assets/images/banner.png',
+    aboutHeroBackground: '/assets/images/banner.png',
+    aboutWhat: '/assets/images/aboutus.png',
     howItWorksThumb: '/assets/images/aboutus.png',
     missionVision: '/assets/images/vision.jpg',
     missionMission: '/assets/images/mission.jpg',

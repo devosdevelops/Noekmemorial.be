@@ -10,16 +10,16 @@
           We rouwen anders.<br />
           We herinneren persoonlijker.
         </p>
-        <base-button href="#contact" label="Boek een demo" variant="soft" />
+        <base-button href="/#contact" label="Boek een demo" variant="soft" />
       </section>
 
       <section class="footer-links" aria-label="sitemap" v-scroll-reveal="{ delay: 60 }">
         <h3 class="footer-heading">Site map</h3>
-        <a href="#top">Homepage</a>
-        <a href="#over-ons">Over Ons</a>
-        <a href="#features">Features</a>
-        <a href="#faq">F.A.Q.</a>
-        <a href="#contact">Contact</a>
+        <a href="/">Homepage</a>
+        <a href="/over-ons">Over Ons</a>
+        <a href="/#features">Features</a>
+        <a href="/#faq">F.A.Q.</a>
+        <a href="/#contact">Contact</a>
       </section>
 
       <section class="footer-links" aria-label="legal" v-scroll-reveal="{ delay: 100 }">

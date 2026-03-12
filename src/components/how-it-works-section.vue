@@ -10,8 +10,8 @@
         <p class="demo-lead">Vraag hieronder een gratis demo aan</p>
 
         <div class="action-row">
-          <base-button href="#contact" label="Boek een Demo" block-mobile />
-          <base-button href="#over-ons" label="Meer info" variant="outline" block-mobile />
+          <base-button href="/#contact" label="Boek een Demo" block-mobile />
+          <base-button href="/over-ons" label="Meer info" variant="outline" block-mobile />
         </div>
       </div>
 

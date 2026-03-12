@@ -5,8 +5,8 @@
       <p class="hero-tagline" v-scroll-reveal="{ delay: 80 }">Herdenken stopt niet na de uitvaart.</p>
 
       <div class="hero-actions" v-scroll-reveal="{ delay: 120 }">
-        <base-button href="#features" label="Ontdek de Features" />
-        <base-button href="#over-ons" label="Wie zijn we?" variant="outline" />
+        <base-button href="/#features" label="Ontdek de Features" />
+        <base-button href="/over-ons" label="Wie zijn we?" variant="outline" />
       </div>
     </div>
   </section>

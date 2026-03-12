@@ -68,12 +68,12 @@
                 Contact persoon<span class="required-mark" aria-hidden="true">*</span>
                 <span class="sr-only">verplicht</span>
               </label>
-              <input id="first-name" name="firstName" type="text" autocomplete="given-name" placeholder="Voornaam" required />
+              <input id="first-name" name="firstName" type="text" autocomplete="given-name" placeholder="Voornaam" required v-model="firstName" />
             </div>
 
             <div class="field-group last-name-field">
               <label class="field-label sr-only" for="last-name">Achternaam</label>
-              <input id="last-name" name="lastName" type="text" autocomplete="family-name" placeholder="Naam" required />
+              <input id="last-name" name="lastName" type="text" autocomplete="family-name" placeholder="Naam" required v-model="lastName" />
             </div>
           </div>
 
@@ -90,6 +90,7 @@
               placeholder="naam@company.com"
               inputmode="email"
               required
+              v-model="email"
             />
           </div>
 
@@ -102,15 +103,16 @@
               id="message-body"
               name="message"
               placeholder="Type hier uw bericht..."
-              maxlength="500"
+              maxlength="800"
               required
+              v-model="message"
             ></textarea>
           </div>
 
-          <p class="character-limit">Max. 500 karakters</p>
+          <p v-if="charsRemaining <= 100" class="character-limit">{{ charsRemaining }} karakters resterend</p>
 
           <div class="submit-row">
-            <button type="submit" class="submit-button">Verzenden</button>
+            <button type="submit" class="submit-button" :disabled="!isFormValid">Verzenden</button>
           </div>
         </form>
       </div>
@@ -122,12 +124,26 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import BaseButton from '../components/base-button.vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
 import { assetPaths } from '../config/asset-paths';
+
+const firstName = ref('');
+const lastName = ref('');
+const email = ref('');
+const message = ref('');
+
+const charsRemaining = computed(() => 800 - message.value.length);
+
+const isFormValid = computed(() =>
+  firstName.value.trim() !== '' &&
+  lastName.value.trim() !== '' &&
+  email.value.trim() !== '' &&
+  message.value.trim() !== ''
+);
 
 const heroStyle = computed(() => {
   if (!assetPaths.images.heroBackground) {
@@ -324,7 +340,7 @@ const heroStyle = computed(() => {
 }
 
 .required-mark {
-  color: #e6513d;
+  color: #e54e34;
 }
 
 input,
@@ -365,7 +381,7 @@ textarea:focus-visible,
 
 .character-limit {
   margin: 0;
-  color: rgba(46, 40, 80, 0.62);
+  color: #ac3b27;
   font-family: var(--font-outfit);
   font-size: var(--type-small-size);
   line-height: var(--type-small-line-height);
@@ -407,6 +423,14 @@ textarea:focus-visible,
   border-color: rgba(23, 16, 44, 0.92);
   background: rgba(23, 16, 44, 0.92);
   color: var(--color-primary);
+}
+
+.submit-button:disabled {
+  border: 4px solid #ac3b27;
+  background: transparent;
+  color: #a5a9b3;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .sr-only {

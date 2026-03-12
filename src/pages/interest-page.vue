@@ -31,8 +31,9 @@
                 autocomplete="given-name"
                 placeholder="Voornaam"
                 required
+                v-model="firstName"
               />
-              <input name="lastName" type="text" autocomplete="family-name" placeholder="Naam" required />
+              <input name="lastName" type="text" autocomplete="family-name" placeholder="Naam" required v-model="lastName" />
             </div>
           </div>
 
@@ -43,12 +44,12 @@
             </legend>
             <div class="radio-row" role="radiogroup" aria-label="Ik ben">
               <label class="radio-option">
-                <input type="radio" name="profileType" value="individu" required />
+                <input type="radio" name="profileType" value="individu" required v-model="profileType" />
                 <span class="radio-mark" aria-hidden="true"></span>
                 <span>Individu</span>
               </label>
               <label class="radio-option">
-                <input type="radio" name="profileType" value="bedrijf" required />
+                <input type="radio" name="profileType" value="bedrijf" required v-model="profileType" />
                 <span class="radio-mark" aria-hidden="true"></span>
                 <span>Bedrijf</span>
               </label>
@@ -60,7 +61,7 @@
               Naam van het bedrijf<span class="required-mark" aria-hidden="true">*</span>
               <span class="sr-only">verplicht</span>
             </label>
-            <input id="company-name" name="companyName" type="text" autocomplete="organization" placeholder="Naam bedrijf" required />
+            <input id="company-name" name="companyName" type="text" autocomplete="organization" placeholder="Naam bedrijf" required v-model="companyName" />
           </div>
 
           <fieldset class="field-group radio-group">
@@ -70,12 +71,12 @@
             </legend>
             <div class="radio-row" role="radiogroup" aria-label="Wil je updates ontvangen">
               <label class="radio-option">
-                <input type="radio" name="receiveUpdates" value="ja" required />
+                <input type="radio" name="receiveUpdates" value="ja" required v-model="receiveUpdates" />
                 <span class="radio-mark" aria-hidden="true"></span>
                 <span>Ja</span>
               </label>
               <label class="radio-option">
-                <input type="radio" name="receiveUpdates" value="nee" required />
+                <input type="radio" name="receiveUpdates" value="nee" required v-model="receiveUpdates" />
                 <span class="radio-mark" aria-hidden="true"></span>
                 <span>Nee</span>
               </label>
@@ -90,12 +91,12 @@
             <p class="helper-copy">Bijvoorbeeld voor feedback of gebruikerstesten</p>
             <div class="radio-row" role="radiogroup" aria-label="Mogen we je contacteren">
               <label class="radio-option">
-                <input type="radio" name="allowContact" value="ja" required />
+                <input type="radio" name="allowContact" value="ja" required v-model="allowContact" />
                 <span class="radio-mark" aria-hidden="true"></span>
                 <span>Ja</span>
               </label>
               <label class="radio-option">
-                <input type="radio" name="allowContact" value="nee" required />
+                <input type="radio" name="allowContact" value="nee" required v-model="allowContact" />
                 <span class="radio-mark" aria-hidden="true"></span>
                 <span>Nee</span>
               </label>
@@ -115,6 +116,7 @@
               placeholder="naam@company.com"
               inputmode="email"
               required
+              v-model="interestEmail"
             />
           </div>
 
@@ -124,7 +126,7 @@
           </div>
 
           <div class="submit-row">
-            <button type="submit" class="submit-button">Verzenden</button>
+            <button type="submit" class="submit-button" :disabled="!isFormValid">Verzenden</button>
           </div>
         </form>
       </div>
@@ -136,9 +138,28 @@
 </template>
 
 <script setup>
+import { computed, ref } from 'vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
+
+const firstName = ref('');
+const lastName = ref('');
+const profileType = ref('');
+const companyName = ref('');
+const receiveUpdates = ref('');
+const allowContact = ref('');
+const interestEmail = ref('');
+
+const isFormValid = computed(() =>
+  firstName.value.trim() !== '' &&
+  lastName.value.trim() !== '' &&
+  profileType.value !== '' &&
+  companyName.value.trim() !== '' &&
+  receiveUpdates.value !== '' &&
+  allowContact.value !== '' &&
+  interestEmail.value.trim() !== ''
+);
 </script>
 
 <style scoped>
@@ -240,7 +261,7 @@ import SiteHeader from '../components/site-header.vue';
 }
 
 .required-mark {
-  color: #e6513d;
+  color: #e54e34;
 }
 
 .name-row {
@@ -371,6 +392,14 @@ textarea::placeholder {
   border-color: rgba(23, 16, 44, 0.92);
   background: rgba(23, 16, 44, 0.92);
   color: var(--color-primary);
+}
+
+.submit-button:disabled {
+  border: 4px solid #ac3b27;
+  background: transparent;
+  color: #a5a9b3;
+  cursor: not-allowed;
+  transform: none;
 }
 
 input:focus-visible,

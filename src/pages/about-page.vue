@@ -12,7 +12,7 @@
     <section class="page-section story-section" aria-labelledby="story-heading" v-scroll-reveal>
       <div class="section-container story-grid">
         <figure class="story-image-wrap" v-scroll-reveal="{ delay: 40, origin: 'left' }">
-          <img class="story-image" :src="assetPaths.images.hands" alt="Drie mensen in gesprek" />
+          <img class="story-image" :src="assetPaths.images.howItWorksThumb" alt="Drie mensen in gesprek" />
         </figure>
 
         <div class="story-copy" v-scroll-reveal="{ delay: 80, origin: 'right' }">
@@ -42,7 +42,7 @@
         <h2 id="what-heading" class="section-heading" v-scroll-reveal="{ delay: 20 }">Wat doen we?</h2>
 
         <div class="what-row" v-scroll-reveal="{ delay: 60 }">
-          <img class="what-thumb" :src="assetPaths.images.aboutWhat" alt="Abstracte illustratie" />
+          <img class="what-thumb" :src="assetPaths.images.hands" alt="Handen die elkaar vasthouden" />
           <p class="body-text">
             Noek is een white-label platform waarmee uitvaartondernemingen families een persoonlijke, digitale
             herdenkingsruimte aanbieden. Naadloos geïntegreerd in jouw dienstverlening. Het is een plek waar de

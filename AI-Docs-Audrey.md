@@ -198,3 +198,84 @@
 ## Prompting Notes For Next Iterations
 - If section fidelity is required, call out the exact zone:
   - "Match only the block between hero and form; keep hero and form unchanged."
+
+---
+
+## Date
+- 2026-03-12
+
+## Prompt Clarification (Interest Page Scale)
+- User refinement:
+  - New `Toon je interesse` page felt zoomed in.
+  - Requirement: align measurements with `contact-page` rhythm.
+
+## Applied Follow-up Changes
+- Updated `src/pages/interest-page.vue` scale to match contact conventions:
+  - Intro paragraph moved from large heading scale to body scale.
+  - Form labels, inputs, helper copy, and radio option text reduced to contact-like typography sizes.
+  - Form section padding aligned to contact section spacing (`48/64`).
+  - Added larger-screen title adjustment to prevent oversized heading feel on tablet/desktop.
+
+## Prompting Notes For Next Iterations
+- If a page feels visually enlarged, request explicit parity target:
+  - "Match typography and spacing scale to [contact-page] for all form controls and intro copy."
+
+---
+
+## Date
+- 2026-03-12
+
+## Prompt Clarification (Interest Submit State)
+- User refinement:
+  - Interest page `Verzenden` had the same issue as contact before: looked disabled.
+  - Requirement: keep button in default enabled state.
+
+## Applied Follow-up Changes
+- Updated `src/pages/interest-page.vue` submit button styling:
+  - Default state now uses primary filled style (purple background, white text).
+  - Added hover and active interaction states aligned with existing button motion/language.
+
+## Prompting Notes For Next Iterations
+- For submit controls, explicitly distinguish style intent from behavior intent:
+  - "Keep submit always visible and style as default enabled CTA."
+
+---
+
+## Date
+- 2026-03-12
+
+## Prompt Clarification (Interest Form Spacing)
+- User refinements:
+  - Keep label-to-input spacing at 8px.
+  - Keep input block spacing at 16px on mobile and 32px on desktop.
+  - Add 8px gap between radio labels and radio option rows.
+
+## Applied Follow-up Changes
+- Updated `src/pages/interest-page.vue` spacing rules:
+  - `.field-group` keeps `gap: var(--space-8)` (label to control).
+  - `.interest-form` uses `gap: var(--space-16)` by default (mobile).
+  - `.interest-form` switches to `gap: var(--space-32)` at desktop (`min-width: 48.0625rem`).
+  - `.radio-group` now uses `gap: var(--space-8)` to match the requested label-to-radiobutton spacing.
+
+## Prompting Notes For Next Iterations
+- For spacing requests, include explicit mapping by relationship:
+  - "Label-to-control: X, block-to-block mobile: Y, block-to-block desktop: Z."
+
+---
+
+## Date
+- 2026-03-12
+
+## Prompt Clarification (Radio Label-To-Block Spacing)
+- User clarification:
+  - The 8px gap request specifically means: spacing between each radio-group label and the radio-button block below.
+
+## Applied Follow-up Changes
+- Updated `src/pages/interest-page.vue` to enforce explicit radio-group spacing:
+  - Radio group container gap set to `0` to avoid ambiguous stacked spacing.
+  - Added `margin-bottom: 8px` on `.radio-group > .field-label`.
+  - Kept helper text with explicit bottom spacing for consistent rhythm.
+
+## Prompting Notes For Next Iterations
+- When specifying spacing around grouped controls, define exact anchor points:
+  - "Gap between legend/label and options row should be Xpx."

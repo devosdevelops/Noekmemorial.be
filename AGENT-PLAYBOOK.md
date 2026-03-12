@@ -44,6 +44,8 @@ Landing-composition components (can be reused or copied as patterns):
 Page-level blocks:
 - `src/pages/home-page.vue`
 - `src/pages/about-page.vue`
+- `src/pages/contact-page.vue`
+- `src/pages/interest-page.vue`
 
 Routing block:
 - `src/router/index.js` (route map + hash scroll behavior)
@@ -165,6 +167,7 @@ For new animated sections:
 - This project is now multi-page (router-based), not a pure single-page anchor app.
 - For links to sections on the homepage, use route-aware hash links (example: `/#features`, `/#faq`, `/#contact`).
 - For page links, use route paths (example: `/over-ons`).
+- Current key page routes include `/over-ons`, `/contact`, and `/toon-je-interesse`.
 - Shared navigation components (`site-header.vue`, `site-footer.vue`) must keep links route-aware as new pages are added.
 - Keep header/footer links synchronized with router entries.
 
@@ -230,3 +233,28 @@ Use these rules when implementing or refining `/contact`:
 - **Use shared tokens, but allow exact values when explicitly requested**
    - Keep 8pt spacing and token usage by default.
    - Use exact pixel values (example: 10px input radius) when the user asks for strict parity.
+
+## 17) Interest-Page Clarifications (Learned Rules)
+
+Use these rules when implementing or refining `/toon-je-interesse`:
+
+- **Base responsive behavior on Contact page patterns when only mobile design is provided**
+   - Use the provided mobile design as content/source of truth.
+   - Derive tablet/desktop rhythm (spacing, typography scale, section flow) from `contact-page.vue` unless explicitly overridden.
+
+- **"Zoomed" visual feedback means scale parity, not structural rewrite**
+   - First align intro/body/form typography to contact-level tokens.
+   - Then align section paddings and control sizing before changing layout structure.
+
+- **Form spacing must be specified by relationship, not only by component**
+   - Label-to-control gap: 8px.
+   - Block-to-block gap: 16px on mobile, 32px on desktop.
+   - Radio-group label-to-options row gap: explicit 8px (set directly, not implied by unrelated container gaps).
+
+- **Submit button state guidance is shared with Contact page**
+   - If requested as "default state", use enabled primary CTA appearance.
+   - Do not hide/disable unless the prompt explicitly asks for behavior changes.
+
+- **Keep CTA intent route-aware**
+   - "Toon je interesse" CTAs should target `/toon-je-interesse`.
+   - Contact-specific actions remain on `/contact`.

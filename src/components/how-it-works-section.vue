@@ -121,7 +121,7 @@ const hasVideoThumb = computed(() => Boolean(assetPaths.images.howItWorksThumb))
 
 @media (max-width: 40rem) {
   .action-row {
-    width: 100%;
+    width: auto;
     gap: var(--space-16);
   }
 }

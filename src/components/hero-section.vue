@@ -83,7 +83,6 @@ const heroStyle = computed(() => {
 
   .hero-actions {
     width: 100%;
-    max-width: 12.5rem;
   }
 }
 

@@ -51,16 +51,36 @@ const tagName = computed(() => (props.href ? 'a' : 'button'));
   font-family: var(--font-ui);
   font-size: var(--fs-ui);
   font-weight: 600;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  white-space: nowrap;
+  transition:
+    transform 300ms ease-out,
+    background-color 300ms ease-out,
+    border-color 300ms ease-out,
+    color 300ms ease-out;
 }
 
 .base-button:hover {
   transform: translateY(-1px);
 }
 
+.base-button:active {
+  transform: scale(0.97);
+}
+
 .is-primary {
   background: var(--color-primary);
   color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.is-primary:hover {
+  background: #7f60df;
+  border-color: #7f60df;
+}
+
+.is-primary:active {
+  background: rgba(23, 16, 44, 0.92);
+  color: var(--color-primary);
   border-color: var(--color-primary);
 }
 
@@ -70,15 +90,37 @@ const tagName = computed(() => (props.href ? 'a' : 'button'));
   border-color: var(--color-secondary);
 }
 
+.is-outline:hover {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.is-outline:active {
+  background: rgba(23, 16, 44, 0.92);
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
 .is-soft {
   background: var(--color-white);
   color: var(--color-primary-deep);
   border-color: var(--color-primary-deep);
 }
 
+.is-soft:hover {
+  background: #f3effc;
+}
+
+.is-soft:active {
+  background: rgba(23, 16, 44, 0.92);
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
 @media (max-width: 40rem) {
   .is-block-mobile {
-    width: 100%;
+    width: fit-content;
+    max-width: 100%;
   }
 }
 </style>

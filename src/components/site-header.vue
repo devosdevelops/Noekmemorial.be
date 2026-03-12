@@ -51,8 +51,8 @@
         <span class="drawer-divider" aria-hidden="true"></span>
 
         <nav class="drawer-legal" aria-label="legal links">
-          <a class="drawer-link" href="#" @click="menuOpen = false">Privacy Policy</a>
-          <a class="drawer-link" href="#" @click="menuOpen = false">Terms of Service</a>
+          <a class="drawer-link" :class="{ 'is-current': isCurrentLink('/privacybeleid') }" href="/privacybeleid" @click="menuOpen = false">Privacybeleid</a>
+          <a class="drawer-link" :class="{ 'is-current': isCurrentLink('/algemene-voorwaarden') }" href="/algemene-voorwaarden" @click="menuOpen = false">Algemene Voorwaarden</a>
         </nav>
       </div>
     </aside>

@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'Ambella';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Ambella-nAy9O.ttf') format('truetype');
+  /* Example pathing to replace:
+     src: url('/fonts/ambella-regular.woff2') format('woff2'),
+          url('/fonts/ambella-regular.woff') format('woff'); */
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ambella';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/fonts/AmbellaItalic-lxWRw.ttf') format('truetype');
+  /* Example pathing to replace:
+     src: url('/fonts/ambella-italic.woff2') format('woff2'),
+          url('/fonts/ambella-italic.woff') format('woff'); */
+  font-display: swap;
+}
+
+:root {
+  --color-page: #f7f5fb;
+  --color-surface-light: #f2efe5;
+  --color-surface-soft: #f2effb;
+  --color-surface-footer: #f6dce4;
+  --color-primary: #6e4bd8;
+  --color-primary-deep: #3f2c75;
+  --color-secondary: #d4a352;
+  --color-text: #2e2850;
+  --color-text-muted: #4a4660;
+  --color-white: #ffffff;
+
+  --font-title: 'Ambella', serif;
+  --font-body: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-ui: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --fs-hero-title: clamp(2.5rem, calc(1.8rem + 3.2vw), 4.6rem);
+  --fs-section-title: clamp(2rem, calc(1.55rem + 2.2vw), 3.2rem);
+  --fs-card-title: clamp(1.9rem, calc(1.55rem + 1.2vw), 2.6rem);
+  --fs-body: clamp(1rem, calc(0.95rem + 0.35vw), 1.28rem);
+  --fs-ui: clamp(0.95rem, calc(0.9rem + 0.3vw), 1.12rem);
+  --fs-small: clamp(0.9rem, calc(0.85rem + 0.2vw), 1rem);
+
+  --space-0: 0;
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-40: 2.5rem;
+  --space-48: 3rem;
+  --space-56: 3.5rem;
+  --space-64: 4rem;
+
+  --radius-12: 0.75rem;
+  --radius-16: 1rem;
+  --radius-pill: 999px;
+
+  --container-max: 76rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.4;
+  color: var(--color-text);
+  background: linear-gradient(30deg, #fbf5ee 0%, #e8e4f5 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-section {
+  padding: var(--space-64) var(--space-0);
+}
+
+.section-container {
+  width: min(100% - 2 * var(--space-24), var(--container-max));
+  margin: 0 auto;
+}
+
+.section-heading {
+  margin: 0 0 var(--space-16);
+  color: var(--color-primary-deep);
+  font-family: var(--font-title);
+  font-size: var(--fs-section-title);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.body-text {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--fs-body);
+  line-height: 1.45;
+}
+
+.subheading {
+  margin: 0;
+  font-family: var(--font-ui);
+  color: var(--color-primary-deep);
+  font-size: clamp(1.35rem, calc(1.15rem + 1vw), 2rem);
+  font-weight: 600;
+}
+
+@media (max-width: 48rem) {
+  .page-section {
+    padding: var(--space-48) var(--space-0);
+  }
+
+  .section-container {
+    width: min(100% - 2 * var(--space-16), var(--container-max));
+  }
+}

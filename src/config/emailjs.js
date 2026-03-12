@@ -1,9 +1,24 @@
+const envValue = (key) => (import.meta.env && import.meta.env[key] ? import.meta.env[key] : '');
+
 export const EMAILJS_CONFIG = {
-  serviceId: 'service_asnj6e5',
-  templateId: 'template_qdmt1df',
-  publicKey: 'jcCskwVRv1a_qoge2',
-  toEmail: 'info@noekmemorial.be'
+  serviceId: envValue('VITE_EMAILJS_SERVICE_ID'),
+  templateId: envValue('VITE_EMAILJS_TEMPLATE_ID'),
+  publicKey: envValue('VITE_EMAILJS_PUBLIC_KEY'),
+  toEmail: envValue('VITE_EMAILJS_TO_EMAIL')
 };
+
+const missingKeys = Object.entries({
+  VITE_EMAILJS_SERVICE_ID: EMAILJS_CONFIG.serviceId,
+  VITE_EMAILJS_TEMPLATE_ID: EMAILJS_CONFIG.templateId,
+  VITE_EMAILJS_PUBLIC_KEY: EMAILJS_CONFIG.publicKey,
+  VITE_EMAILJS_TO_EMAIL: EMAILJS_CONFIG.toEmail
+})
+  .filter(([, value]) => !value)
+  .map(([key]) => key);
+
+if (missingKeys.length > 0) {
+  console.warn(`EmailJS config missing: ${missingKeys.join(', ')}`);
+}
 
 const pad2 = (value) => String(value).padStart(2, '0');
 

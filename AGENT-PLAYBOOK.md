@@ -14,6 +14,7 @@ Primary goal when adding pages:
 ## 2) Tech Stack
 
 - Vue 3 (SFCs)
+- Vue Router 4
 - Vite
 - CSS (global tokens + component-scoped styles)
 - Lucide icons (`lucide-vue-next`)
@@ -22,6 +23,7 @@ Entry points:
 - `index.html`
 - `src/main.js`
 - `src/App.vue`
+- `src/router/index.js`
 
 ## 3) Existing Building Blocks (Use These First)
 
@@ -39,6 +41,13 @@ Landing-composition components (can be reused or copied as patterns):
 - `src/components/how-it-works-section.vue`
 - `src/components/mission-vision-section.vue`
 
+Page-level blocks:
+- `src/pages/home-page.vue`
+- `src/pages/about-page.vue`
+
+Routing block:
+- `src/router/index.js` (route map + hash scroll behavior)
+
 Behavior building block:
 - `src/directives/scroll-reveal.js` (directive name: `v-scroll-reveal`)
 
@@ -49,7 +58,7 @@ All global visual tokens are in:
 
 Always use existing custom properties for:
 - Colors
-- Typography roles (h1/h2/h3/h4/body/link/button/label/small)
+- Typography roles (h1/h2/h3/h4/body/link/button/label/small + landing h1)
 - Spacing scale (`--space-*`)
 - Radius and container size
 - Responsive page gutters (`--page-gutter`)
@@ -64,6 +73,7 @@ Important:
 - Base font size is 16px (`html { font-size: 16px; }`).
 - Reuse typography tokens from `:root` in `src/assets/styles.css`.
 - For new text styles, define new role tokens in `:root` first, then use them.
+- Hero title uses a dedicated landing token (`--type-landing-h1-*`) with mobile base 56px.
 
 ## 6) Spacing & Sizing Rules
 
@@ -97,13 +107,22 @@ When adding a new page image/logo:
 Reference guide:
 - `ASSET-PATHS.md`
 
+Recently added About-page mappings:
+- `images.aboutHeroBackground`
+- `images.aboutWhat`
+
 ## 8) Header/Menu Behavior Constraints
 
 Header behavior is custom and should remain consistent:
 - Desktop: full top nav
 - Mobile/Tablet: hamburger menu
-- Mobile menu animation and tablet drawer behavior are already implemented in `site-header.vue`
+- Mobile drawer: slides from top, starts below header, height is viewport minus header.
+- Tablet drawer: slides from right, starts below header, height is viewport minus header.
 - Header stays visible while drawer opens
+- Desktop/HB switch breakpoint is intentionally high (currently `70rem`) for accessibility/font scaling buffer.
+- Desktop nav links must not wrap.
+- `Home` must be present in both desktop and drawer navs, and logo must link to landing page (`/`).
+- Header links support hover/active underline (2px rounded border-style underline effect) and current page state color `#694ec4`.
 
 If you change header behavior, ensure:
 - No nav link wrapping on desktop
@@ -114,7 +133,7 @@ If you change header behavior, ensure:
 
 Current motion conventions:
 - Most interactions/transitions use 300ms ease-out
-- Menu uses slower timing per design updates
+- Menu open/close uses slower timing per design updates (`500ms ease-in-out`)
 - Scroll reveal uses `v-scroll-reveal` (IntersectionObserver)
 - Respect reduced motion preferences
 
@@ -135,17 +154,28 @@ For new animated sections:
    - Use `v-scroll-reveal` with small delays.
 6. **Wire assets via config**
    - No scattered inline file paths.
-7. **Validate**
+7. **Register route + page shell**
+   - Add route in `src/router/index.js`.
+   - Add page component under `src/pages/` and compose with existing header/footer.
+8. **Validate**
    - Run `npm run build` and resolve any issues.
 
-## 11) Coding Conventions
+## 11) Navigation & Linking Rules
+
+- This project is now multi-page (router-based), not a pure single-page anchor app.
+- For links to sections on the homepage, use route-aware hash links (example: `/#features`, `/#faq`, `/#contact`).
+- For page links, use route paths (example: `/over-ons`).
+- Shared navigation components (`site-header.vue`, `site-footer.vue`) must keep links route-aware as new pages are added.
+- Keep header/footer links synchronized with router entries.
+
+## 12) Coding Conventions
 
 - CSS classes/ids: kebab-case
 - JS variables/functions: camelCase
 - Keep component APIs small and focused
 - Avoid introducing new patterns when an existing one works
 
-## 12) Definition of Done for New Pages
+## 13) Definition of Done for New Pages
 
 A page is considered done when:
 - Uses existing building blocks where possible
@@ -155,7 +185,7 @@ A page is considered done when:
 - Animations are subtle and consistent
 - Build succeeds (`npm run build`)
 
-## 13) Useful Commands
+## 14) Useful Commands
 
 - Install dependencies: `npm install`
 - Start dev server: `npm run dev`

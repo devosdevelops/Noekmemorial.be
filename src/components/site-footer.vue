@@ -32,8 +32,8 @@
 
         <section class="footer-links" aria-label="legal" v-scroll-reveal="{ delay: 100 }">
           <h3 class="footer-heading">Legal</h3>
-          <a href="#">Privacybeleid</a>
-          <a href="#">Algemene Voorwaarden</a>
+          <a href="/privacybeleid">Privacybeleid</a>
+          <a href="/algemene-voorwaarden">Algemene Voorwaarden</a>
 
           <div class="social-row" aria-label="socials">
             <a href="https://www.linkedin.com/company/noekmemorial/about/" aria-label="LinkedIn" class="social-icon">

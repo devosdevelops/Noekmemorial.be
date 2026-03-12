@@ -135,3 +135,33 @@
 ## Result
 - FAQ answers now open and close smoothly.
 - The animation follows the real content height, so it stays consistent if the copy changes later.
+
+---
+
+## Date
+- 2026-03-12
+
+## Request
+- Create a Privacybeleid page (`/privacybeleid`) with all 13 sections of provided legal text.
+- Match the visual style of About and FAQ pages (same hero pattern, same token usage).
+- Desktop/tablet screenshots provided; mobile showed title-only hero on flat background.
+
+## Files Created
+- `src/pages/privacy-page.vue` — full privacy policy page.
+
+## Files Modified
+- `src/router/index.js` — added `/privacybeleid` route importing `PrivacyPage`.
+- `src/components/site-footer.vue` — updated `Privacybeleid` footer link from `#` to `/privacybeleid`.
+
+## Implementation Notes
+- Hero follows the exact same pattern as `about-page.vue` and `faq-page.vue`: same `min-height`, `align-items: end`, background image + gradient stack.
+- Reused `assetPaths.images.faq` for the hero background (same flower image as screenshots show, no dedicated privacy image in `/public/assets/images/`).
+- Added "Laatst bijgewerkt: 5/03/2026" subtitle under the hero title, styled with `--type-small-*` tokens.
+- Section headings use `--color-primary-deep`, `--font-poppins`, `--type-h3-size` — matching the purple heading color visible in the mockup.
+- Sub-categories (e.g. "Accountgegevens", "Inhoud binnen het platform") use a subtle left border accent (`rgba(110, 75, 216, 0.25)`) to visually group them under their parent section without adding a third heading level.
+- Address block uses `<address>` semantic element with `font-style: normal` override.
+- Breadcrumb hidden on mobile (same rule as about/faq pages).
+- All spacing from 8pt tokens; no hardcoded values.
+
+## Build Validation
+- `npm run build` passed: 88 modules, no errors, 1.05s.

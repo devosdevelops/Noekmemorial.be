@@ -4,6 +4,8 @@ import ContactPage from '../pages/contact-page.vue';
 import FaqPage from '../pages/faq-page.vue';
 import HomePage from '../pages/home-page.vue';
 import InterestPage from '../pages/interest-page.vue';
+import PrivacyPage from '../pages/privacy-page.vue';
+import TermsPage from '../pages/terms-page.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -32,6 +34,16 @@ const router = createRouter({
       path: '/faq',
       name: 'faq',
       component: FaqPage
+    },
+    {
+      path: '/privacybeleid',
+      name: 'privacy',
+      component: PrivacyPage
+    },
+    {
+      path: '/algemene-voorwaarden',
+      name: 'terms',
+      component: TermsPage
     }
   ],
   scrollBehavior(to, from, savedPosition) {

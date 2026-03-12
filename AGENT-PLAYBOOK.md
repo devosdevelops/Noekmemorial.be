@@ -200,3 +200,33 @@ A page is considered done when:
 - Start dev server: `npm run dev`
 - Production build: `npm run build`
 - Preview build: `npm run preview`
+
+## 16) Contact-Page Prompting Clarifications (Learned Rules)
+
+Use these rules when implementing or refining `/contact`:
+
+- **Separate visibility from visual state in prompts and implementation**
+   - If a button should remain visible, do not add conditional rendering.
+   - If a button "looks disabled", update styling only unless explicitly told to change behavior.
+
+- **When asked to match another page section, mirror exact sizing values**
+   - For hero parity (example: Contact vs Over ons), copy the same `min-height`, vertical `padding`, and inner spacing (`gap`/`padding-bottom`) unless instructed otherwise.
+
+- **Treat breakpoint composition and skin as separate concerns**
+   - Composition = which blocks appear at a breakpoint.
+   - Skin = colors/background/overlay of a block.
+   - A screenshot of one breakpoint must not automatically remove/add blocks on another breakpoint unless explicitly requested.
+
+- **Scope button-removal requests explicitly**
+   - "Remove top CTA buttons" means hero/intro CTA controls only.
+   - Keep the contact form submit button unless the request explicitly includes it.
+
+- **Between-hero-and-form zone on Contact page**
+   - When design indicates it, preserve both intermediate strips:
+      1. Intro text + FAQ link strip.
+      2. Contact options strip (mail/demo actions).
+   - Do not collapse these into the hero unless the design requires a stacked mobile variant.
+
+- **Use shared tokens, but allow exact values when explicitly requested**
+   - Keep 8pt spacing and token usage by default.
+   - Use exact pixel values (example: 10px input radius) when the user asks for strict parity.

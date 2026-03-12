@@ -56,13 +56,23 @@
             </div>
           </fieldset>
 
-          <div class="field-group">
-            <label class="field-label" for="company-name">
-              Naam van het bedrijf<span class="required-mark" aria-hidden="true">*</span>
-              <span class="sr-only">verplicht</span>
-            </label>
-            <input id="company-name" name="companyName" type="text" autocomplete="organization" placeholder="Naam bedrijf" required v-model="companyName" />
-          </div>
+          <transition name="field-reveal">
+            <div class="field-group" v-if="showCompanyField">
+              <label class="field-label" for="company-name">
+                Naam van het bedrijf<span class="required-mark" aria-hidden="true">*</span>
+                <span class="sr-only">verplicht</span>
+              </label>
+              <input
+                id="company-name"
+                name="companyName"
+                type="text"
+                autocomplete="organization"
+                placeholder="Naam bedrijf"
+                :required="showCompanyField"
+                v-model="companyName"
+              />
+            </div>
+          </transition>
 
           <fieldset class="field-group radio-group">
             <legend class="field-label">
@@ -103,22 +113,24 @@
             </div>
           </fieldset>
 
-          <div class="field-group">
-            <label class="field-label" for="interest-email">
-              Emailadres<span class="required-mark" aria-hidden="true">*</span>
-              <span class="sr-only">verplicht</span>
-            </label>
-            <input
-              id="interest-email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              placeholder="naam@company.com"
-              inputmode="email"
-              required
-              v-model="interestEmail"
-            />
-          </div>
+          <transition name="field-reveal">
+            <div class="field-group" v-if="showEmailField">
+              <label class="field-label" for="interest-email">
+                Emailadres<span class="required-mark" aria-hidden="true">*</span>
+                <span class="sr-only">verplicht</span>
+              </label>
+              <input
+                id="interest-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="naam@company.com"
+                inputmode="email"
+                :required="showEmailField"
+                v-model="interestEmail"
+              />
+            </div>
+          </transition>
 
           <div class="field-group">
             <label class="field-label" for="interest-message">Heb je nog opmerkingen?</label>
@@ -139,7 +151,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import emailjs from '@emailjs/browser';
 import ScrollTopButton from '../components/scroll-top-button.vue';
@@ -164,15 +176,30 @@ let toastTimer;
 let redirectTimer;
 const router = useRouter();
 
+const showCompanyField = computed(() => profileType.value === 'bedrijf');
+const showEmailField = computed(() => receiveUpdates.value === 'ja' || allowContact.value === 'ja');
+
 const isFormValid = computed(() =>
   firstName.value.trim() !== '' &&
   lastName.value.trim() !== '' &&
   profileType.value !== '' &&
-  companyName.value.trim() !== '' &&
+  (!showCompanyField.value || companyName.value.trim() !== '') &&
   receiveUpdates.value !== '' &&
   allowContact.value !== '' &&
-  interestEmail.value.trim() !== ''
+  (!showEmailField.value || interestEmail.value.trim() !== '')
 );
+
+watch(showCompanyField, (shouldShow) => {
+  if (!shouldShow) {
+    companyName.value = '';
+  }
+});
+
+watch(showEmailField, (shouldShow) => {
+  if (!shouldShow) {
+    interestEmail.value = '';
+  }
+});
 
 const buildFullName = () => `${firstName.value.trim()} ${lastName.value.trim()}`.trim();
 
@@ -336,6 +363,17 @@ const handleSubmit = async () => {
   border: 0;
   display: grid;
   gap: var(--space-8);
+}
+
+.field-reveal-enter-active,
+.field-reveal-leave-active {
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.field-reveal-enter-from,
+.field-reveal-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 
 .field-label {

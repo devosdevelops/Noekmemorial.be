@@ -60,15 +60,6 @@
           <article class="value-card mission" v-scroll-reveal="{ delay: 40, origin: 'up' }">
             <h3 class="subheading">Onze missie</h3>
             <p class="body-text value-text">
-              Een white-label digitaal platform voor uitvaartondernemingen waarmee zij families een persoonlijke,
-              blijvende herdenkingsruimte kunnen aanbieden.
-            </p>
-
-            <div class="value-image-wrap">
-              <img class="value-image" :src="assetPaths.images.missionMission" alt="Twee mensen in digitale herinneringsruimte" />
-            </div>
-
-            <p class="body-text value-mobile">
               Noek wil mensen een digitale plek geven waar herinneringen kunnen blijven bestaan.<br /><br />
               Niet als iets dat afgesloten wordt.<br />
               Maar als iets dat mag blijven.<br /><br />
@@ -85,20 +76,15 @@
               Een plek van licht.<br />
               Waar iemand nog even aanwezig mag zijn.
             </p>
+
+            <div class="value-image-wrap">
+              <img class="value-image" :src="assetPaths.images.missionMission" alt="Twee mensen in digitale herinneringsruimte" />
+            </div>
           </article>
 
           <article class="value-card vision" v-scroll-reveal="{ delay: 80, origin: 'up' }">
             <h3 class="subheading">Onze visie</h3>
             <p class="body-text value-text">
-              Wij geloven in een samenleving waarin herdenken niet stopt na de uitvaart, maar uitgroeit tot een
-              blijvend en persoonlijk proces.
-            </p>
-
-            <div class="value-image-wrap">
-              <img class="value-image" :src="assetPaths.images.missionVision" alt="Twee personen onder maanlicht" />
-            </div>
-
-            <p class="body-text value-mobile">
               Herdenken hoort niet vast te zitten aan één plaats.<br /><br />
               Niet aan een dag op de kalender.<br />
               Niet aan een bepaalde manier.<br /><br />
@@ -111,6 +97,10 @@
               Een moment dat je samen wilt delen.<br /><br />
               Daarom zien wij herdenken als een open ruimte. Een digitale plek die meebeweegt.
             </p>
+
+            <div class="value-image-wrap">
+              <img class="value-image" :src="assetPaths.images.missionVision" alt="Twee personen onder maanlicht" />
+            </div>
           </article>
         </div>
       </div>
@@ -256,37 +246,39 @@ const heroStyle = computed(() => {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-32);
+  align-items: stretch;
 }
 
 .value-card {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   gap: var(--space-16);
-  align-content: start;
 }
 
-.value-text,
-.value-mobile {
+.value-text {
   color: var(--color-text);
 }
 
-.value-mobile {
-  display: none;
+.value-text {
+  margin: 0;
+  margin-bottom: auto;
 }
 
 .value-image-wrap {
+  margin-top: var(--space-24);
+  width: 100%;
+  aspect-ratio: 5 / 4;
   border-radius: var(--radius-12);
   background: var(--color-white);
-  padding: var(--space-24);
-  min-height: clamp(10rem, 24vw, 15rem);
-  display: grid;
-  place-items: center;
+  overflow: hidden;
 }
 
 .value-image {
-  width: min(100%, 10rem);
-  height: auto;
+  width: 100%;
+  height: 100%;
   display: block;
-  border-radius: var(--radius-12);
+  object-fit: cover;
 }
 
 @media (max-width: 48rem) {
@@ -338,16 +330,8 @@ const heroStyle = computed(() => {
     order: 2;
   }
 
-  .value-text {
-    display: none;
-  }
-
-  .value-mobile {
-    display: block;
-  }
-
   .value-image-wrap {
-    padding: var(--space-16);
+    margin-top: 0;
   }
 }
 </style>

@@ -89,6 +89,7 @@ const tagName = computed(() => (props.href ? 'a' : 'button'));
 .is-outline {
   background: transparent;
   color: var(--color-text);
+  border-width: 4px;
   border-color: var(--color-secondary);
 }
 

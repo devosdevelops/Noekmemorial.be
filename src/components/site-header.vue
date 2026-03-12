@@ -6,7 +6,15 @@
       </a>
 
       <nav class="desktop-nav" aria-label="hoofd navigatie">
-        <a v-for="item in navItems" :key="item.href" class="nav-link" :href="item.href">{{ item.label }}</a>
+        <a
+          v-for="item in navItems"
+          :key="item.href"
+          class="nav-link"
+          :class="{ 'is-current': isCurrentLink(item.href) }"
+          :href="item.href"
+        >
+          {{ item.label }}
+        </a>
       </nav>
 
       <base-button class="desktop-cta" href="/#contact" label="Boek een demo" />
@@ -27,10 +35,17 @@
     <aside class="mobile-drawer" :class="{ 'is-open': menuOpen }" aria-label="mobiele navigatie" :aria-hidden="!menuOpen">
       <div class="drawer-inner">
         <nav class="drawer-links" aria-label="menu links">
-          <a v-for="item in navItems" :key="item.href" class="drawer-link" :href="item.href" @click="menuOpen = false">
+          <a
+            v-for="item in navItems"
+            :key="item.href"
+            class="drawer-link"
+            :class="{ 'is-current': isCurrentLink(item.href) }"
+            :href="item.href"
+            @click="menuOpen = false"
+          >
             {{ item.label }}
           </a>
-          <a class="drawer-link" href="/#contact" @click="menuOpen = false">Boek een Demo</a>
+          <a class="drawer-link" :class="{ 'is-current': isCurrentLink('/#contact') }" href="/#contact" @click="menuOpen = false">Boek een Demo</a>
         </nav>
 
         <span class="drawer-divider" aria-hidden="true"></span>
@@ -51,6 +66,8 @@ import SiteLogo from './site-logo.vue';
 
 const menuOpen = ref(false);
 const viewportWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 1280);
+const currentPath = ref(typeof window !== 'undefined' ? window.location.pathname : '/');
+const currentHash = ref(typeof window !== 'undefined' ? window.location.hash : '');
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -69,13 +86,47 @@ const onResize = () => {
   }
 };
 
+const syncLocationState = () => {
+  currentPath.value = window.location.pathname;
+  currentHash.value = window.location.hash;
+};
+
+const isCurrentLink = (href) => {
+  if (!href) {
+    return false;
+  }
+
+  if (href === '/') {
+    return currentPath.value === '/';
+  }
+
+  if (href.startsWith('/#')) {
+    return currentPath.value === '/' && currentHash.value === href.slice(1);
+  }
+
+  if (href.startsWith('/')) {
+    return currentPath.value === href;
+  }
+
+  if (href.startsWith('#')) {
+    return currentHash.value === href;
+  }
+
+  return false;
+};
+
 onMounted(() => {
+  syncLocationState();
   window.addEventListener('resize', onResize);
+  window.addEventListener('hashchange', syncLocationState);
+  window.addEventListener('popstate', syncLocationState);
 });
 
 onUnmounted(() => {
   document.body.style.overflow = '';
   window.removeEventListener('resize', onResize);
+  window.removeEventListener('hashchange', syncLocationState);
+  window.removeEventListener('popstate', syncLocationState);
 });
 
 watch(menuOpen, (isOpen) => {
@@ -120,6 +171,7 @@ watch(menuOpen, (isOpen) => {
 }
 
 .nav-link {
+  position: relative;
   font-family: var(--font-poppins);
   font-size: var(--type-link-size);
   font-weight: var(--type-link-weight);
@@ -127,6 +179,31 @@ watch(menuOpen, (isOpen) => {
   letter-spacing: var(--type-link-letter-spacing);
   color: var(--color-text);
   white-space: nowrap;
+  transition: color 300ms ease-out;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.25rem;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 300ms ease-out;
+}
+
+.nav-link:hover::after,
+.nav-link:active::after,
+.nav-link.is-current::after {
+  transform: scaleX(1);
+}
+
+.nav-link.is-current {
+  color: #694ec4;
 }
 
 .menu-toggle {
@@ -196,12 +273,39 @@ watch(menuOpen, (isOpen) => {
 }
 
 .drawer-link {
+  position: relative;
+  width: fit-content;
   font-family: var(--font-outfit);
   font-size: var(--type-label-size);
   line-height: var(--type-label-line-height);
   letter-spacing: var(--type-label-letter-spacing);
   font-weight: var(--type-label-weight);
   color: var(--color-white);
+  transition: color 300ms ease-out;
+}
+
+.drawer-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.25rem;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 300ms ease-out;
+}
+
+.drawer-link:hover::after,
+.drawer-link:active::after,
+.drawer-link.is-current::after {
+  transform: scaleX(1);
+}
+
+.drawer-link.is-current {
+  color: #694ec4;
 }
 
 .drawer-divider {

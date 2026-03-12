@@ -1,10 +1,10 @@
 <template>
-  <section class="hero-section" :style="heroStyle" aria-labelledby="hero-title">
+  <section class="hero-section" :style="heroStyle" aria-labelledby="hero-title" v-scroll-reveal>
     <div class="section-container hero-content">
-      <h1 id="hero-title" class="hero-title">Noek</h1>
-      <p class="hero-tagline">Herdenken stopt niet na de uitvaart.</p>
+      <h1 id="hero-title" class="hero-title" v-scroll-reveal="{ delay: 40 }">Noek</h1>
+      <p class="hero-tagline" v-scroll-reveal="{ delay: 80 }">Herdenken stopt niet na de uitvaart.</p>
 
-      <div class="hero-actions">
+      <div class="hero-actions" v-scroll-reveal="{ delay: 120 }">
         <base-button href="#features" label="Ontdek de Features" />
         <base-button href="#over-ons" label="Wie zijn we?" variant="outline" />
       </div>
@@ -50,20 +50,27 @@ const heroStyle = computed(() => {
 .hero-title {
   margin: 0;
   color: var(--color-primary-deep);
-  font-family: var(--font-title);
-  font-size: var(--fs-hero-title);
-  font-weight: 400;
-  line-height: 0.9;
+  font-family: var(--font-ambella);
+  font-size: var(--type-landing-h1-size);
+  font-weight: var(--type-h1-weight);
+  line-height: var(--type-landing-h1-line-height);
+  letter-spacing: var(--type-h1-letter-spacing);
+  text-shadow:
+    0 1px 2px #49376c,
+    0 2px 8px #da9b53;
 }
 
 .hero-tagline {
   margin: 0;
   color: #f8f1f1;
-  text-shadow: 0 2px 10px rgba(46, 40, 80, 0.28);
-  font-family: var(--font-title);
+  text-shadow:
+    0 1px 2px #49376c,
+    0 2px 8px #da9b53;
+  font-family: var(--font-ambella);
   font-size: clamp(2rem, calc(1.45rem + 2vw), 3.4rem);
   font-style: italic;
-  line-height: 0.95;
+  line-height: var(--type-h2-line-height);
+  letter-spacing: var(--type-h2-letter-spacing);
 }
 
 .hero-actions {

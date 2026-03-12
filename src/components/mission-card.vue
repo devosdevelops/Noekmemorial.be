@@ -34,9 +34,10 @@ defineProps({
 
 <style scoped>
 .mission-card {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   gap: var(--space-16);
-  align-content: start;
 }
 
 .mission-title {
@@ -45,9 +46,11 @@ defineProps({
 
 .mission-text {
   margin: 0;
+  margin-bottom: auto;
 }
 
 .mission-image {
+  margin-top: var(--space-24);
   width: 100%;
   aspect-ratio: 5 / 4;
   border-radius: var(--radius-12);
@@ -71,9 +74,15 @@ defineProps({
 
 @media (max-width: 40rem) {
   .mission-card {
+    height: auto;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-16);
     align-items: center;
+    display: grid;
+  }
+
+  .mission-image {
+    margin-top: 0;
   }
 
   .mission-title {

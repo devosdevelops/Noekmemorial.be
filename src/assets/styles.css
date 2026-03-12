@@ -34,16 +34,57 @@
   --color-text-muted: #4a4660;
   --color-white: #ffffff;
 
-  --font-title: 'Ambella', serif;
-  --font-body: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-ui: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-ambella: 'Ambella', serif;
+  --font-outfit: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-poppins: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  --fs-hero-title: clamp(2.5rem, calc(1.8rem + 3.2vw), 4.6rem);
-  --fs-section-title: clamp(2rem, calc(1.55rem + 2.2vw), 3.2rem);
-  --fs-card-title: clamp(1.9rem, calc(1.55rem + 1.2vw), 2.6rem);
-  --fs-body: clamp(1rem, calc(0.95rem + 0.35vw), 1.28rem);
-  --fs-ui: clamp(0.95rem, calc(0.9rem + 0.3vw), 1.12rem);
-  --fs-small: clamp(0.9rem, calc(0.85rem + 0.2vw), 1rem);
+  --type-h1-size: calc(2rem + 0.2vw);
+  --type-h1-line-height: 3.5rem;
+  --type-h1-letter-spacing: 0.08em;
+  --type-h1-weight: 400;
+
+  --type-landing-h1-size: calc(3.5rem + 0.2vw);
+  --type-landing-h1-line-height: calc(3.5rem + 0.2vw);
+
+  --type-h2-size: calc(1.75rem + 0.18vw);
+  --type-h2-line-height: 3rem;
+  --type-h2-letter-spacing: 0.06em;
+  --type-h2-weight: 400;
+
+  --type-h3-size: calc(1.5rem + 0.14vw);
+  --type-h3-line-height: 2rem;
+  --type-h3-letter-spacing: -0.02em;
+  --type-h3-weight: 400;
+
+  --type-h4-size: calc(1.25rem + 0.12vw);
+  --type-h4-line-height: 1.75rem;
+  --type-h4-letter-spacing: -0.01em;
+  --type-h4-weight: 400;
+
+  --type-body-size: calc(1rem + 0.08vw);
+  --type-body-line-height: 1.5rem;
+  --type-body-letter-spacing: 0;
+  --type-body-weight: 400;
+
+  --type-link-size: calc(1rem + 0.08vw);
+  --type-link-line-height: 1.75rem;
+  --type-link-letter-spacing: 0;
+  --type-link-weight: 400;
+
+  --type-button-size: calc(1.25rem + 0.08vw);
+  --type-button-line-height: 1.75rem;
+  --type-button-letter-spacing: 0;
+  --type-button-weight: 600;
+
+  --type-label-size: calc(1.5rem + 0.1vw);
+  --type-label-line-height: 1.75rem;
+  --type-label-letter-spacing: 0;
+  --type-label-weight: 600;
+
+  --type-small-size: calc(0.875rem + 0.06vw);
+  --type-small-line-height: 1rem;
+  --type-small-letter-spacing: 0;
+  --type-small-weight: 300;
 
   --space-0: 0;
   --space-4: 0.25rem;
@@ -57,12 +98,14 @@
   --space-64: 4rem;
   --space-80: 5rem;
   --space-96: 6rem;
+  --space-128: 8rem;
 
   --radius-12: 0.75rem;
   --radius-16: 1rem;
   --radius-pill: 999px;
 
   --container-max: 76rem;
+  --page-gutter: var(--space-16);
 }
 
 *,
@@ -83,9 +126,9 @@ body {
   width: 100%;
   max-width: 1400px;
   min-height: 100vh;
-  font-family: var(--font-body);
-  font-size: var(--fs-body);
-  line-height: 1.4;
+  font-family: var(--font-poppins);
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-line-height);
   color: var(--color-text);
   background: linear-gradient(30deg, #fbf5ee 0%, #e8e4f5 100%);
   margin-inline: auto;
@@ -101,32 +144,61 @@ a {
 }
 
 .section-container {
-  width: min(100% - 2 * var(--space-24), var(--container-max));
+  width: min(100% - 2 * var(--page-gutter), var(--container-max));
   margin: 0 auto;
 }
 
 .section-heading {
   margin: 0 0 var(--space-16);
   color: var(--color-primary-deep);
-  font-family: var(--font-title);
-  font-size: var(--fs-section-title);
-  font-weight: 400;
-  line-height: 1.05;
+  font-family: var(--font-ambella);
+  font-size: var(--type-h2-size);
+  font-weight: var(--type-h2-weight);
+  line-height: var(--type-h2-line-height);
+  letter-spacing: var(--type-h2-letter-spacing);
 }
 
 .body-text {
   margin: 0;
   color: var(--color-text-muted);
-  font-size: var(--fs-body);
-  line-height: 1.45;
+  font-family: var(--font-poppins);
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  line-height: var(--type-body-line-height);
+  letter-spacing: var(--type-body-letter-spacing);
 }
 
 .subheading {
   margin: 0;
-  font-family: var(--font-ui);
+  font-family: var(--font-outfit);
   color: var(--color-primary-deep);
-  font-size: clamp(1.35rem, calc(1.15rem + 1vw), 2rem);
-  font-weight: 600;
+  font-size: var(--type-h3-size);
+  font-weight: var(--type-h3-weight);
+  line-height: var(--type-h3-line-height);
+  letter-spacing: var(--type-h3-letter-spacing);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(var(--reveal-distance-x, 0), var(--reveal-distance-y, 24px), 0);
+  transition-property: opacity, transform;
+  transition-duration: var(--reveal-duration, 300ms);
+  transition-timing-function: ease-out;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @media (max-width: 48rem) {
@@ -134,7 +206,19 @@ a {
     padding: var(--space-48) var(--space-0);
   }
 
-  .section-container {
-    width: min(100% - 2 * var(--space-16), var(--container-max));
+  :root {
+    --page-gutter: var(--space-16);
+  }
+}
+
+@media (min-width: 48.0625rem) {
+  :root {
+    --page-gutter: var(--space-56);
+  }
+}
+
+@media (min-width: 75rem) {
+  :root {
+    --page-gutter: var(--space-128);
   }
 }

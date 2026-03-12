@@ -48,9 +48,11 @@ const tagName = computed(() => (props.href ? 'a' : 'button'));
   padding: var(--space-8) var(--space-24);
   border-radius: var(--radius-12);
   border: 2px solid transparent;
-  font-family: var(--font-ui);
-  font-size: var(--fs-ui);
-  font-weight: 600;
+  font-family: var(--font-outfit);
+  font-size: var(--type-button-size);
+  font-weight: var(--type-button-weight);
+  line-height: var(--type-button-line-height);
+  letter-spacing: var(--type-button-letter-spacing);
   white-space: nowrap;
   transition:
     transform 300ms ease-out,

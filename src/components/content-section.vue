@@ -1,6 +1,12 @@
 <template>
-  <section class="page-section content-section" :class="surfaceClass" :id="sectionId" :aria-labelledby="headingId">
-    <div class="section-container content-inner">
+  <section
+    class="page-section content-section"
+    :class="surfaceClass"
+    :id="sectionId"
+    :aria-labelledby="headingId"
+    v-scroll-reveal
+  >
+    <div class="section-container content-inner" v-scroll-reveal="{ delay: 40 }">
       <h2 :id="headingId" class="section-heading">{{ title }}</h2>
       <p class="body-text"><slot /></p>
     </div>

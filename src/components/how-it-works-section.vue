@@ -1,7 +1,7 @@
 <template>
-  <section class="page-section how-it-works" id="features" aria-labelledby="features-heading">
+  <section class="page-section how-it-works" id="features" aria-labelledby="features-heading" v-scroll-reveal>
     <div class="section-container split-layout">
-      <div class="text-column">
+      <div class="text-column" v-scroll-reveal="{ delay: 40, origin: 'left' }">
         <h2 id="features-heading" class="section-heading">Hoe werkt Noek?</h2>
         <p class="body-text">
           Wij verbinden technologie en uitvaartzorg voor blijvende digitale herdenkingsplekken. Zonder extra
@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <button class="media-card" type="button" aria-label="Video afspelen">
+      <button class="media-card" type="button" aria-label="Video afspelen" v-scroll-reveal="{ delay: 80, origin: 'right' }">
         <img v-if="hasVideoThumb" class="media-image" :src="assetPaths.images.howItWorksThumb" alt="Video preview" />
         <span class="play-indicator" aria-hidden="true">▶</span>
       </button>
@@ -51,10 +51,11 @@ const hasVideoThumb = computed(() => Boolean(assetPaths.images.howItWorksThumb))
 .demo-lead {
   margin: var(--space-8) 0 0;
   color: var(--color-primary-deep);
-  font-family: var(--font-ui);
-  font-size: clamp(1.35rem, calc(1.05rem + 0.8vw), 1.9rem);
-  font-weight: 700;
-  line-height: 1.3;
+  font-family: var(--font-outfit);
+  font-size: var(--type-label-size);
+  font-weight: var(--type-label-weight);
+  line-height: var(--type-label-line-height);
+  letter-spacing: var(--type-label-letter-spacing);
 }
 
 .action-row {

@@ -101,9 +101,11 @@ onUnmounted(() => {
 }
 
 .nav-link {
-  font-family: var(--font-ui);
-  font-size: var(--fs-ui);
-  font-weight: 600;
+  font-family: var(--font-poppins);
+  font-size: var(--type-link-size);
+  font-weight: var(--type-link-weight);
+  line-height: var(--type-link-line-height);
+  letter-spacing: var(--type-link-letter-spacing);
   color: var(--color-text);
 }
 
@@ -156,9 +158,11 @@ onUnmounted(() => {
 
   .mobile-link {
     padding: var(--space-8) var(--space-0);
-    font-family: var(--font-ui);
-    font-size: var(--fs-ui);
-    font-weight: 600;
+    font-family: var(--font-poppins);
+    font-size: var(--type-link-size);
+    font-weight: var(--type-link-weight);
+    line-height: var(--type-link-line-height);
+    letter-spacing: var(--type-link-letter-spacing);
   }
 }
 </style>

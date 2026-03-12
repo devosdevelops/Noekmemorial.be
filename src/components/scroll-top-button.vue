@@ -1,5 +1,11 @@
 <template>
-  <button v-show="showButton" type="button" class="scroll-top-button" aria-label="Ga naar boven" @click="scrollToTop">
+  <button
+    type="button"
+    class="scroll-top-button"
+    :class="{ 'is-visible': showButton }"
+    aria-label="Ga naar boven"
+    @click="scrollToTop"
+  >
     ↑
   </button>
 </template>
@@ -42,6 +48,18 @@ onUnmounted(() => {
   line-height: 0;
   cursor: pointer;
   z-index: 15;
+  opacity: 0;
+  transform: translateY(var(--space-8));
+  pointer-events: none;
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
+}
+
+.scroll-top-button.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 @media (max-width: 40rem) {

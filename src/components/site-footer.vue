@@ -1,7 +1,7 @@
 <template>
-  <footer class="site-footer" id="contact" aria-labelledby="footer-heading">
+  <footer class="site-footer" id="contact" aria-labelledby="footer-heading" v-scroll-reveal>
     <div class="section-container footer-grid">
-      <section class="footer-brand" aria-label="merk informatie">
+      <section class="footer-brand" aria-label="merk informatie" v-scroll-reveal="{ delay: 20 }">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
         <site-logo :compact="true" />
         <p class="footer-copy">
@@ -13,7 +13,7 @@
         <base-button href="#contact" label="Boek een demo" variant="soft" />
       </section>
 
-      <section class="footer-links" aria-label="sitemap">
+      <section class="footer-links" aria-label="sitemap" v-scroll-reveal="{ delay: 60 }">
         <h3 class="footer-heading">Site map</h3>
         <a href="#top">Homepage</a>
         <a href="#over-ons">Over Ons</a>
@@ -22,7 +22,7 @@
         <a href="#contact">Contact</a>
       </section>
 
-      <section class="footer-links" aria-label="legal">
+      <section class="footer-links" aria-label="legal" v-scroll-reveal="{ delay: 100 }">
         <h3 class="footer-heading">Legal</h3>
         <a href="#">Privacybeleid</a>
         <a href="#">Algemene Voorwaarden</a>
@@ -70,8 +70,11 @@ import SiteLogo from './site-logo.vue';
 .footer-copy {
   margin: 0;
   color: var(--color-text);
-  font-size: var(--fs-small);
-  line-height: 1.35;
+  font-family: var(--font-outfit);
+  font-size: var(--type-small-size);
+  font-weight: var(--type-small-weight);
+  line-height: var(--type-small-line-height);
+  letter-spacing: var(--type-small-letter-spacing);
 }
 
 .footer-links {
@@ -79,16 +82,21 @@ import SiteLogo from './site-logo.vue';
   align-content: start;
   gap: var(--space-8);
   color: var(--color-primary-deep);
-  font-family: var(--font-ui);
-  font-size: var(--fs-ui);
+  font-family: var(--font-poppins);
+  font-size: var(--type-link-size);
+  font-weight: var(--type-link-weight);
+  line-height: var(--type-link-line-height);
+  letter-spacing: var(--type-link-letter-spacing);
 }
 
 .footer-heading {
   margin: 0 0 var(--space-8);
   color: var(--color-text);
-  font-family: var(--font-ui);
-  font-size: var(--fs-ui);
-  font-weight: 700;
+  font-family: var(--font-outfit);
+  font-size: var(--type-h4-size);
+  font-weight: var(--type-h4-weight);
+  line-height: var(--type-h4-line-height);
+  letter-spacing: var(--type-h4-letter-spacing);
 }
 
 .social-row {

@@ -73,7 +73,7 @@ const navItems = [
   { label: 'Home', href: '/' },
   { label: 'Over ons', href: '/over-ons' },
   { label: 'Features', href: '/#features' },
-  { label: 'F.A.Q', href: '/#faq' },
+  { label: 'F.A.Q', href: '/faq' },
   { label: 'Contact', href: '/contact' }
 ];
 

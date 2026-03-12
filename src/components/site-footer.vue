@@ -26,7 +26,7 @@
           <a href="/">Homepage</a>
           <a href="/over-ons">Over Ons</a>
           <a href="/#features">Features</a>
-          <a href="/#faq">F.A.Q.</a>
+          <a href="/faq">F.A.Q.</a>
           <a href="/contact">Contact</a>
         </section>
 

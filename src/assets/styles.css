@@ -44,7 +44,7 @@
   --type-h1-weight: 400;
 
   --type-landing-h1-size: calc(3.5rem + 0.2vw);
-  --type-landing-h1-line-height: calc(3.5rem + 0.2vw);
+  --type-landing-h1-line-height: calc(5rem + 0.2vw);
 
   --type-h2-size: calc(1.75rem + 0.18vw);
   --type-h2-line-height: 3rem;

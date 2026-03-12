@@ -261,3 +261,23 @@
 ## Remaining Optional Assets
 - No preview screen images were present yet in `/public/assets/images`.
 - `previewSection` icon and `featuresPreview*` image slots remain configurable for later drop-in.
+
+---
+
+## Date
+- 2026-03-12
+
+## Follow-up (Mobile Hamburger Legal Links)
+- User reported privacy and terms links in the mobile hamburger menu were not working.
+
+## Root Cause
+- `src/components/site-header.vue` still used placeholder legal links (`href="#"`) in the drawer.
+
+## Applied Changes
+- Updated drawer legal links to real routes:
+	- `Privacybeleid` -> `/privacybeleid`
+	- `Algemene Voorwaarden` -> `/algemene-voorwaarden`
+- Added active-state support using existing `isCurrentLink(...)` logic for both links.
+
+## Validation
+- `npm run build` passed after the update (92 modules, no errors).

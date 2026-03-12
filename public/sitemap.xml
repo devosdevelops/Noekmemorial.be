@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://noekmemorial.be/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://noekmemorial.be/over-ons</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://noekmemorial.be/contact</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://noekmemorial.be/toon-je-interesse</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://noekmemorial.be/faq</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://noekmemorial.be/features</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://noekmemorial.be/privacybeleid</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://noekmemorial.be/algemene-voorwaarden</loc>
+    <priority>0.3</priority>
+  </url>
+</urlset>

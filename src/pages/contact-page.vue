@@ -51,7 +51,7 @@
             <span class="email-text">info@noek.be</span>
           </a>
 
-          <base-button href="/over-ons" label="Boek Demo" variant="outline" class="hero-read-more" block-mobile />
+          <base-button href="/toon-je-interesse" label="Toon je interesse" variant="outline" class="hero-read-more" block-mobile />
         </div>
       </div>
     </section>

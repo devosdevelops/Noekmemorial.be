@@ -140,6 +140,7 @@
 
 <script setup>
 import { computed, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import emailjs from '@emailjs/browser';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
@@ -160,6 +161,8 @@ const toastOpen = ref(false);
 const toastVariant = ref('success');
 const toastMessage = ref('');
 let toastTimer;
+let redirectTimer;
+const router = useRouter();
 
 const isFormValid = computed(() =>
   firstName.value.trim() !== '' &&
@@ -184,6 +187,16 @@ const showToast = (variant, messageText) => {
 
   toastTimer = setTimeout(() => {
     toastOpen.value = false;
+  }, 4000);
+};
+
+const scheduleRedirect = () => {
+  if (redirectTimer) {
+    clearTimeout(redirectTimer);
+  }
+
+  redirectTimer = setTimeout(() => {
+    router.push('/');
   }, 4000);
 };
 
@@ -225,6 +238,7 @@ const handleSubmit = async () => {
     interestEmail.value = '';
     interestMessage.value = '';
     showToast('success', 'Bericht verzonden');
+    scheduleRedirect();
   } catch (error) {
     console.error('EmailJS interest submission failed', error);
     showToast('error', 'Bericht kon niet worden verzonden');

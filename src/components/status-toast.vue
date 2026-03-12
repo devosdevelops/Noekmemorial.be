@@ -42,9 +42,9 @@ const variantClass = computed(() => (props.variant === 'error' ? 'status-toast--
 <style scoped>
 .status-toast {
   position: fixed;
-  top: 1.25rem;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   z-index: 40;
   display: inline-flex;
   align-items: center;
@@ -89,7 +89,7 @@ const variantClass = computed(() => (props.variant === 'error' ? 'status-toast--
 
 .toast-pop-enter-from,
 .toast-pop-leave-to {
-  transform: translateX(-50%) translateY(-10px);
+  transform: translate(-50%, -50%) translateY(-10px);
   opacity: 0;
 }
 </style>

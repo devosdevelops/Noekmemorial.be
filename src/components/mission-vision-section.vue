@@ -35,13 +35,13 @@ import MissionCard from './mission-card.vue';
 
 .mission-vision-inner {
   display: grid;
-  gap: var(--space-24);
+  gap: var(--space-40);
 }
 
 .cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-24);
+  gap: var(--space-40);
 }
 
 @media (max-width: 48rem) {

@@ -116,13 +116,13 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: var(--space-8);
   margin-left: auto;
 }
 
 .menu-toggle span {
-  width: 2.1rem;
-  height: 0.3rem;
+  width: 2rem;
+  height: var(--space-4);
   border-radius: var(--radius-pill);
   background: var(--color-primary-deep);
 }

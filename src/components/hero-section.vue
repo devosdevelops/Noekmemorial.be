@@ -33,6 +33,7 @@ const heroStyle = computed(() => {
   min-height: clamp(22rem, 46vw, 31rem);
   display: grid;
   align-items: center;
+  padding: var(--space-80);
   background:
     var(--hero-image, none) center / cover no-repeat,
     radial-gradient(circle at 60% 40%, rgba(217, 206, 255, 0.8) 0%, rgba(194, 165, 235, 0.2) 25%, rgba(180, 148, 229, 0) 45%),
@@ -43,7 +44,7 @@ const heroStyle = computed(() => {
   display: grid;
   align-content: center;
   justify-items: start;
-  gap: var(--space-16);
+  gap: var(--space-40);
 }
 
 .hero-title {
@@ -72,13 +73,23 @@ const heroStyle = computed(() => {
 }
 
 @media (max-width: 40rem) {
+  .hero-section {
+    padding: var(--space-56);
+  }
+
   .hero-content {
-    gap: var(--space-24);
+    gap: var(--space-40);
   }
 
   .hero-actions {
     width: 100%;
     max-width: 12.5rem;
+  }
+}
+
+@media (min-width: 75rem) {
+  .hero-section {
+    padding: var(--space-96);
   }
 }
 </style>

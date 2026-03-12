@@ -45,7 +45,7 @@ const hasVideoThumb = computed(() => Boolean(assetPaths.images.howItWorksThumb))
 
 .text-column {
   display: grid;
-  gap: var(--space-16);
+  gap: var(--space-24);
 }
 
 .demo-lead {
@@ -60,7 +60,7 @@ const hasVideoThumb = computed(() => Boolean(assetPaths.images.howItWorksThumb))
 .action-row {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-16);
+  gap: var(--space-24);
 }
 
 .media-card {
@@ -97,8 +97,8 @@ const hasVideoThumb = computed(() => Boolean(assetPaths.images.howItWorksThumb))
   border-radius: 999px;
   background: rgba(63, 44, 117, 0.85);
   color: #ffffff;
-  font-size: 1.2rem;
-  padding-left: 0.25rem;
+  font-size: 1rem;
+  padding-left: var(--space-4);
 }
 
 @media (max-width: 64rem) {
@@ -122,7 +122,7 @@ const hasVideoThumb = computed(() => Boolean(assetPaths.images.howItWorksThumb))
 @media (max-width: 40rem) {
   .action-row {
     width: 100%;
-    gap: var(--space-8);
+    gap: var(--space-16);
   }
 }
 </style>

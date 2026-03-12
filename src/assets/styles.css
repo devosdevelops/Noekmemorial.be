@@ -55,6 +55,8 @@
   --space-48: 3rem;
   --space-56: 3.5rem;
   --space-64: 4rem;
+  --space-80: 5rem;
+  --space-96: 6rem;
 
   --radius-12: 0.75rem;
   --radius-16: 1rem;
@@ -63,23 +65,30 @@
   --container-max: 76rem;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  background: linear-gradient(30deg, #fbf5ee 0%, #e8e4f5 100%);
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 100vh;
   font-family: var(--font-body);
   font-size: var(--fs-body);
   line-height: 1.4;
   color: var(--color-text);
   background: linear-gradient(30deg, #fbf5ee 0%, #e8e4f5 100%);
+  margin-inline: auto;
 }
 
 a {

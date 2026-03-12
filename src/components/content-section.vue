@@ -40,7 +40,7 @@ const surfaceClass = computed(() => `is-${props.surface}`);
 
 .content-inner {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--space-16);
 }
 
 .body-text {

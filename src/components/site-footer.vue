@@ -29,13 +29,13 @@
 
         <div class="social-row" aria-label="socials">
           <a href="#" aria-label="LinkedIn" class="social-icon">
-            <Linkedin :size="22" :stroke-width="2.2" />
+            <Linkedin :size="24" :stroke-width="2" />
           </a>
           <a href="#" aria-label="Facebook" class="social-icon">
-            <Facebook :size="22" :stroke-width="2.2" />
+            <Facebook :size="24" :stroke-width="2" />
           </a>
           <a href="#" aria-label="Instagram" class="social-icon">
-            <Instagram :size="22" :stroke-width="2.2" />
+            <Instagram :size="24" :stroke-width="2" />
           </a>
         </div>
       </section>
@@ -100,8 +100,8 @@ import SiteLogo from './site-logo.vue';
 .social-icon {
   display: inline-grid;
   place-items: center;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .sr-only {

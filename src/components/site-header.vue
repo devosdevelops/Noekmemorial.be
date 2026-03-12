@@ -17,7 +17,7 @@
         </a>
       </nav>
 
-      <base-button class="desktop-cta" href="/#contact" label="Boek een demo" />
+      <base-button class="desktop-cta" href="/#contact" label="Toon je interesse" />
 
       <button
         class="menu-toggle"
@@ -45,7 +45,7 @@
           >
             {{ item.label }}
           </a>
-          <a class="drawer-link" :class="{ 'is-current': isCurrentLink('/#contact') }" href="/#contact" @click="menuOpen = false">Boek een Demo</a>
+          <a class="drawer-link" :class="{ 'is-current': isCurrentLink('/#contact') }" href="/#contact" @click="menuOpen = false">Toon je interesse</a>
         </nav>
 
         <span class="drawer-divider" aria-hidden="true"></span>

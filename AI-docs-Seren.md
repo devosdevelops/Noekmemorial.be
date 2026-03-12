@@ -165,3 +165,22 @@
 
 ## Build Validation
 - `npm run build` passed: 88 modules, no errors, 1.05s.
+
+---
+
+## Date
+- 2026-03-12
+
+## Follow-up Fix (Privacy Content Visibility)
+- User reported that on `/privacybeleid` they had to scroll too far before text became visible in the white content area.
+
+## Root Cause
+- The entire content section used `v-scroll-reveal`, which keeps content visually hidden until IntersectionObserver marks it as revealed.
+- On this legal page that behavior made the top of the content feel empty.
+
+## Applied Changes
+- Removed section-level `v-scroll-reveal` from `privacy-content-section` so the white column content is visible immediately.
+- Kept reveal animations on internal blocks if present, but removed the parent-level hide/show gate.
+
+## Result
+- Privacy text now appears immediately when entering the white section, without needing extra scroll to trigger visibility.

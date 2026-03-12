@@ -10,7 +10,7 @@
       </div>
     </section>
 
-    <section class="page-section privacy-content-section" aria-label="Privacybeleid inhoud" v-scroll-reveal>
+    <section class="page-section privacy-content-section" aria-label="Privacybeleid inhoud">
       <div class="section-container privacy-content">
 
         <div class="legal-block" v-scroll-reveal="{ delay: 20 }">
@@ -294,7 +294,6 @@ const heroStyle = computed(() => ({
 .privacy-content {
   display: grid;
   gap: var(--space-48);
-  padding-top: var(--space-48);
   padding-bottom: var(--space-80);
 }
 
@@ -395,7 +394,6 @@ const heroStyle = computed(() => ({
 
   .privacy-content {
     gap: var(--space-40);
-    padding-top: var(--space-40);
     padding-bottom: var(--space-64);
   }
 }

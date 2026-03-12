@@ -103,3 +103,27 @@ Preview the production build locally:
 ```bash
 npm run preview
 ```
+
+## Deployment Routing (Important)
+
+This project uses Vue Router history mode (`createWebHistory`).
+Direct visits to routes like `/over-ons` require host-level fallback rewrites to `index.html`.
+
+### Vercel
+
+The rewrite is already configured in `vercel.json`:
+
+```json
+{
+	"rewrites": [
+		{ "source": "/(.*)", "destination": "/index.html" }
+	]
+}
+```
+
+### Combell / Apache
+
+Apache fallback rules are included in `public/.htaccess` and will be copied to `dist/.htaccess` on build.
+Make sure `.htaccess` rewrites are enabled on the hosting environment.
+
+If rewrites are not enabled, deep links and page refreshes on non-root routes will return 404.

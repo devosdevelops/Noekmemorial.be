@@ -129,12 +129,14 @@ import SiteHeader from '../components/site-header.vue';
 import { assetPaths } from '../config/asset-paths';
 
 const heroStyle = computed(() => {
-  if (!assetPaths.images.aboutHeroBackground) {
+  const heroImage = assetPaths.images.aboutHeroBackground || assetPaths.images.heroBackground;
+
+  if (!heroImage) {
     return {};
   }
 
   return {
-    '--about-hero-image': `url(${assetPaths.images.aboutHeroBackground})`
+    '--about-hero-image': `url(${heroImage})`
   };
 });
 </script>

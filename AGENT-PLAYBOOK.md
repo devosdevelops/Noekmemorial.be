@@ -168,14 +168,22 @@ For new animated sections:
 - Shared navigation components (`site-header.vue`, `site-footer.vue`) must keep links route-aware as new pages are added.
 - Keep header/footer links synchronized with router entries.
 
-## 12) Coding Conventions
+## 12) Deployment Routing Rules (Critical)
+
+- The app uses Vue Router history mode (`createWebHistory`).
+- Any new route must be deploy-safe: direct URL access and page refresh on that route must resolve to `index.html`.
+- Vercel fallback is configured in `vercel.json` and must be kept when adding routes.
+- Combell/Apache fallback is configured in `public/.htaccess`; ensure rewrite support is enabled in hosting.
+- If a new route works locally but fails in production with 404, verify host-level rewrites before changing app code.
+
+## 13) Coding Conventions
 
 - CSS classes/ids: kebab-case
 - JS variables/functions: camelCase
 - Keep component APIs small and focused
 - Avoid introducing new patterns when an existing one works
 
-## 13) Definition of Done for New Pages
+## 14) Definition of Done for New Pages
 
 A page is considered done when:
 - Uses existing building blocks where possible
@@ -184,8 +192,9 @@ A page is considered done when:
 - No obvious wrapping/overflow issues
 - Animations are subtle and consistent
 - Build succeeds (`npm run build`)
+- Direct URL access to the new route works in deployed environments (no host 404).
 
-## 14) Useful Commands
+## 15) Useful Commands
 
 - Install dependencies: `npm install`
 - Start dev server: `npm run dev`

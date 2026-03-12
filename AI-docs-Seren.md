@@ -184,3 +184,80 @@
 
 ## Result
 - Privacy text now appears immediately when entering the white section, without needing extra scroll to trigger visibility.
+
+---
+
+## Date
+- 2026-03-12
+
+## Request
+- Build a dedicated Features page based on provided desktop/tablet/mobile references.
+- Use project icons (user will add them), so implementation must be asset-driven and ready.
+- Keep video block optional/hidden-ready until final media is provided.
+- Make preview screens a carousel on tablet and phone sizes.
+
+## Files Created
+- `src/pages/features-page.vue` — complete Features page implementation.
+
+## Files Modified
+- `src/router/index.js` — added `/features` route.
+- `src/components/site-header.vue` — switched `Features` nav link from `/#features` to `/features`.
+- `src/components/site-footer.vue` — switched sitemap `Features` link from `/#features` to `/features`.
+- `src/config/asset-paths.js` — added features-specific image/icon placeholders.
+
+## Implementation Notes
+- Hero reuses the same visual page pattern as About/FAQ/Legal pages (breadcrumb + large title over flower background).
+- Features intro and capability cards are componentized in-page using data arrays; each card accepts icon paths from `assetPaths.icons.*` and falls back to a neutral symbol when icons are not yet added.
+- Video area uses an optional poster source (`assetPaths.images.featuresVideoThumb`):
+	- If empty, the video preview block stays hidden.
+	- CTA remains visible so the section still works before media is provided.
+- Preview section supports two modes:
+	- Desktop (`>=70rem`): static 5-phone row.
+	- Tablet/mobile (`<70rem`): 2-up carousel with dot navigation and smooth translate animation.
+- Added configurable image slots in `asset-paths.js`:
+	- `featuresHero`
+	- `featuresVideoThumb`
+	- `featuresPreviewOne` ... `featuresPreviewFive`
+- Added icon slots in `asset-paths.js`:
+	- `featureWhiteLabel`
+	- `featureAtmosphere`
+	- `featureOwnDomain`
+	- `featurePersonalized`
+	- `featureBrowser`
+	- `previewSection`
+
+## Build Validation
+- `npm run build` passed: 92 modules, no errors, 1.09s.
+
+## Follow-up Suggestion For Asset Drop-in
+- Once user places final icons/screens in `public/assets/...`, only `src/config/asset-paths.js` needs value updates; no component code changes required.
+
+---
+
+## Date
+- 2026-03-12
+
+## Follow-up (Features Icons Wired)
+- User confirmed feature icons were added to the project and requested immediate use.
+
+## Detected Files
+- `/public/assets/icons/whitelabel.svg`
+- `/public/assets/icons/immersive.svg`
+- `/public/assets/icons/hosting.svg`
+- `/public/assets/icons/personaliseer.svg`
+- `/public/assets/icons/3d.svg`
+
+## Applied Changes
+- Updated `src/config/asset-paths.js`:
+	- `icons.featureWhiteLabel` -> `/assets/icons/whitelabel.svg`
+	- `icons.featureAtmosphere` -> `/assets/icons/immersive.svg`
+	- `icons.featureOwnDomain` -> `/assets/icons/hosting.svg`
+	- `icons.featurePersonalized` -> `/assets/icons/personaliseer.svg`
+	- `icons.featureBrowser` -> `/assets/icons/3d.svg`
+
+## Validation
+- `npm run build` passed after asset wiring (92 modules, no errors).
+
+## Remaining Optional Assets
+- No preview screen images were present yet in `/public/assets/images`.
+- `previewSection` icon and `featuresPreview*` image slots remain configurable for later drop-in.

@@ -12,12 +12,27 @@ export const assetPaths = {
     missionVision: '/assets/images/vision.jpg',
     missionMission: '/assets/images/mission.jpg',
     faq: '/assets/images/faq.png',
-    hands: '/assets/images/hands.jpg'
+    hands: '/assets/images/hands.jpg',
+    featuresHero: '/assets/images/faq.png',
+    featuresVideoThumb: '',
+    featuresPreviewOne: '/assets/images/preview-1.jpg',
+    featuresPreviewTwo: '/assets/images/preview-2.jpg',
+    featuresPreviewThree: '/assets/images/preview-3.jpg',
+    featuresPreviewFour: '/assets/images/preview-4.jpg',
+    featuresPreviewFive: '/assets/images/preview-5.jpg'
     // Example:
     // heroBackground: '/assets/images/hero-bg.webp',
     // howItWorksThumb: '/assets/images/how-it-works-video-cover.jpg',
     // missionVision: '/assets/images/mission-vision.jpg',
     // missionMission: '/assets/images/mission-mission.jpg'
+  },
+  icons: {
+    featureWhiteLabel: '/assets/icons/whitelabel.svg',
+    featureAtmosphere: '/assets/icons/immersive.svg',
+    featureOwnDomain: '/assets/icons/hosting.svg',
+    featurePersonalized: '/assets/icons/personaliseer.svg',
+    featureBrowser: '/assets/icons/3d.svg',
+    previewSection: '/assets/icons/preview.svg'
   },
   fonts: {
     ambellaRegularTtf: '/fonts/Ambella-nAy9O.ttf',

@@ -72,7 +72,7 @@ const currentHash = ref(typeof window !== 'undefined' ? window.location.hash : '
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'Over ons', href: '/over-ons' },
-  { label: 'Features', href: '/#features' },
+  { label: 'Features', href: '/features' },
   { label: 'F.A.Q', href: '/faq' },
   { label: 'Contact', href: '/contact' }
 ];

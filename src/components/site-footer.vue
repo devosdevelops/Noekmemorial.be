@@ -25,7 +25,7 @@
           <h3 class="footer-heading">Site map</h3>
           <a href="/">Homepage</a>
           <a href="/over-ons">Over Ons</a>
-          <a href="/#features">Features</a>
+          <a href="/features">Features</a>
           <a href="/faq">F.A.Q.</a>
           <a href="/contact">Contact</a>
         </section>
@@ -36,13 +36,13 @@
           <a href="/algemene-voorwaarden">Algemene Voorwaarden</a>
 
           <div class="social-row" aria-label="socials">
-            <a href="https://www.linkedin.com/company/noekmemorial/about/" aria-label="LinkedIn" class="social-icon">
+            <a href="https://www.linkedin.com/company/noekmemorial/about/" aria-label="LinkedIn" class="social-icon" target="blank">
               <img class="social-image" src="/assets/icons/Linkedin.svg" alt="" aria-hidden="true" />
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61579523811833" aria-label="Facebook" class="social-icon">
+            <a href="https://www.facebook.com/profile.php?id=61579523811833" aria-label="Facebook" class="social-icon" target="blank">
               <img class="social-image" src="/assets/icons/Facebook.svg" alt="" aria-hidden="true" />
             </a>
-            <a href="https://www.instagram.com/noekmemorial/" aria-label="Instagram" class="social-icon">
+            <a href="https://www.instagram.com/noekmemorial/" aria-label="Instagram" class="social-icon" target="blank">
               <img class="social-image" src="/assets/icons/Instagram.svg" alt="" aria-hidden="true" />
             </a>
           </div>

@@ -61,7 +61,7 @@
         <h2 id="form-heading" class="sr-only">Contactformulier</h2>
         <p class="form-lead">Vul het onderstaande contactformulier in en wij helpen je graag.</p>
 
-        <form class="contact-form" @submit.prevent>
+        <form class="contact-form" @submit.prevent="handleSubmit">
           <div class="name-row">
             <div class="field-group">
               <label class="field-label" for="first-name">
@@ -112,11 +112,12 @@
           <p v-if="charsRemaining <= 100" class="character-limit">{{ charsRemaining }} karakters resterend</p>
 
           <div class="submit-row">
-            <button type="submit" class="submit-button" :disabled="!isFormValid">Verzenden</button>
+            <button type="submit" class="submit-button" :disabled="!isFormValid || isSubmitting">Verzenden</button>
           </div>
         </form>
       </div>
     </section>
+    <status-toast :open="toastOpen" :variant="toastVariant" :message="toastMessage" />
   </main>
 
   <site-footer />
@@ -125,16 +126,24 @@
 
 <script setup>
 import { computed, ref } from 'vue';
+import emailjs from '@emailjs/browser';
 import BaseButton from '../components/base-button.vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
+import StatusToast from '../components/status-toast.vue';
 import { assetPaths } from '../config/asset-paths';
+import { EMAILJS_CONFIG, createRequestId, createRequestTimestamp } from '../config/emailjs';
 
 const firstName = ref('');
 const lastName = ref('');
 const email = ref('');
 const message = ref('');
+const isSubmitting = ref(false);
+const toastOpen = ref(false);
+const toastVariant = ref('success');
+const toastMessage = ref('');
+let toastTimer;
 
 const charsRemaining = computed(() => 800 - message.value.length);
 
@@ -144,6 +153,64 @@ const isFormValid = computed(() =>
   email.value.trim() !== '' &&
   message.value.trim() !== ''
 );
+
+const buildFullName = () => `${firstName.value.trim()} ${lastName.value.trim()}`.trim();
+
+const showToast = (variant, messageText) => {
+  toastVariant.value = variant;
+  toastMessage.value = messageText;
+  toastOpen.value = true;
+
+  if (toastTimer) {
+    clearTimeout(toastTimer);
+  }
+
+  toastTimer = setTimeout(() => {
+    toastOpen.value = false;
+  }, 4000);
+};
+
+const handleSubmit = async () => {
+  if (!isFormValid.value || isSubmitting.value) {
+    return;
+  }
+
+  isSubmitting.value = true;
+
+  const requestId = createRequestId();
+  const requestTime = createRequestTimestamp();
+  const fullName = buildFullName();
+
+  const templateParams = {
+    to_email: EMAILJS_CONFIG.toEmail,
+    FormType: 'Contact',
+    name: fullName,
+    requestID: requestId,
+    time: requestTime,
+    email: email.value.trim(),
+    Comapany: '',
+    update: '',
+    usertest: '',
+    message: message.value.trim()
+  };
+
+  try {
+    await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, templateParams, {
+      publicKey: EMAILJS_CONFIG.publicKey
+    });
+
+    firstName.value = '';
+    lastName.value = '';
+    email.value = '';
+    message.value = '';
+    showToast('success', 'Bericht verzonden');
+  } catch (error) {
+    console.error('EmailJS contact submission failed', error);
+    showToast('error', 'Bericht kon niet worden verzonden');
+  } finally {
+    isSubmitting.value = false;
+  }
+};
 
 const heroStyle = computed(() => {
   if (!assetPaths.images.heroBackground) {

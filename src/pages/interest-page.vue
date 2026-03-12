@@ -16,7 +16,7 @@
       <div class="section-container form-shell" v-scroll-reveal="{ delay: 30 }">
         <h2 id="interest-form-heading" class="sr-only">Interesseformulier</h2>
 
-        <form class="interest-form" @submit.prevent>
+        <form class="interest-form" @submit.prevent="handleSubmit">
           <div class="field-group">
             <label class="field-label" for="interest-first-name">
               Naam<span class="required-mark" aria-hidden="true">*</span>
@@ -122,15 +122,16 @@
 
           <div class="field-group">
             <label class="field-label" for="interest-message">Heb je nog opmerkingen?</label>
-            <textarea id="interest-message" name="message" placeholder="Type hier uw bericht..."></textarea>
+            <textarea id="interest-message" name="message" placeholder="Type hier uw bericht..." v-model="interestMessage"></textarea>
           </div>
 
           <div class="submit-row">
-            <button type="submit" class="submit-button" :disabled="!isFormValid">Verzenden</button>
+            <button type="submit" class="submit-button" :disabled="!isFormValid || isSubmitting">Verzenden</button>
           </div>
         </form>
       </div>
     </section>
+    <status-toast :open="toastOpen" :variant="toastVariant" :message="toastMessage" />
   </main>
 
   <site-footer />
@@ -139,9 +140,12 @@
 
 <script setup>
 import { computed, ref } from 'vue';
+import emailjs from '@emailjs/browser';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
+import StatusToast from '../components/status-toast.vue';
+import { EMAILJS_CONFIG, createRequestId, createRequestTimestamp } from '../config/emailjs';
 
 const firstName = ref('');
 const lastName = ref('');
@@ -150,6 +154,12 @@ const companyName = ref('');
 const receiveUpdates = ref('');
 const allowContact = ref('');
 const interestEmail = ref('');
+const interestMessage = ref('');
+const isSubmitting = ref(false);
+const toastOpen = ref(false);
+const toastVariant = ref('success');
+const toastMessage = ref('');
+let toastTimer;
 
 const isFormValid = computed(() =>
   firstName.value.trim() !== '' &&
@@ -160,6 +170,68 @@ const isFormValid = computed(() =>
   allowContact.value !== '' &&
   interestEmail.value.trim() !== ''
 );
+
+const buildFullName = () => `${firstName.value.trim()} ${lastName.value.trim()}`.trim();
+
+const showToast = (variant, messageText) => {
+  toastVariant.value = variant;
+  toastMessage.value = messageText;
+  toastOpen.value = true;
+
+  if (toastTimer) {
+    clearTimeout(toastTimer);
+  }
+
+  toastTimer = setTimeout(() => {
+    toastOpen.value = false;
+  }, 4000);
+};
+
+const handleSubmit = async () => {
+  if (!isFormValid.value || isSubmitting.value) {
+    return;
+  }
+
+  isSubmitting.value = true;
+
+  const requestId = createRequestId();
+  const requestTime = createRequestTimestamp();
+  const fullName = buildFullName();
+
+  const templateParams = {
+    to_email: EMAILJS_CONFIG.toEmail,
+    FormType: 'Interest',
+    name: fullName,
+    requestID: requestId,
+    time: requestTime,
+    email: interestEmail.value.trim(),
+    Comapany: companyName.value.trim(),
+    update: receiveUpdates.value,
+    usertest: allowContact.value,
+    message: interestMessage.value.trim()
+  };
+
+  try {
+    await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, templateParams, {
+      publicKey: EMAILJS_CONFIG.publicKey
+    });
+
+    firstName.value = '';
+    lastName.value = '';
+    profileType.value = '';
+    companyName.value = '';
+    receiveUpdates.value = '';
+    allowContact.value = '';
+    interestEmail.value = '';
+    interestMessage.value = '';
+    showToast('success', 'Bericht verzonden');
+  } catch (error) {
+    console.error('EmailJS interest submission failed', error);
+    showToast('error', 'Bericht kon niet worden verzonden');
+  } finally {
+    isSubmitting.value = false;
+  }
+};
 </script>
 
 <style scoped>

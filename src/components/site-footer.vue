@@ -17,7 +17,7 @@
             </p>
           </div>
         </section>
-        <base-button class="footer-demo-button" href="/contact" label="Toon je interesse" variant="outline" />
+        <base-button class="footer-demo-button" href="/toon-je-interesse" label="Toon je interesse" variant="outline" />
       </section>
 
       <section class="footer-link-wrap">

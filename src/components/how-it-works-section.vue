@@ -13,7 +13,7 @@
         </p>
 
         <div class="action-row">
-          <base-button href="/contact" label="Toon je interesse" block-mobile />
+          <base-button href="/toon-je-interesse" label="Toon je interesse" block-mobile />
           <base-button href="/over-ons" label="Meer info" variant="outline" block-mobile />
         </div>
       </div>

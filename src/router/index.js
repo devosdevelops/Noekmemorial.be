@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import AboutPage from '../pages/about-page.vue';
 import ContactPage from '../pages/contact-page.vue';
 import HomePage from '../pages/home-page.vue';
+import InterestPage from '../pages/interest-page.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -20,6 +21,11 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: ContactPage
+    },
+    {
+      path: '/toon-je-interesse',
+      name: 'interest',
+      component: InterestPage
     }
   ],
   scrollBehavior(to, from, savedPosition) {

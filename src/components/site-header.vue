@@ -17,7 +17,7 @@
         </a>
       </nav>
 
-      <base-button class="desktop-cta" href="/#contact" label="Toon je interesse" />
+      <base-button class="desktop-cta" href="/contact" label="Toon je interesse" />
 
       <button
         class="menu-toggle"
@@ -45,7 +45,7 @@
           >
             {{ item.label }}
           </a>
-          <a class="drawer-link" :class="{ 'is-current': isCurrentLink('/#contact') }" href="/#contact" @click="menuOpen = false">Toon je interesse</a>
+          <a class="drawer-link" :class="{ 'is-current': isCurrentLink('/contact') }" href="/contact" @click="menuOpen = false">Toon je interesse</a>
         </nav>
 
         <span class="drawer-divider" aria-hidden="true"></span>
@@ -74,7 +74,7 @@ const navItems = [
   { label: 'Over ons', href: '/over-ons' },
   { label: 'Features', href: '/#features' },
   { label: 'F.A.Q', href: '/#faq' },
-  { label: 'Contact', href: '/#contact' }
+  { label: 'Contact', href: '/contact' }
 ];
 
 const isCompactLogo = computed(() => viewportWidth.value <= 1024);

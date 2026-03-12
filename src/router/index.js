@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import AboutPage from '../pages/about-page.vue';
+import ContactPage from '../pages/contact-page.vue';
 import HomePage from '../pages/home-page.vue';
 
 const router = createRouter({
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/over-ons',
       name: 'about',
       component: AboutPage
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: ContactPage
     }
   ],
   scrollBehavior(to, from, savedPosition) {

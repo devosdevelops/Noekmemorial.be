@@ -17,7 +17,7 @@
             </p>
           </div>
         </section>
-        <base-button class="footer-demo-button" href="/#contact" label="Toon je interesse" variant="outline" />
+        <base-button class="footer-demo-button" href="/contact" label="Toon je interesse" variant="outline" />
       </section>
 
       <section class="footer-link-wrap">
@@ -27,7 +27,7 @@
           <a href="/over-ons">Over Ons</a>
           <a href="/#features">Features</a>
           <a href="/#faq">F.A.Q.</a>
-          <a href="/#contact">Contact</a>
+          <a href="/contact">Contact</a>
         </section>
 
         <section class="footer-links" aria-label="legal" v-scroll-reveal="{ delay: 100 }">

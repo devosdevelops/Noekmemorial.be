@@ -1,6 +1,6 @@
-# Noek Landing Page
+# Noek Marketimg Website
 
-This is the landing page for Noek, a digital memorial website.
+This is the repo for the Marketing Website for Noek. Noek is a digital memorial builder that will be sold as a white label SaaS.
 
 ## For Collaborators
 

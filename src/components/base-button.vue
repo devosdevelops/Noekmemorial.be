@@ -47,7 +47,8 @@ const tagName = computed(() => (props.href ? 'a' : 'button'));
   min-height: 3rem;
   padding: var(--space-8) var(--space-24);
   border-radius: var(--radius-12);
-  border: 2px solid transparent;
+  border: 0;
+  background-clip: padding-box;
   font-family: var(--font-brand);
   font-size: var(--type-button-size);
   font-weight: var(--type-button-weight);
@@ -90,7 +91,7 @@ const tagName = computed(() => (props.href ? 'a' : 'button'));
 .is-outline {
   background: var(--gradient-amber);
   color: #fffaf3;
-  border-width: 2px;
+  border-width: 0;
   border-color: transparent;
   box-shadow: 0 10px 20px rgba(218, 155, 83, 0.2);
 }

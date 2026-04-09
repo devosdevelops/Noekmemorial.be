@@ -221,7 +221,7 @@ const rightColumnItems = faqItems.slice(splitIndex).map((item, index) => ({
   gap: var(--space-8);
   width: fit-content;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-small-size);
   font-weight: 500;
   line-height: var(--type-small-line-height);
@@ -256,7 +256,7 @@ const rightColumnItems = faqItems.slice(splitIndex).map((item, index) => ({
 .faq-intro {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);
@@ -294,7 +294,7 @@ const rightColumnItems = faqItems.slice(splitIndex).map((item, index) => ({
   cursor: pointer;
   text-align: left;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-body-size);
   font-weight: 500;
   line-height: var(--type-body-line-height);
@@ -349,7 +349,7 @@ const rightColumnItems = faqItems.slice(splitIndex).map((item, index) => ({
   margin: 0;
   padding: var(--space-16) var(--space-24);
   color: var(--color-text-muted);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);
@@ -359,7 +359,7 @@ const rightColumnItems = faqItems.slice(splitIndex).map((item, index) => ({
 .faq-no-answer {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);

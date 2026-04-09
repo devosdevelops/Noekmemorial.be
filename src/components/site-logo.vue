@@ -60,7 +60,7 @@ const hasMarkLogo = computed(() => Boolean(assetPaths.logos.mark));
 }
 
 .logo-wordmark {
-  font-family: var(--font-title);
+  font-family: var(--font-brand);
   font-size: clamp(2.05rem, calc(1.65rem + 0.9vw), 2.8rem);
   line-height: 1;
 }

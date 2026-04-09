@@ -52,7 +52,7 @@ const variantClass = computed(() => (props.variant === 'error' ? 'status-toast--
   padding: 0.85rem 1.6rem;
   border-radius: 999px;
   color: #ffffff;
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: 1.1rem;
   font-weight: 600;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);

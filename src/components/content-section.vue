@@ -37,11 +37,11 @@ const surfaceClass = computed(() => `is-${props.surface}`);
 
 <style scoped>
 .content-section.is-light {
-  background: var(--color-surface-light);
+  background: transparent;
 }
 
 .content-section.is-soft {
-  background: var(--color-surface-soft);
+  background: transparent;
 }
 
 .content-inner {
@@ -51,5 +51,12 @@ const surfaceClass = computed(() => `is-${props.surface}`);
 
 .body-text {
   max-width: 75ch;
+}
+
+@media (max-width: 40rem) {
+  .content-inner {
+    padding: 0;
+    border-radius: 0;
+  }
 }
 </style>

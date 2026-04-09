@@ -1,6 +1,7 @@
 <template>
   <footer class="site-footer" id="contact" aria-labelledby="footer-heading" v-scroll-reveal>
-    <div class="section-container footer-grid">
+    <div class="footer-shell">
+      <div class="footer-grid">
       <section class="footer-brand-brand-wrap" aria-label="merk informatie" v-scroll-reveal="{ delay: 20 }">
         <section class="footer-brand">
           <h2 id="footer-heading" class="sr-only">Footer</h2>
@@ -43,11 +44,12 @@
               <img class="social-image" src="/assets/icons/Facebook.svg" alt="" aria-hidden="true" />
             </a>
             <a href="https://www.instagram.com/noekmemorial/" aria-label="Instagram" class="social-icon" target="blank">
-              <img class="social-image" src="/assets/icons/Instagram.svg" alt="" aria-hidden="true" />
+              <img class="social-image is-instagram" src="/assets/icons/Instagram.svg" alt="" aria-hidden="true" />
             </a>
           </div>
         </section>
       </section>
+      </div>
     </div>
   </footer>
 </template>
@@ -58,8 +60,18 @@ import BaseButton from './base-button.vue';
 
 <style scoped>
 .site-footer {
-  padding: var(--space-48) 0;
-  background: linear-gradient(90deg, #fad1cf 0%, #eadae5 56%, #b3a4d5 100%);
+  padding: var(--space-64) 0 var(--space-80);
+  background: transparent;
+  color: #fefbec;
+}
+
+.footer-shell {
+  width: min(100% - 2 * var(--page-gutter), var(--container-max));
+  margin: 0 auto;
+  background: linear-gradient(90deg, #4b3a6c 0%, #5c4a87 55%, #7a64a6 100%);
+  border-radius: var(--radius-48);
+  padding: var(--space-48) var(--space-56);
+  box-shadow: 0 24px 40px rgba(37, 27, 64, 0.25);
 }
 
 .footer-grid {
@@ -94,8 +106,8 @@ import BaseButton from './base-button.vue';
 }
 
 .brand-name {
-  color: var(--color-text);
-  font-family: var(--font-ambella);
+  color: #fefbec;
+  font-family: var(--font-brand);
   font-size: calc(var(--type-h3-size) + 0.15rem);
   font-weight: var(--type-h3-weight);
   line-height: var(--type-h3-line-height);
@@ -110,8 +122,8 @@ import BaseButton from './base-button.vue';
 
 .footer-copy {
   margin: 0;
-  color: var(--color-text);
-  font-family: var(--font-outfit);
+  color: #f6f1fb;
+  font-family: var(--font-poppins);
   font-size: var(--type-small-size);
   font-weight: var(--type-small-weight);
   line-height: var(--type-small-line-height);
@@ -122,7 +134,7 @@ import BaseButton from './base-button.vue';
   display: grid;
   align-content: start;
   gap: var(--space-8);
-  color: var(--color-primary-deep);
+  color: #fefbec;
   font-family: var(--font-poppins);
   font-size: var(--type-link-size);
   font-weight: var(--type-link-weight);
@@ -152,7 +164,7 @@ import BaseButton from './base-button.vue';
 
 .footer-links > a:hover,
 .footer-links > a:active {
-  color: #694ec4;
+  color: #fad1cf;
 }
 
 .footer-links > a:hover::after,
@@ -171,8 +183,8 @@ import BaseButton from './base-button.vue';
 
 .footer-heading {
   margin: 0 0 var(--space-8);
-  color: var(--color-text);
-  font-family: var(--font-outfit);
+  color: #fefbec;
+  font-family: var(--font-poppins);
   font-size: var(--type-h4-size);
   font-weight: var(--type-h4-weight);
   line-height: var(--type-h4-line-height);
@@ -202,6 +214,11 @@ import BaseButton from './base-button.vue';
   width: 2.5rem;
   height: 2.5rem;
   object-fit: contain;
+}
+
+.social-image.is-instagram {
+  width: 2.2rem;
+  height: 2.2rem;
 }
 
 .sr-only {
@@ -237,6 +254,11 @@ import BaseButton from './base-button.vue';
 }
 
 @media (max-width: 40rem) {
+  .footer-shell {
+    padding: var(--space-32);
+    border-radius: var(--radius-48);
+  }
+
   .footer-brand-brand-wrap {
     width: 100%;
   }

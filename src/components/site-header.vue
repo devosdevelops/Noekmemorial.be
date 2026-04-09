@@ -140,27 +140,22 @@ watch(menuOpen, (isOpen) => {
   position: sticky;
   top: 0;
   z-index: 30;
-  background: #f8f8f7;
-  border-bottom: 1px solid rgba(63, 44, 117, 0.08);
-}
-
-.site-header::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 8px;
-  background: linear-gradient(to bottom, rgba(248, 248, 247, 1) 0%, rgba(248, 248, 247, 0) 100%);
-  pointer-events: none;
+  background: transparent;
+  padding: var(--space-16) 0;
 }
 
 .header-row {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  min-height: 7rem;
+  justify-content: space-between;
+  min-height: 5.5rem;
   gap: var(--space-24);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+  padding: 40px;
+  box-shadow: 0 18px 30px rgba(73, 55, 108, 0.15);
+  backdrop-filter: blur(8px);
 }
 
 .desktop-nav {
@@ -176,7 +171,7 @@ watch(menuOpen, (isOpen) => {
   font-size: var(--type-link-size);
   font-weight: var(--type-link-weight);
   line-height: var(--type-link-line-height);
-  letter-spacing: var(--type-link-letter-spacing);
+  letter-spacing: 0;
   color: var(--color-text);
   white-space: nowrap;
   transition: color 300ms ease-out;
@@ -203,7 +198,7 @@ watch(menuOpen, (isOpen) => {
 }
 
 .nav-link.is-current {
-  color: #694ec4;
+  color: #4b3a6c;
 }
 
 .menu-toggle {
@@ -249,7 +244,7 @@ watch(menuOpen, (isOpen) => {
   height: calc(100vh - var(--header-height));
   z-index: 24;
   display: none;
-  background: #4f3c7a;
+  background: linear-gradient(180deg, #4b3a6c 0%, #6a55a3 100%);
   transform: translateY(calc(-100% - var(--header-height)));
   transition: transform 500ms ease-in-out;
 }
@@ -275,7 +270,7 @@ watch(menuOpen, (isOpen) => {
 .drawer-link {
   position: relative;
   width: fit-content;
-  font-family: var(--font-outfit);
+  font-family: var(--font-poppins);
   font-size: var(--type-label-size);
   line-height: var(--type-label-line-height);
   letter-spacing: var(--type-label-letter-spacing);
@@ -305,7 +300,7 @@ watch(menuOpen, (isOpen) => {
 }
 
 .drawer-link.is-current {
-  color: #694ec4;
+  color: #fad1cf;
 }
 
 .drawer-divider {
@@ -316,12 +311,11 @@ watch(menuOpen, (isOpen) => {
 
 @media (max-width: 70rem) {
   .header-row {
-    grid-template-columns: auto 1fr;
-    min-height: 6.5rem;
+    min-height: 5rem;
   }
 
   .site-header {
-    --header-height: 6.5rem;
+    --header-height: 6rem;
   }
 
   .desktop-nav,
@@ -343,7 +337,7 @@ watch(menuOpen, (isOpen) => {
     right: 0;
     left: auto;
     width: min(44vw, 22.5rem);
-    background: #f2efe9;
+    background: #fbf5f1;
     transform: translateX(100%);
   }
 

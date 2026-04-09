@@ -204,7 +204,7 @@ const steps = [
   gap: var(--space-8);
   width: fit-content;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-small-size);
   font-weight: 500;
   line-height: var(--type-small-line-height);
@@ -239,7 +239,7 @@ const steps = [
   margin: 0;
   max-width: 60rem;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);
@@ -259,7 +259,7 @@ const steps = [
 .feature-title {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-h4-size);
   font-weight: 600;
   line-height: var(--type-h4-line-height);
@@ -296,7 +296,7 @@ const steps = [
 .feature-text {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);
@@ -316,7 +316,7 @@ const steps = [
 .how-title {
   margin: 0;
   color: var(--color-primary-deep);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-h3-size);
   font-weight: 600;
   line-height: var(--type-h3-line-height);
@@ -350,7 +350,7 @@ const steps = [
   color: var(--color-primary-deep);
   display: grid;
   place-items: center;
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-small-size);
 }
 
@@ -363,7 +363,7 @@ const steps = [
 .step-text {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-body-size);
   line-height: var(--type-body-line-height);
 }
@@ -456,7 +456,7 @@ const steps = [
 .preview-text {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-body-size);
   line-height: var(--type-body-line-height);
 }
@@ -497,7 +497,7 @@ const steps = [
 
 .preview-placeholder {
   color: rgba(63, 44, 117, 0.6);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-small-size);
 }
 

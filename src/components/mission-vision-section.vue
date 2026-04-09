@@ -32,7 +32,7 @@ import MissionCard from './mission-card.vue';
 
 <style scoped>
 .mission-vision {
-  background: var(--color-surface-soft);
+  background: transparent;
 }
 
 .mission-vision-inner {

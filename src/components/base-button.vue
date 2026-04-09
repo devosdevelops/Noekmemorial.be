@@ -48,7 +48,7 @@ const tagName = computed(() => (props.href ? 'a' : 'button'));
   padding: var(--space-8) var(--space-24);
   border-radius: var(--radius-12);
   border: 2px solid transparent;
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-button-size);
   font-weight: var(--type-button-weight);
   line-height: var(--type-button-line-height);
@@ -63,6 +63,7 @@ const tagName = computed(() => (props.href ? 'a' : 'button'));
 
 .base-button:hover {
   transform: translateY(-1px);
+  filter: brightness(1.05);
 }
 
 .base-button:active {
@@ -70,38 +71,38 @@ const tagName = computed(() => (props.href ? 'a' : 'button'));
 }
 
 .is-primary {
-  background: var(--color-primary);
+  background: var(--gradient-primary);
   color: var(--color-white);
-  border-color: var(--color-primary);
+  border-color: transparent;
+  box-shadow: 0 10px 20px rgba(73, 55, 108, 0.25);
 }
 
 .is-primary:hover {
-  background: #7f60df;
-  border-color: #7f60df;
+  border-color: transparent;
 }
 
 .is-primary:active {
-  background: rgba(23, 16, 44, 0.92);
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  background: #3a2c59;
+  color: var(--color-white);
+  border-color: transparent;
 }
 
 .is-outline {
-  background: transparent;
-  color: var(--color-text);
-  border-width: 4px;
-  border-color: var(--color-secondary);
+  background: var(--gradient-amber);
+  color: #fffaf3;
+  border-width: 2px;
+  border-color: transparent;
+  box-shadow: 0 10px 20px rgba(218, 155, 83, 0.2);
 }
 
 .is-outline:hover {
-  background: var(--color-secondary);
-  color: var(--color-white);
+  color: #ffffff;
 }
 
 .is-outline:active {
-  background: rgba(23, 16, 44, 0.92);
-  color: var(--color-secondary);
-  border-color: var(--color-secondary);
+  background: #b57938;
+  color: #ffffff;
+  border-color: transparent;
 }
 
 .is-soft {

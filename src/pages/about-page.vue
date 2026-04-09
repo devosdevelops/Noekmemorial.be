@@ -155,7 +155,7 @@ const heroStyle = computed(() => {
   gap: var(--space-8);
   width: fit-content;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-small-size);
   font-weight: 500;
   line-height: var(--type-small-line-height);

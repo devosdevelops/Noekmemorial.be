@@ -1,74 +1,66 @@
 <template>
-  <section class="hero-section" :style="heroStyle" aria-labelledby="hero-title" v-scroll-reveal>
-    <div class="section-container hero-content">
-      <h1 id="hero-title" class="hero-title" v-scroll-reveal="{ delay: 40 }">Noek</h1>
-      <p class="hero-tagline" v-scroll-reveal="{ delay: 80 }">Herdenken stopt niet na de uitvaart.</p>
+  <section class="hero-section" aria-labelledby="hero-title" v-scroll-reveal>
+    <div class="section-container hero-grid">
+      <div class="hero-content">
+        <h1 id="hero-title" class="hero-title" v-scroll-reveal="{ delay: 40 }">Noek</h1>
+        <p class="hero-tagline" v-scroll-reveal="{ delay: 80 }">Herdenken stopt niet na de uitvaart.</p>
 
-      <div class="hero-actions" v-scroll-reveal="{ delay: 120 }">
-        <base-button href="/#features" label="Ontdek de Features" />
-        <base-button href="/over-ons" label="Wie zijn we?" variant="outline" />
+        <div class="hero-actions" v-scroll-reveal="{ delay: 120 }">
+          <base-button href="/#features" label="Ontdek de Features" />
+          <base-button href="/over-ons" label="Wie zijn we?" variant="outline" />
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <img src="/assets/graphics/chrysant.svg" alt="" />
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { assetPaths } from '../config/asset-paths';
 import BaseButton from './base-button.vue';
-
-const heroStyle = computed(() => {
-  if (!assetPaths.images.heroBackground) {
-    return {};
-  }
-
-  return {
-    '--hero-image': `url(${assetPaths.images.heroBackground})`
-  };
-});
 </script>
 
 <style scoped>
 .hero-section {
-  min-height: clamp(22rem, 46vw, 31rem);
+  min-height: clamp(22rem, 46vw, 34rem);
   display: grid;
   align-items: center;
-  padding: var(--space-80);
-  background:
-    var(--hero-image, none) center / cover no-repeat,
-    radial-gradient(circle at 60% 40%, rgba(217, 206, 255, 0.8) 0%, rgba(194, 165, 235, 0.2) 25%, rgba(180, 148, 229, 0) 45%),
-    linear-gradient(120deg, #c89ddf 0%, #ceb0e9 35%, #e8bfd3 100%);
+  padding: var(--space-80) 0 var(--space-64);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: var(--space-48);
+  align-items: center;
 }
 
 .hero-content {
   display: grid;
   align-content: center;
   justify-items: start;
-  gap: var(--space-40);
+  gap: var(--space-32);
 }
 
 .hero-title {
   margin: 0;
   color: var(--color-primary-deep);
-  font-family: var(--font-ambella);
+  font-family: var(--font-brand);
   font-size: var(--type-landing-h1-size);
   font-weight: var(--type-h1-weight);
   line-height: var(--type-landing-h1-line-height);
   letter-spacing: var(--type-h1-letter-spacing);
-  text-shadow:
-    0 1px 2px #49376c,
-    0 2px 8px #da9b53;
 }
 
 .hero-tagline {
   margin: 0;
-  color: #f8f1f1;
-  text-shadow:
-    0 1px 2px #49376c,
-    0 2px 8px #da9b53;
-  font-family: var(--font-ambella);
-  font-size: clamp(2rem, calc(1.45rem + 2vw), 3.4rem);
-  font-style: italic;
+  color: var(--color-text);
+  font-family: var(--font-poppins);
+  font-size: clamp(1.4rem, calc(1.1rem + 1.6vw), 2.2rem);
   line-height: var(--type-h2-line-height);
   letter-spacing: var(--type-h2-letter-spacing);
 }
@@ -79,23 +71,41 @@ const heroStyle = computed(() => {
   gap: var(--space-16);
 }
 
+.hero-art {
+  display: grid;
+  justify-items: end;
+  align-items: center;
+  opacity: 0.9;
+}
+
+.hero-art img {
+  width: min(26rem, 100%);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.25;
+}
+
 @media (max-width: 40rem) {
   .hero-section {
-    padding: var(--space-56);
+    padding: var(--space-56) 0 var(--space-48);
   }
 
-  .hero-content {
-    gap: var(--space-40);
+  .hero-grid {
+    grid-template-columns: 1fr;
   }
 
   .hero-actions {
     width: 100%;
   }
+
+  .hero-art {
+    justify-items: start;
+  }
 }
 
 @media (min-width: 75rem) {
   .hero-section {
-    padding: var(--space-96);
+    padding: var(--space-96) 0 var(--space-80);
   }
 }
 </style>

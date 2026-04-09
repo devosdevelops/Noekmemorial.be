@@ -261,7 +261,7 @@ const heroStyle = computed(() => ({
   margin: 0;
   margin-top: var(--space-32);
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-small-size);
   font-weight: var(--type-small-weight);
   line-height: var(--type-small-line-height);
@@ -274,7 +274,7 @@ const heroStyle = computed(() => ({
   gap: var(--space-8);
   width: fit-content;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-small-size);
   font-weight: 500;
   line-height: var(--type-small-line-height);
@@ -316,7 +316,7 @@ const heroStyle = computed(() => ({
 .body-text {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);
@@ -333,7 +333,7 @@ const heroStyle = computed(() => ({
 .legal-sub-heading {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-body-size);
   font-weight: 600;
   line-height: var(--type-body-line-height);
@@ -348,7 +348,7 @@ const heroStyle = computed(() => ({
   gap: var(--space-4);
   list-style: disc;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);
@@ -358,7 +358,7 @@ const heroStyle = computed(() => ({
 .legal-address {
   font-style: normal;
   color: var(--color-text);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: 1.8;

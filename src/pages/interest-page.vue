@@ -379,7 +379,7 @@ const handleSubmit = async () => {
 .field-label {
   margin: 0;
   color: #23212f;
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-h4-size);
   line-height: var(--type-h4-line-height);
   font-weight: 600;
@@ -403,7 +403,7 @@ textarea {
   padding: var(--space-8) var(--space-16);
   color: var(--color-white);
   background: #a5a9b3;
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-link-size);
   line-height: var(--type-link-line-height);
 }
@@ -443,7 +443,7 @@ textarea::placeholder {
   align-items: center;
   gap: var(--space-16);
   color: #2a2736;
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-h4-size);
   line-height: var(--type-h4-line-height);
   font-weight: 600;
@@ -494,7 +494,7 @@ textarea::placeholder {
   border: 2px solid var(--color-primary);
   background: var(--color-primary);
   color: var(--color-white);
-  font-family: var(--font-outfit);
+  font-family: var(--font-brand);
   font-size: var(--type-button-size);
   font-weight: var(--type-button-weight);
   line-height: var(--type-button-line-height);

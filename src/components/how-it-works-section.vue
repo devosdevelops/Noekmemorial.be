@@ -91,7 +91,7 @@ import BaseButton from './base-button.vue';
   align-items: center;
   gap: var(--space-16);
   padding: var(--space-12) var(--space-16);
-  border-radius: var(--radius-48);
+  border-radius: 16px;
   background: #f1edf9;
   box-shadow: 0 10px 16px rgba(73, 55, 108, 0.08);
 }
@@ -102,7 +102,7 @@ import BaseButton from './base-button.vue';
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 0.75rem;
+  border-radius: 16px;
   background: #e6dcf7;
   color: var(--color-primary-deep);
   font-family: var(--font-brand);
@@ -113,6 +113,7 @@ import BaseButton from './base-button.vue';
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-poppins);
+  line-height: 1.25;
 }
 
 .how-media {
@@ -172,6 +173,40 @@ import BaseButton from './base-button.vue';
 }
 
 @media (max-width: 40rem) {
+  .how-steps {
+    gap: 14px;
+  }
+
+  .step-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: stretch;
+    min-height: 72px;
+    padding: 0;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .step-index {
+    position: static;
+    width: 60px;
+    height: auto;
+    min-height: 100%;
+    border-radius: 16px;
+    align-self: stretch;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-text {
+    padding: 14px 18px;
+    font-size: clamp(1rem, 3.6vw, 1.35rem);
+    line-height: 1.2;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
   .action-row {
     width: auto;
     gap: var(--space-16);

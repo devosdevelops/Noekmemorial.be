@@ -311,7 +311,8 @@ watch(menuOpen, (isOpen) => {
 
 @media (max-width: 70rem) {
   .header-row {
-    min-height: 5rem;
+    min-height: 4.75rem;
+    padding: 16px 40px;
   }
 
   .site-header {

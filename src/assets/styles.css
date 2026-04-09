@@ -224,7 +224,7 @@ a {
   }
 
   :root {
-    --page-gutter: var(--space-16);
+    --page-gutter: var(--space-24);
   }
 }
 

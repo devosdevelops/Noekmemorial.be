@@ -257,18 +257,40 @@ import BaseButton from './base-button.vue';
     border-radius: var(--radius-48);
   }
 
-  .footer-brand-brand-wrap {
-    width: 100%;
-  }
-
-  .footer-link-wrap {
-    display: flex;
-    justify-content: space-between;
+  .footer-grid {
     gap: var(--space-24);
   }
 
+  .footer-brand-brand-wrap {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: var(--space-16);
+  }
+
+  .footer-brand {
+    gap: var(--space-12);
+  }
+
+  .footer-link-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-24);
+    width: 100%;
+    align-items: start;
+  }
+
   .footer-demo-button {
-    margin-top: var(--space-8);
+    margin-top: 0;
+    align-self: start;
+    justify-self: stretch;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .social-row {
+    margin-top: var(--space-16);
   }
 }
 </style>

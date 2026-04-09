@@ -64,10 +64,27 @@ import SiteHeader from '../components/site-header.vue';
 
 @media (max-width: 48rem) {
   .home-stack {
-    margin: var(--space-40) var(--page-gutter) var(--space-64);
+    margin: 24px var(--page-gutter) var(--space-64);
     width: auto;
     border-radius: var(--radius-48);
-    padding: var(--space-24) 0;
+    padding: 24px;
+  }
+
+  .home-stack .section-container {
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  .home-stack .page-section {
+    padding: 24px 0;
+  }
+
+  .home-stack .page-section:first-child {
+    padding-top: 0;
+  }
+
+  .home-stack .page-section:last-child {
+    padding-bottom: 24px;
   }
 }
 </style>

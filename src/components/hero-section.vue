@@ -44,6 +44,8 @@ import BaseButton from './base-button.vue';
   align-content: center;
   justify-items: start;
   gap: var(--space-32);
+  position: relative;
+  z-index: 2;
 }
 
 .hero-title {
@@ -87,11 +89,12 @@ import BaseButton from './base-button.vue';
 
 @media (max-width: 40rem) {
   .hero-section {
-    padding: var(--space-56) 0 var(--space-48);
+    padding: var(--space-40) 0 var(--space-32);
   }
 
   .hero-grid {
     grid-template-columns: 1fr;
+    position: relative;
   }
 
   .hero-actions {
@@ -99,7 +102,13 @@ import BaseButton from './base-button.vue';
   }
 
   .hero-art {
-    justify-items: start;
+    position: absolute;
+    right: -28%;
+    top: 38%;
+    width: min(30rem, 92vw);
+    z-index: 1;
+    pointer-events: none;
+    justify-items: end;
   }
 }
 

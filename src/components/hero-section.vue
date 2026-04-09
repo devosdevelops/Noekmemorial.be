@@ -29,14 +29,15 @@ import BaseButton from './base-button.vue';
   align-items: center;
   padding: var(--space-80) 0 var(--space-64);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  grid-template-columns: 1fr;
   gap: var(--space-48);
   align-items: center;
+  position: relative;
 }
 
 .hero-content {
@@ -46,6 +47,7 @@ import BaseButton from './base-button.vue';
   gap: var(--space-32);
   position: relative;
   z-index: 2;
+  max-width: min(40rem, 62%);
 }
 
 .hero-title {
@@ -74,14 +76,17 @@ import BaseButton from './base-button.vue';
 }
 
 .hero-art {
-  display: grid;
-  justify-items: end;
-  align-items: center;
-  opacity: 0.9;
+  position: absolute;
+  right: min(-24rem, -17vw);
+  top: 48%;
+  transform: translateY(-50%);
+  width: min(58vw, 54rem);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-art img {
-  width: min(26rem, 100%);
+  width: 100%;
   height: auto;
   object-fit: contain;
   opacity: 0.25;
@@ -94,7 +99,10 @@ import BaseButton from './base-button.vue';
 
   .hero-grid {
     grid-template-columns: 1fr;
-    position: relative;
+  }
+
+  .hero-content {
+    max-width: 100%;
   }
 
   .hero-actions {

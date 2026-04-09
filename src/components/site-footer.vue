@@ -44,7 +44,7 @@
               <img class="social-image" src="/assets/icons/Facebook.svg" alt="" aria-hidden="true" />
             </a>
             <a href="https://www.instagram.com/noekmemorial/" aria-label="Instagram" class="social-icon" target="blank">
-              <img class="social-image is-instagram" src="/assets/icons/Instagram.svg" alt="" aria-hidden="true" />
+              <img class="social-image" src="/assets/icons/Instagram.svg" alt="" aria-hidden="true" />
             </a>
           </div>
         </section>
@@ -195,6 +195,7 @@ import BaseButton from './base-button.vue';
   display: flex;
   gap: var(--space-16);
   margin-top: var(--space-24);
+  align-items: center;
 }
 
 .social-icon {
@@ -203,6 +204,8 @@ import BaseButton from './base-button.vue';
   justify-content: center;
   line-height: 0;
   transition: transform 300ms ease-out;
+  width: 2.75rem;
+  height: 2.75rem;
 }
 
 .social-icon:hover,
@@ -211,14 +214,9 @@ import BaseButton from './base-button.vue';
 }
 
 .social-image {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   object-fit: contain;
-}
-
-.social-image.is-instagram {
-  width: 2.2rem;
-  height: 2.2rem;
 }
 
 .sr-only {

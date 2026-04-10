@@ -252,6 +252,10 @@ import BaseButton from './base-button.vue';
 }
 
 @media (max-width: 40rem) {
+  .site-footer {
+    padding: var(--space-32) 0 var(--space-80);
+  }
+
   .footer-shell {
     padding: var(--space-32);
     border-radius: var(--radius-48);

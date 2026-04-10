@@ -22,16 +22,14 @@
           </p>
 
           <div class="feature-grid" v-scroll-reveal="{ delay: 30 }">
-            <article v-for="item in featureItems" :key="item.title" class="feature-item">
-              <h2 class="feature-title">{{ item.title }}</h2>
-              <div class="feature-row">
-                <span class="feature-icon-wrap" aria-hidden="true">
-                  <img v-if="item.icon" :src="item.icon" class="feature-icon" alt="" />
-                  <span v-else class="feature-icon-fallback">{{ item.fallback }}</span>
-                </span>
-                <p class="feature-text">{{ item.description }}</p>
-              </div>
-            </article>
+            <feature-card
+              v-for="item in featureItems"
+              :key="item.title"
+              :title="item.title"
+              :description="item.description"
+              :icon="item.icon"
+              :fallback="item.fallback"
+            />
           </div>
         </div>
       </section>
@@ -119,6 +117,7 @@
 <script setup>
 import { computed, ref } from 'vue';
 import BaseButton from '../components/base-button.vue';
+import FeatureCard from '../components/feature-card.vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
@@ -292,61 +291,6 @@ const steps = [
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-24);
-}
-
-.feature-item {
-  display: grid;
-  gap: var(--space-12);
-  background: var(--color-surface-soft);
-  border-radius: var(--radius-16);
-  padding: var(--space-16);
-  box-shadow: 0 10px 16px rgba(73, 55, 108, 0.08);
-}
-
-.feature-title {
-  margin: 0;
-  color: var(--color-text);
-  font-family: var(--font-brand);
-  font-size: var(--type-h4-size);
-  font-weight: 600;
-  line-height: var(--type-h4-line-height);
-}
-
-.feature-row {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-12);
-  align-items: start;
-}
-
-.feature-icon-wrap {
-  width: 3.25rem;
-  height: 3.25rem;
-  display: grid;
-  place-items: center;
-  border-radius: var(--radius-12);
-  background: var(--gradient-primary);
-}
-
-.feature-icon {
-  width: 1.75rem;
-  height: 1.75rem;
-  object-fit: contain;
-}
-
-.feature-icon-fallback {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.25rem;
-  line-height: 1;
-}
-
-.feature-text {
-  margin: 0;
-  color: var(--color-text);
-  font-family: var(--font-poppins);
-  font-size: var(--type-body-size);
-  font-weight: var(--type-body-weight);
-  line-height: var(--type-body-line-height);
 }
 
 .how-section {

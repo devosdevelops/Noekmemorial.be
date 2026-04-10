@@ -6,7 +6,7 @@
         <section class="footer-brand">
           <h2 id="footer-heading" class="sr-only">Footer</h2>
           <div class="brand-logo-row">
-            <img class="brand-logo" src="/assets/logos/noek-logo-monochrome.svg" alt="Noek" />
+            <img class="brand-logo" src="/assets/logos/noek-logo-white.svg" alt="Noek" />
             <span class="brand-name">Noek</span>
           </div>
           <div class="brand-content-row">

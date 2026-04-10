@@ -146,6 +146,14 @@ h3 {
   font-family: var(--font-brand);
 }
 
+.heading-digit {
+  font-family: var(--font-poppins);
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
 h4,
 h5 {
   font-family: var(--font-poppins);

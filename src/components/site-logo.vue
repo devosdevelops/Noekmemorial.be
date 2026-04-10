@@ -1,6 +1,6 @@
 <template>
-  <div class="site-logo" :class="{ 'is-compact': compact }">
-    <img v-if="hasMainLogo" class="logo-image" :src="assetPaths.logos.main" alt="Noek logo" />
+  <div class="site-logo" :class="{ 'is-compact': props.compact }">
+    <img v-if="hasMainLogo" class="logo-image" :src="mainLogoSrc" alt="Noek logo" />
 
     <template v-else>
       <img v-if="hasMarkLogo" class="logo-mark-image" :src="assetPaths.logos.mark" alt="Noek logo mark" />
@@ -14,14 +14,19 @@
 import { computed } from 'vue';
 import { assetPaths } from '../config/asset-paths';
 
-defineProps({
+const props = defineProps({
   compact: {
     type: Boolean,
     default: false
+  },
+  src: {
+    type: String,
+    default: ''
   }
 });
 
-const hasMainLogo = computed(() => Boolean(assetPaths.logos.main));
+const mainLogoSrc = computed(() => props.src || assetPaths.logos.main);
+const hasMainLogo = computed(() => Boolean(mainLogoSrc.value));
 const hasMarkLogo = computed(() => Boolean(assetPaths.logos.mark));
 </script>
 

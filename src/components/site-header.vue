@@ -2,7 +2,7 @@
   <header class="site-header" id="top">
     <div class="section-container header-row">
       <a href="/" class="logo-link" aria-label="Noek home">
-        <site-logo :compact="isCompactLogo" />
+        <site-logo :compact="isCompactLogo" src="/assets/logos/noek-logo-name.svg" />
       </a>
 
       <nav class="desktop-nav" aria-label="hoofd navigatie">

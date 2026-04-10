@@ -119,10 +119,20 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useHead } from '@unhead/vue';
 import BaseButton from '../components/base-button.vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
+import { createPageHead } from '../utils/seo';
+
+useHead(
+  createPageHead({
+    title: 'Veelgestelde vragen',
+    description: 'Antwoorden op de meest voorkomende vragen over Noek en digitale herdenkingsruimtes.',
+    path: '/faq'
+  })
+);
 
 const openIndex = ref(null);
 

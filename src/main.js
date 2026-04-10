@@ -1,17 +1,29 @@
-import { createApp, nextTick } from 'vue';
+import { nextTick } from 'vue';
+import { ViteSSG } from 'vite-ssg';
+import { createHeadCore } from '@unhead/vue';
 import App from './App.vue';
 import './assets/styles.css';
 import { scrollReveal } from './directives/scroll-reveal';
-import router from './router';
+import { routes, scrollBehavior } from './router';
 import { applyHeadingDigitFont } from './utils/apply-heading-digit-font';
 
-const app = createApp(App);
-app.directive('scroll-reveal', scrollReveal);
-app.use(router);
+export const createApp = ViteSSG(
+	App,
+	{
+		routes,
+		scrollBehavior
+	},
+	({ app, router, isClient }) => {
+		const head = createHeadCore();
+		app.use(head);
+		app.directive('scroll-reveal', scrollReveal);
 
-router.afterEach(() => {
-	nextTick(() => applyHeadingDigitFont());
-});
+		if (isClient) {
+			router.afterEach(() => {
+				nextTick(() => applyHeadingDigitFont());
+			});
 
-app.mount('#app');
-nextTick(() => applyHeadingDigitFont());
+			nextTick(() => applyHeadingDigitFont());
+		}
+	}
+);

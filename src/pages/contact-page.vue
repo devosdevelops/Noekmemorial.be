@@ -120,6 +120,7 @@
 
 <script setup>
 import { computed, ref } from 'vue';
+import { useHead } from '@unhead/vue';
 import { useRouter } from 'vue-router';
 import emailjs from '@emailjs/browser';
 import BaseButton from '../components/base-button.vue';
@@ -128,6 +129,15 @@ import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
 import StatusToast from '../components/status-toast.vue';
 import { EMAILJS_CONFIG, createRequestId, createRequestTimestamp } from '../config/emailjs';
+import { createPageHead } from '../utils/seo';
+
+useHead(
+  createPageHead({
+    title: 'Contacteer Noek',
+    description: 'Stel je vraag, vraag een demo aan of neem contact op met het Noek team.',
+    path: '/contact'
+  })
+);
 
 const firstName = ref('');
 const lastName = ref('');

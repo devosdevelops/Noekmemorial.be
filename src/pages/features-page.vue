@@ -122,12 +122,23 @@
 
 <script setup>
 import { computed, ref } from 'vue';
+import { useHead } from '@unhead/vue';
 import BaseButton from '../components/base-button.vue';
 import FeatureCard from '../components/feature-card.vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
 import { assetPaths } from '../config/asset-paths';
+import { createPageHead, SITE_URL } from '../utils/seo';
+
+useHead(
+  createPageHead({
+    title: 'Features',
+    description: 'Ontdek de belangrijkste features van Noek: white-label, personaliseerbaar en veilig herdenken.',
+    path: '/features',
+    image: `${SITE_URL}${assetPaths.images.featuresPreviewOne}`
+  })
+);
 
 const activeSlide = ref(0);
 

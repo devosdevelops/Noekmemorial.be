@@ -124,9 +124,19 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
+import { createPageHead } from '../utils/seo';
+
+useHead(
+  createPageHead({
+    title: 'Algemene voorwaarden',
+    description: 'De voorwaarden voor het gebruik van Noek en het platform.',
+    path: '/algemene-voorwaarden'
+  })
+);
 </script>
 
 <style scoped>

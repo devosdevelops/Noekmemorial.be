@@ -165,6 +165,7 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue';
+import { useHead } from '@unhead/vue';
 import { useRouter } from 'vue-router';
 import emailjs from '@emailjs/browser';
 import ScrollTopButton from '../components/scroll-top-button.vue';
@@ -172,6 +173,15 @@ import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
 import StatusToast from '../components/status-toast.vue';
 import { EMAILJS_CONFIG, createRequestId, createRequestTimestamp } from '../config/emailjs';
+import { createPageHead } from '../utils/seo';
+
+useHead(
+  createPageHead({
+    title: 'Toon je interesse',
+    description: 'Laat je gegevens achter om updates te ontvangen of feedback te geven over Noek.',
+    path: '/toon-je-interesse'
+  })
+);
 
 const firstName = ref('');
 const lastName = ref('');

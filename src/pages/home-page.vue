@@ -23,6 +23,7 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue';
 import ContentSection from '../components/content-section.vue';
 import HeroSection from '../components/hero-section.vue';
 import HowItWorksSection from '../components/how-it-works-section.vue';
@@ -30,6 +31,36 @@ import MissionVisionSection from '../components/mission-vision-section.vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
+import { createPageHead, SITE_URL } from '../utils/seo';
+
+useHead(
+  createPageHead({
+    title: 'Digitale herdenkingsruimte',
+    description:
+      'Noek biedt uitvaartondernemingen een white-label digitale herdenkingsruimte waar families herinneringen delen en verbonden blijven.',
+    path: '/'
+  })
+);
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Noek',
+        url: SITE_URL,
+        logo: `${SITE_URL}/assets/logos/noek-logo-regular.svg`,
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          email: 'info@noek.be'
+        }
+      })
+    }
+  ]
+});
 </script>
 
 <style scoped>

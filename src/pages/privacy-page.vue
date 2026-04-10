@@ -230,9 +230,19 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
+import { createPageHead } from '../utils/seo';
+
+useHead(
+  createPageHead({
+    title: 'Privacybeleid',
+    description: 'Lees hoe Noek persoonsgegevens verwerkt en beschermt.',
+    path: '/privacybeleid'
+  })
+);
 </script>
 
 <style scoped>

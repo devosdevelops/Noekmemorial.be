@@ -135,10 +135,21 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
 import { assetPaths } from '../config/asset-paths';
+import { createPageHead, SITE_URL } from '../utils/seo';
+
+useHead(
+  createPageHead({
+    title: 'Over Noek',
+    description: 'Lees het verhaal achter Noek en ontdek onze missie en visie voor digitaal herdenken.',
+    path: '/over-ons',
+    image: `${SITE_URL}${assetPaths.images.howItWorksThumb}`
+  })
+);
 </script>
 
 <style scoped>

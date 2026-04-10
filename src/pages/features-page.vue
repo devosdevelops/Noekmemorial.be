@@ -2,107 +2,113 @@
   <site-header />
 
   <main class="features-page">
-    <section class="features-hero" :style="heroStyle" aria-labelledby="features-title" v-scroll-reveal>
+    <section class="features-hero" aria-labelledby="features-title" v-scroll-reveal>
       <div class="section-container features-hero-inner" v-scroll-reveal="{ delay: 40 }">
         <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&gt;</span> <span>Features</span></p>
         <h1 id="features-title" class="features-title">Features</h1>
       </div>
-    </section>
 
-    <section class="page-section intro-section" aria-label="Features intro">
-      <div class="section-container intro-content" v-scroll-reveal>
-        <p class="intro-copy">
-          Noek biedt uitvaartondernemingen een white label digitale herdenkingsruimte software aan. Hiermee kunnen
-          nabestaanden herinneringen blijvend kunnen delen en koesteren, eender waar ze zijn.
-        </p>
-
-        <div class="feature-grid" v-scroll-reveal="{ delay: 30 }">
-          <article v-for="item in featureItems" :key="item.title" class="feature-item">
-            <h2 class="feature-title">{{ item.title }}</h2>
-            <div class="feature-row">
-              <span class="feature-icon-wrap" aria-hidden="true">
-                <img v-if="item.icon" :src="item.icon" class="feature-icon" alt="" />
-                <span v-else class="feature-icon-fallback">{{ item.fallback }}</span>
-              </span>
-              <p class="feature-text">{{ item.description }}</p>
-            </div>
-          </article>
-        </div>
+      <div class="features-hero-art" aria-hidden="true">
+        <img src="/assets/graphics/chrysant.svg" alt="" />
       </div>
     </section>
 
-    <section class="page-section how-section" aria-labelledby="how-title" v-scroll-reveal>
-      <div class="section-container how-layout">
-        <div class="how-list" v-scroll-reveal="{ delay: 30, origin: 'left' }">
-          <h2 id="how-title" class="how-title">Hoe werkt Noek?</h2>
-          <ol>
-            <li v-for="step in steps" :key="step.title">
-              <span class="step-circle">{{ step.number }}</span>
-              <div class="step-copy">
-                <p class="step-title">{{ step.title }}</p>
-                <p class="step-text">{{ step.subtitle }}</p>
+    <section class="features-stack" aria-label="Features inhoud">
+      <section class="page-section intro-section" aria-label="Features intro">
+        <div class="section-container intro-content" v-scroll-reveal>
+          <p class="intro-copy">
+            Noek biedt uitvaartondernemingen een white label digitale herdenkingsruimte software aan. Hiermee kunnen
+            nabestaanden herinneringen blijvend delen en koesteren, eender waar ze zijn.
+          </p>
+
+          <div class="feature-grid" v-scroll-reveal="{ delay: 30 }">
+            <article v-for="item in featureItems" :key="item.title" class="feature-item">
+              <h2 class="feature-title">{{ item.title }}</h2>
+              <div class="feature-row">
+                <span class="feature-icon-wrap" aria-hidden="true">
+                  <img v-if="item.icon" :src="item.icon" class="feature-icon" alt="" />
+                  <span v-else class="feature-icon-fallback">{{ item.fallback }}</span>
+                </span>
+                <p class="feature-text">{{ item.description }}</p>
               </div>
-            </li>
-          </ol>
+            </article>
+          </div>
         </div>
+      </section>
 
-        <div class="how-media" v-scroll-reveal="{ delay: 60, origin: 'right' }">
-          <figure v-if="videoPoster" class="video-card">
-            <img :src="videoPoster" alt="Preview van Noek herdenkingsruimte" />
-            <span class="play-badge" aria-hidden="true">▶</span>
-          </figure>
+      <section class="page-section how-section" aria-labelledby="how-title" v-scroll-reveal>
+        <div class="section-container how-layout">
+          <div class="how-list" v-scroll-reveal="{ delay: 30, origin: 'left' }">
+            <h2 id="how-title" class="how-title">Hoe werkt Noek?</h2>
+            <ol>
+              <li v-for="step in steps" :key="step.title">
+                <span class="step-circle">{{ step.number }}</span>
+                <div class="step-copy">
+                  <p class="step-title">{{ step.title }}</p>
+                  <p class="step-text">{{ step.subtitle }}</p>
+                </div>
+              </li>
+            </ol>
+          </div>
 
-          <base-button href="/toon-je-interesse" label="Boek een demo" block-mobile />
+          <div class="how-media" v-scroll-reveal="{ delay: 60, origin: 'right' }">
+            <figure v-if="videoPoster" class="video-card">
+              <img :src="videoPoster" alt="Preview van Noek herdenkingsruimte" />
+              <span class="play-badge" aria-hidden="true">▶</span>
+            </figure>
+
+            <base-button href="/toon-je-interesse" label="Boek een demo" block-mobile />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="preview-header" aria-labelledby="preview-title" v-scroll-reveal>
-      <div class="section-container preview-header-inner">
-        <span class="preview-icon-wrap" aria-hidden="true">
-          <img v-if="previewIcon" :src="previewIcon" class="preview-icon" alt="" />
-          <span v-else class="preview-icon-fallback">▭</span>
-        </span>
+      <section class="page-section preview-header" aria-labelledby="preview-title" v-scroll-reveal>
+        <div class="section-container preview-header-inner">
+          <span class="preview-icon-wrap" aria-hidden="true">
+            <img v-if="previewIcon" :src="previewIcon" class="preview-icon" alt="" />
+            <span v-else class="preview-icon-fallback">▭</span>
+          </span>
 
-        <div class="preview-copy">
-          <h2 id="preview-title" class="preview-title">Previews</h2>
-          <p class="preview-text">Hier zie je een kleine voorproever van hoe de software er uitziet voor de eindgebruiker</p>
+          <div class="preview-copy">
+            <h2 id="preview-title" class="preview-title">Previews</h2>
+            <p class="preview-text">Hier zie je een kleine voorproever van hoe de software er uitziet voor de eindgebruiker</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="page-section previews-section" aria-label="Noek app previews" v-scroll-reveal>
-      <div class="section-container previews-shell">
-        <div class="previews-desktop" v-scroll-reveal="{ delay: 30 }">
-          <figure v-for="(screen, index) in screens" :key="`desktop-${index}`" class="preview-phone">
-            <img v-if="screen" :src="screen" :alt="`Preview scherm ${index + 1}`" />
-            <span v-else class="preview-placeholder">Preview {{ index + 1 }}</span>
-          </figure>
-        </div>
+      <section class="page-section previews-section" aria-label="Noek app previews" v-scroll-reveal>
+        <div class="section-container previews-shell">
+          <div class="previews-desktop" v-scroll-reveal="{ delay: 30 }">
+            <figure v-for="(screen, index) in screens" :key="`desktop-${index}`" class="preview-phone">
+              <img v-if="screen" :src="screen" :alt="`Preview scherm ${index + 1}`" />
+              <span v-else class="preview-placeholder">Preview {{ index + 1 }}</span>
+            </figure>
+          </div>
 
-        <div class="previews-carousel" v-scroll-reveal="{ delay: 30 }">
-          <div class="carousel-window">
-            <div class="carousel-track" :style="carouselStyle">
-              <figure v-for="(screen, index) in screens" :key="`mobile-${index}`" class="preview-phone carousel-slide">
-                <img v-if="screen" :src="screen" :alt="`Preview scherm ${index + 1}`" />
-                <span v-else class="preview-placeholder">Preview {{ index + 1 }}</span>
-              </figure>
+          <div class="previews-carousel" v-scroll-reveal="{ delay: 30 }">
+            <div class="carousel-window">
+              <div class="carousel-track" :style="carouselStyle">
+                <figure v-for="(screen, index) in screens" :key="`mobile-${index}`" class="preview-phone carousel-slide">
+                  <img v-if="screen" :src="screen" :alt="`Preview scherm ${index + 1}`" />
+                  <span v-else class="preview-placeholder">Preview {{ index + 1 }}</span>
+                </figure>
+              </div>
+            </div>
+
+            <div class="carousel-dots" role="tablist" aria-label="Kies preview scherm">
+              <button
+                v-for="(_, index) in screens"
+                :key="`dot-${index}`"
+                type="button"
+                class="dot"
+                :class="{ 'is-active': activeSlide === index }"
+                :aria-label="`Ga naar preview ${index + 1}`"
+                @click="activeSlide = index"
+              ></button>
             </div>
           </div>
-
-          <div class="carousel-dots" role="tablist" aria-label="Kies preview scherm">
-            <button
-              v-for="(_, index) in screens"
-              :key="`dot-${index}`"
-              type="button"
-              class="dot"
-              :class="{ 'is-active': activeSlide === index }"
-              :aria-label="`Ga naar preview ${index + 1}`"
-              @click="activeSlide = index"
-            ></button>
-          </div>
         </div>
-      </div>
+      </section>
     </section>
   </main>
 
@@ -119,10 +125,6 @@ import SiteHeader from '../components/site-header.vue';
 import { assetPaths } from '../config/asset-paths';
 
 const activeSlide = ref(0);
-
-const heroStyle = computed(() => ({
-  '--features-hero-image': `url(${assetPaths.images.featuresHero || assetPaths.images.faq || assetPaths.images.heroBackground})`
-}));
 
 const videoPoster = computed(() => assetPaths.images.featuresVideoThumb || '');
 const previewIcon = computed(() => assetPaths.icons.previewSection || '');
@@ -182,19 +184,20 @@ const steps = [
 
 <style scoped>
 .features-hero {
-  min-height: clamp(13rem, 22vw, 17.5rem);
+  min-height: clamp(15rem, 26vw, 20rem);
   display: grid;
-  align-items: end;
-  padding: var(--space-40) var(--space-0);
-  background:
-    var(--features-hero-image, none) right center / cover no-repeat,
-    linear-gradient(120deg, var(--color-surface-soft) 0%, var(--color-surface-light) 100%);
+  align-items: center;
+  padding: var(--space-56) 0 var(--space-32);
+  position: relative;
+  overflow: visible;
 }
 
 .features-hero-inner {
   display: grid;
-  gap: var(--space-4);
-  padding-bottom: var(--space-8);
+  gap: var(--space-8);
+  max-width: none;
+  position: relative;
+  z-index: 2;
 }
 
 .breadcrumb {
@@ -218,16 +221,56 @@ const steps = [
 
 .features-title {
   margin: 0;
-  color: var(--color-text);
-  font-family: var(--font-ambella);
+  color: var(--color-primary-deep);
+  font-family: var(--font-brand);
   font-size: var(--type-landing-h1-size);
   font-weight: var(--type-h1-weight);
   line-height: var(--type-landing-h1-line-height);
-  letter-spacing: var(--type-h1-letter-spacing);
+  letter-spacing: 0.02em;
+}
+
+.features-hero-art {
+  position: absolute;
+  right: min(-20rem, -15vw);
+  top: 53%;
+  transform: translateY(-50%);
+  width: min(56vw, 50rem);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.features-hero-art img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.25;
+}
+
+.features-stack {
+  width: min(100% - 2 * var(--page-gutter), var(--container-max));
+  margin: var(--space-48) auto var(--space-80);
+  background: var(--color-surface-light);
+  border-radius: var(--radius-48);
+  padding: var(--space-32) 0;
+  box-shadow: 0 30px 60px rgba(73, 55, 108, 0.12);
+  position: relative;
+  z-index: 2;
+}
+
+.features-stack .page-section {
+  padding: var(--space-40) 0;
+}
+
+.features-stack .page-section:first-child {
+  padding-top: var(--space-48);
+}
+
+.features-stack .page-section:last-child {
+  padding-bottom: var(--space-48);
 }
 
 .intro-section {
-  background: var(--color-page);
+  background: transparent;
 }
 
 .intro-content {
@@ -239,7 +282,7 @@ const steps = [
   margin: 0;
   max-width: 60rem;
   color: var(--color-text);
-  font-family: var(--font-brand);
+  font-family: var(--font-poppins);
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);
@@ -253,7 +296,11 @@ const steps = [
 
 .feature-item {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--space-12);
+  background: var(--color-surface-soft);
+  border-radius: var(--radius-16);
+  padding: var(--space-16);
+  box-shadow: 0 10px 16px rgba(73, 55, 108, 0.08);
 }
 
 .feature-title {
@@ -268,7 +315,7 @@ const steps = [
 .feature-row {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: var(--space-8);
+  gap: var(--space-12);
   align-items: start;
 }
 
@@ -278,7 +325,7 @@ const steps = [
   display: grid;
   place-items: center;
   border-radius: var(--radius-12);
-  background: #f6d9d9;
+  background: var(--gradient-primary);
 }
 
 .feature-icon {
@@ -288,7 +335,7 @@ const steps = [
 }
 
 .feature-icon-fallback {
-  color: rgba(63, 44, 117, 0.7);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.25rem;
   line-height: 1;
 }
@@ -296,14 +343,14 @@ const steps = [
 .feature-text {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-brand);
+  font-family: var(--font-poppins);
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);
 }
 
 .how-section {
-  background: var(--color-surface-soft);
+  background: transparent;
 }
 
 .how-layout {
@@ -363,7 +410,7 @@ const steps = [
 .step-text {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-brand);
+  font-family: var(--font-poppins);
   font-size: var(--type-body-size);
   line-height: var(--type-body-line-height);
 }
@@ -409,8 +456,7 @@ const steps = [
 }
 
 .preview-header {
-  padding: var(--space-48) 0;
-  background: var(--color-surface-light);
+  background: transparent;
 }
 
 .preview-header-inner {
@@ -447,7 +493,7 @@ const steps = [
 .preview-title {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-ambella);
+  font-family: var(--font-brand);
   font-size: var(--type-h2-size);
   line-height: var(--type-h2-line-height);
   letter-spacing: var(--type-h2-letter-spacing);
@@ -456,13 +502,13 @@ const steps = [
 .preview-text {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-brand);
+  font-family: var(--font-poppins);
   font-size: var(--type-body-size);
   line-height: var(--type-body-line-height);
 }
 
 .previews-section {
-  background: var(--color-surface-soft);
+  background: transparent;
 }
 
 .previews-shell {
@@ -567,16 +613,46 @@ const steps = [
 
 @media (max-width: 48rem) {
   .features-hero {
-    min-height: 10rem;
-    padding: var(--space-24) var(--space-0);
+    min-height: 11.5rem;
+    padding: var(--space-32) 0 var(--space-24);
   }
 
   .features-hero-inner {
-    padding-bottom: var(--space-4);
+    gap: var(--space-8);
   }
 
   .breadcrumb {
     display: none;
+  }
+
+  .features-hero-art {
+    right: -36%;
+    top: 58%;
+    width: min(28rem, 90vw);
+  }
+
+  .features-stack {
+    margin: 24px var(--page-gutter) var(--space-64);
+    width: auto;
+    border-radius: var(--radius-48);
+    padding: 24px;
+  }
+
+  .features-stack .section-container {
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  .features-stack .page-section {
+    padding: 24px 0;
+  }
+
+  .features-stack .page-section:first-child {
+    padding-top: 0;
+  }
+
+  .features-stack .page-section:last-child {
+    padding-bottom: 24px;
   }
 
   .intro-content {
@@ -584,7 +660,7 @@ const steps = [
   }
 
   .preview-header {
-    padding: var(--space-32) 0;
+    padding: 24px 0;
   }
 
   .preview-header-inner {

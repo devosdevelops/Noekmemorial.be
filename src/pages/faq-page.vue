@@ -2,96 +2,114 @@
   <site-header />
 
   <main class="faq-page">
-    <section class="faq-hero" :style="heroStyle" aria-labelledby="faq-title" v-scroll-reveal>
+    <section class="faq-hero" aria-labelledby="faq-title" v-scroll-reveal>
       <div class="section-container faq-hero-inner" v-scroll-reveal="{ delay: 40 }">
         <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&gt;</span> <span>FAQ</span></p>
         <h1 id="faq-title" class="faq-title">FAQ</h1>
       </div>
+
+      <div class="faq-hero-art" aria-hidden="true">
+        <img src="/assets/graphics/chrysant.svg" alt="" />
+      </div>
     </section>
 
-    <section class="page-section faq-section" aria-label="Veelgestelde vragen">
-      <div class="section-container faq-content">
-        <p class="faq-intro" v-scroll-reveal>
-          Heb je een vraag? Hier vind je antwoorden op de meest voorkomende vragen, zodat je snel de informatie vindt die je nodig hebt.
-        </p>
+    <section class="faq-stack" aria-label="Veelgestelde vragen inhoud">
+      <section class="page-section faq-intro-section" v-scroll-reveal>
+        <div class="section-container faq-intro-content">
+          <h2 class="section-heading">Veelgestelde vragen</h2>
+          <p class="faq-intro-copy">
+            Heb je een vraag? Hier vind je antwoorden op de meest voorkomende vragen, zodat je snel de informatie vindt
+            die je nodig hebt.
+          </p>
+        </div>
+      </section>
 
-        <div class="faq-grid" v-scroll-reveal="{ delay: 40 }">
-          <div class="faq-column">
-            <div
-              v-for="item in leftColumnItems"
-              :key="item.index"
-              class="faq-item"
-              :class="{ 'is-open': openIndex === item.index }"
-            >
-              <button
-                class="faq-trigger"
-                :aria-expanded="openIndex === item.index ? 'true' : 'false'"
-                :aria-controls="`faq-answer-${item.index}`"
-                @click="toggle(item.index)"
+      <section class="page-section faq-accordion-section" aria-label="Veelgestelde vragen" v-scroll-reveal>
+        <div class="section-container faq-accordion-content">
+          <div class="faq-grid" v-scroll-reveal="{ delay: 40 }">
+            <div class="faq-column">
+              <article
+                v-for="item in leftColumnItems"
+                :key="item.index"
+                class="faq-item"
+                :class="{ 'is-open': openIndex === item.index }"
               >
-                <span class="faq-chevron" aria-hidden="true">▼</span>
-                {{ item.question }}
-              </button>
-              <transition
-                name="faq-answer-transition"
-                @enter="enterAnswer"
-                @after-enter="afterEnterAnswer"
-                @before-leave="beforeLeaveAnswer"
-                @leave="leaveAnswer"
-              >
-                <div
-                  v-if="openIndex === item.index"
-                  :id="`faq-answer-${item.index}`"
-                  class="faq-answer"
-                  role="region"
+                <button
+                  class="faq-trigger"
+                  :aria-expanded="openIndex === item.index ? 'true' : 'false'"
+                  :aria-controls="`faq-answer-${item.index}`"
+                  @click="toggle(item.index)"
                 >
-                  <p class="faq-answer-text">{{ item.answer }}</p>
-                </div>
-              </transition>
+                  <span class="faq-question">{{ item.question }}</span>
+                  <span class="faq-chevron" aria-hidden="true">⌄</span>
+                </button>
+
+                <transition
+                  name="faq-answer-transition"
+                  @enter="enterAnswer"
+                  @after-enter="afterEnterAnswer"
+                  @before-leave="beforeLeaveAnswer"
+                  @leave="leaveAnswer"
+                >
+                  <div
+                    v-if="openIndex === item.index"
+                    :id="`faq-answer-${item.index}`"
+                    class="faq-answer"
+                    role="region"
+                  >
+                    <p class="faq-answer-text">{{ item.answer }}</p>
+                  </div>
+                </transition>
+              </article>
             </div>
-          </div>
 
-          <div class="faq-column">
-            <div
-              v-for="item in rightColumnItems"
-              :key="item.index"
-              class="faq-item"
-              :class="{ 'is-open': openIndex === item.index }"
-            >
-              <button
-                class="faq-trigger"
-                :aria-expanded="openIndex === item.index ? 'true' : 'false'"
-                :aria-controls="`faq-answer-${item.index}`"
-                @click="toggle(item.index)"
+            <div class="faq-column">
+              <article
+                v-for="item in rightColumnItems"
+                :key="item.index"
+                class="faq-item"
+                :class="{ 'is-open': openIndex === item.index }"
               >
-                <span class="faq-chevron" aria-hidden="true">▼</span>
-                {{ item.question }}
-              </button>
-              <transition
-                name="faq-answer-transition"
-                @enter="enterAnswer"
-                @after-enter="afterEnterAnswer"
-                @before-leave="beforeLeaveAnswer"
-                @leave="leaveAnswer"
-              >
-                <div
-                  v-if="openIndex === item.index"
-                  :id="`faq-answer-${item.index}`"
-                  class="faq-answer"
-                  role="region"
+                <button
+                  class="faq-trigger"
+                  :aria-expanded="openIndex === item.index ? 'true' : 'false'"
+                  :aria-controls="`faq-answer-${item.index}`"
+                  @click="toggle(item.index)"
                 >
-                  <p class="faq-answer-text">{{ item.answer }}</p>
-                </div>
-              </transition>
+                  <span class="faq-question">{{ item.question }}</span>
+                  <span class="faq-chevron" aria-hidden="true">⌄</span>
+                </button>
+
+                <transition
+                  name="faq-answer-transition"
+                  @enter="enterAnswer"
+                  @after-enter="afterEnterAnswer"
+                  @before-leave="beforeLeaveAnswer"
+                  @leave="leaveAnswer"
+                >
+                  <div
+                    v-if="openIndex === item.index"
+                    :id="`faq-answer-${item.index}`"
+                    class="faq-answer"
+                    role="region"
+                  >
+                    <p class="faq-answer-text">{{ item.answer }}</p>
+                  </div>
+                </transition>
+              </article>
             </div>
           </div>
         </div>
+      </section>
 
-        <p class="faq-no-answer" v-scroll-reveal="{ delay: 60 }">
-          Je antwoord niet gevonden?&nbsp;
-          <a class="faq-contact-link" href="/contact">Neem contact op met ons</a>
-        </p>
-      </div>
+      <section class="page-section faq-contact-section" aria-label="Contact hulp" v-scroll-reveal>
+        <div class="section-container faq-contact-content">
+          <article class="faq-contact-card">
+            <p class="faq-contact-copy">Je antwoord niet gevonden? We helpen je graag verder.</p>
+            <base-button href="/contact" label="Neem contact op" />
+          </article>
+        </div>
+      </section>
     </section>
   </main>
 
@@ -100,11 +118,11 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
+import BaseButton from '../components/base-button.vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
-import { assetPaths } from '../config/asset-paths';
 
 const openIndex = ref(null);
 
@@ -141,10 +159,6 @@ const leaveAnswer = (element) => {
   });
 };
 
-const heroStyle = computed(() => ({
-  '--faq-hero-image': `url(${assetPaths.images.faq})`
-}));
-
 const faqItems = [
   {
     question: 'Voor wie is Noek bedoeld?',
@@ -152,9 +166,9 @@ const faqItems = [
       'Noek is bedoeld voor uitvaartondernemingen die families een persoonlijke digitale herdenkingsruimte willen aanbieden. Families kunnen de ruimte gebruiken om herinneringen te bewaren en te delen met dierbaren, ongeacht waar ze zich bevinden.'
   },
   {
-    question: 'Is de digitale ruimte veilig en privé?',
+    question: 'Is de digitale ruimte veilig en prive?',
     answer:
-      'Ja. Elke herdenkingsruimte is privé en alleen toegankelijk voor uitgenodigde familieleden en vrienden. Noek verwerkt alle persoonsgegevens conform de AVG-wetgeving en deelt nooit gegevens met derden.'
+      'Ja. Elke herdenkingsruimte is prive en alleen toegankelijk voor uitgenodigde familieleden en vrienden. Noek verwerkt alle persoonsgegevens conform de AVG-wetgeving en deelt nooit gegevens met derden.'
   },
   {
     question: 'Hoe eenvoudig is het om Noek te implementeren als uitvaartbedrijf?',
@@ -172,7 +186,7 @@ const faqItems = [
       'Ja. Herdenkingsruimtes zijn voor de lange termijn bedoeld. Families kunnen de ruimte blijven bezoeken en aanvullen, ook jaren na het overlijden.'
   },
   {
-    question: 'Vervangt Noek de begeleiding die je van het uitvaartondernemer krijgt?',
+    question: 'Vervangt Noek de begeleiding die je van de uitvaartondernemer krijgt?',
     answer:
       'Nee. Noek is een aanvulling op de persoonlijke begeleiding van de uitvaartondernemer. Het biedt een digitale ruimte die de menselijke begeleiding ondersteunt, niet vervangt.'
   },
@@ -197,21 +211,21 @@ const rightColumnItems = faqItems.slice(splitIndex).map((item, index) => ({
 </script>
 
 <style scoped>
-/* ─── Hero ─────────────────────────────────────────── */
 .faq-hero {
-  min-height: clamp(13rem, 22vw, 17.5rem);
+  min-height: clamp(15rem, 26vw, 20rem);
   display: grid;
-  align-items: end;
-  padding: var(--space-40) var(--space-0);
-  background:
-    var(--faq-hero-image, none) right center / cover no-repeat,
-    linear-gradient(120deg, var(--color-surface-soft) 0%, var(--color-surface-light) 100%);
+  align-items: center;
+  padding: var(--space-56) 0 var(--space-32);
+  position: relative;
+  overflow: visible;
 }
 
 .faq-hero-inner {
   display: grid;
-  gap: var(--space-24);
-  padding-bottom: var(--space-8);
+  gap: var(--space-8);
+  max-width: none;
+  position: relative;
+  z-index: 2;
 }
 
 .breadcrumb {
@@ -235,70 +249,100 @@ const rightColumnItems = faqItems.slice(splitIndex).map((item, index) => ({
 
 .faq-title {
   margin: 0;
-  color: var(--color-text);
-  font-family: var(--font-ambella);
+  color: var(--color-primary-deep);
+  font-family: var(--font-brand);
   font-size: var(--type-landing-h1-size);
   font-weight: var(--type-h1-weight);
   line-height: var(--type-landing-h1-line-height);
-  letter-spacing: var(--type-h1-letter-spacing);
+  letter-spacing: 0.02em;
 }
 
-/* ─── FAQ Section ───────────────────────────────────── */
-.faq-section {
-  background: var(--color-surface-soft);
+.faq-hero-art {
+  position: absolute;
+  right: min(-20rem, -15vw);
+  top: 53%;
+  transform: translateY(-50%);
+  width: min(56vw, 50rem);
+  z-index: 0;
+  pointer-events: none;
 }
 
-.faq-content {
+.faq-hero-art img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.25;
+}
+
+.faq-stack {
+  width: min(100% - 2 * var(--page-gutter), var(--container-max));
+  margin: var(--space-48) auto var(--space-80);
+  background: var(--color-surface-light);
+  border-radius: var(--radius-48);
+  padding: var(--space-32) 0;
+  box-shadow: 0 30px 60px rgba(73, 55, 108, 0.12);
+  position: relative;
+  z-index: 2;
+}
+
+.faq-stack .page-section {
+  padding: var(--space-40) 0;
+}
+
+.faq-stack .page-section:first-child {
+  padding-top: var(--space-48);
+}
+
+.faq-stack .page-section:last-child {
+  padding-bottom: var(--space-48);
+}
+
+.faq-intro-content {
   display: grid;
-  gap: var(--space-32);
+  gap: var(--space-16);
 }
 
-.faq-intro {
+.faq-intro-copy {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-brand);
+  font-family: var(--font-poppins);
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);
+  max-width: 64ch;
 }
 
-/* ─── Accordion Grid ────────────────────────────────── */
 .faq-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-16);
+  gap: var(--space-24);
 }
 
 .faq-column {
   display: grid;
-  gap: var(--space-16);
+  gap: var(--space-24);
   align-content: start;
 }
 
-/* ─── Accordion Item ────────────────────────────────── */
 .faq-item {
-  display: grid;
-  border-radius: var(--radius-12);
+  background: var(--color-surface-soft);
+  border-radius: var(--radius-16);
+  box-shadow: 0 10px 16px rgba(73, 55, 108, 0.08);
   overflow: hidden;
 }
 
 .faq-trigger {
-  display: flex;
-  align-items: center;
-  gap: var(--space-16);
   width: 100%;
-  padding: var(--space-16) var(--space-24);
-  background: rgba(110, 75, 216, 0.18);
   border: none;
-  border-radius: var(--radius-12);
+  background: transparent;
+  color: var(--color-text);
   cursor: pointer;
   text-align: left;
-  color: var(--color-text);
-  font-family: var(--font-brand);
-  font-size: var(--type-body-size);
-  font-weight: 500;
-  line-height: var(--type-body-line-height);
-  transition: background 300ms ease-out;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-16);
+  padding: var(--space-16) var(--space-24);
 }
 
 .faq-trigger:focus {
@@ -306,106 +350,122 @@ const rightColumnItems = faqItems.slice(splitIndex).map((item, index) => ({
 }
 
 .faq-trigger:focus-visible {
-  outline: 2px solid rgba(63, 44, 117, 0.7);
-  outline-offset: -2px;
+  box-shadow: inset 0 0 0 2px rgba(63, 44, 117, 0.45);
 }
 
-.faq-trigger:hover {
-  background: rgba(110, 75, 216, 0.26);
-}
-
-.faq-item.is-open .faq-trigger {
-  background: rgba(110, 75, 216, 0.28);
-  border-radius: var(--radius-12) var(--radius-12) 0 0;
+.faq-question {
+  font-family: var(--font-brand);
+  font-size: var(--type-h4-size);
+  font-weight: 600;
+  line-height: var(--type-h4-line-height);
 }
 
 .faq-chevron {
-  flex-shrink: 0;
-  font-size: 0.625rem;
-  color: var(--color-primary);
-  transition: transform 300ms ease-out;
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid rgba(63, 44, 117, 0.35);
+  color: var(--color-primary-deep);
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 260ms ease-out;
 }
 
 .faq-item.is-open .faq-chevron {
   transform: rotate(180deg);
 }
 
-/* ─── Accordion Answer ──────────────────────────────── */
 .faq-answer {
-  background: rgba(110, 75, 216, 0.1);
-  border-radius: 0 0 var(--radius-12) var(--radius-12);
+  border-top: 2px solid rgba(73, 55, 108, 0.12);
   overflow: hidden;
 }
 
 .faq-answer-transition-enter-active,
 .faq-answer-transition-leave-active {
-  transition:
-    height 300ms ease-out,
-    opacity 220ms ease-out;
+  transition: height 260ms ease-out, opacity 220ms ease-out;
   overflow: hidden;
 }
 
 .faq-answer-text {
   margin: 0;
-  padding: var(--space-16) var(--space-24);
-  color: var(--color-text-muted);
-  font-family: var(--font-brand);
+  padding: var(--space-16) var(--space-24) var(--space-24);
+  color: var(--color-text);
+  font-family: var(--font-poppins);
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);
 }
 
-/* ─── No Answer strip ───────────────────────────────── */
-.faq-no-answer {
+.faq-contact-card {
+  background: var(--color-surface-soft);
+  border-radius: var(--radius-16);
+  padding: var(--space-24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-24);
+}
+
+.faq-contact-copy {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-brand);
+  font-family: var(--font-poppins);
   font-size: var(--type-body-size);
-  font-weight: var(--type-body-weight);
+  font-weight: 500;
   line-height: var(--type-body-line-height);
 }
 
-.faq-contact-link {
-  color: var(--color-primary);
-  font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  transition: color 300ms ease-out;
-}
-
-.faq-contact-link:hover {
-  color: var(--color-primary-deep);
-}
-
-/* ─── Tablet ────────────────────────────────────────── */
-@media (min-width: 48rem) {
-  .faq-hero {
-    min-height: clamp(13rem, 22vw, 17.5rem);
-  }
-}
-
-/* ─── Desktop (2-column accordion) ─────────────────── */
 @media (min-width: 70rem) {
   .faq-grid {
     grid-template-columns: 1fr 1fr;
     column-gap: var(--space-24);
-    align-items: start;
   }
 }
 
-/* ─── Mobile tweaks ─────────────────────────────────── */
 @media (max-width: 48rem) {
   .faq-hero {
-    min-height: 10rem;
-    padding: var(--space-24) var(--space-0);
+    min-height: 11.5rem;
+    padding: var(--space-32) 0 var(--space-24);
   }
 
   .faq-hero-inner {
-    gap: var(--space-4);
+    gap: var(--space-8);
   }
 
   .breadcrumb {
     display: none;
+  }
+
+  .faq-hero-art {
+    right: -36%;
+    top: 58%;
+    width: min(28rem, 90vw);
+  }
+
+  .faq-stack {
+    margin: 24px var(--page-gutter) var(--space-64);
+    width: auto;
+    border-radius: var(--radius-48);
+    padding: 24px;
+  }
+
+  .faq-stack .section-container {
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  .faq-stack .page-section {
+    padding: 24px 0;
+  }
+
+  .faq-stack .page-section:first-child {
+    padding-top: 0;
+  }
+
+  .faq-stack .page-section:last-child {
+    padding-bottom: 24px;
   }
 
   .faq-trigger {
@@ -417,8 +477,9 @@ const rightColumnItems = faqItems.slice(splitIndex).map((item, index) => ({
     padding: var(--space-16);
   }
 
-  .faq-column {
-    gap: var(--space-16);
+  .faq-contact-card {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 </style>

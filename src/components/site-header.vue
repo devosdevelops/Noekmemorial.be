@@ -244,8 +244,8 @@ watch(menuOpen, (isOpen) => {
   height: calc(100vh - var(--header-height));
   z-index: 24;
   display: none;
-  background: linear-gradient(180deg, #4b3a6c 0%, #6a55a3 100%);
-  transform: translateY(calc(-100% - var(--header-height)));
+  background: linear-gradient(90deg, #9a85c4 0%, #49376c 100%);
+  transform: translateY(100%);
   transition: transform 500ms ease-in-out;
 }
 
@@ -338,7 +338,7 @@ watch(menuOpen, (isOpen) => {
     right: 0;
     left: auto;
     width: min(44vw, 22.5rem);
-    background: #fbf5f1;
+    background: linear-gradient(90deg, #9a85c4 0%, #49376c 100%);
     transform: translateX(100%);
   }
 
@@ -351,7 +351,7 @@ watch(menuOpen, (isOpen) => {
   }
 
   .drawer-link {
-    color: #25223a;
+    color: var(--color-white);
     font-size: var(--type-h4-size);
     line-height: var(--type-h4-line-height);
     letter-spacing: var(--type-h4-letter-spacing);
@@ -359,7 +359,7 @@ watch(menuOpen, (isOpen) => {
   }
 
   .drawer-divider {
-    border-top-color: #5e438c;
+    border-top-color: rgba(255, 255, 255, 0.95);
   }
 }
 </style>

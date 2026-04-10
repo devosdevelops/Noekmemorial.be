@@ -50,9 +50,12 @@
           <div class="what-row" v-scroll-reveal="{ delay: 60 }">
             <img class="what-thumb" :src="assetPaths.images.hands" alt="Handen die elkaar vasthouden" />
             <p class="body-text">
-              Noek is een white-label platform waarmee uitvaartondernemingen families een persoonlijke, digitale
-              herdenkingsruimte aanbieden. Naadloos geïntegreerd in jouw dienstverlening. Het is een plek waar de
-              herinneringen van dierbaren blijven bestaan.
+              <strong>Noek geeft herinneringen een plek die blijft bestaan.</strong><br />
+              Een warme, persoonlijke ruimte waar familie en vrienden samenkomen om stil te staan, te delen en
+              verbonden te blijven met wie ze missen. Verhalen, foto's en kleine momenten krijgen hier de ruimte om te
+              blijven groeien, op eigen tempo, en op een manier die echt voelt.<br />
+              Niet gebonden aan een plaats of moment, maar altijd dichtbij, waar je ook bent.<br />
+              Zo kunnen uitvaartondernemingen families iets aanbieden dat verder gaat dan het afscheid alleen.
             </p>
           </div>
         </div>
@@ -66,21 +69,8 @@
             <article class="value-card mission" v-scroll-reveal="{ delay: 40, origin: 'up' }">
               <h3 class="subheading">Onze missie</h3>
               <p class="body-text value-text">
-                Noek wil mensen een digitale plek geven waar herinneringen kunnen blijven bestaan.<br /><br />
-                Niet als iets dat afgesloten wordt.<br />
-                Maar als iets dat mag blijven.<br /><br />
-                Een plek waar je iemand kan herinneren op jouw manier.<br />
-                Met woorden.<br />
-                Met beelden.<br />
-                Met stilte.<br /><br />
-                En waar anderen even kunnen meekomen.<br /><br />
-                Soms samen.<br />
-                Soms alleen.<br /><br />
-                Vanuit verschillende plekken.<br />
-                Maar toch dichtbij.<br /><br />
-                Zo ontstaat er een kleine digitale ruimte rond een herinnering.<br />
-                Een plek van licht.<br />
-                Waar iemand nog even aanwezig mag zijn.
+                Een White-label digitaal platform voor uitvaartondernemingen waarmee zij families een persoonlijke,
+                blijvende herdenkingsruimte kunnen aanbieden.
               </p>
 
               <div class="value-image-wrap">
@@ -91,22 +81,48 @@
             <article class="value-card vision" v-scroll-reveal="{ delay: 80, origin: 'up' }">
               <h3 class="subheading">Onze visie</h3>
               <p class="body-text value-text">
-                Herdenken hoort niet vast te zitten aan één plaats.<br /><br />
-                Niet aan een dag op de kalender.<br />
-                Niet aan een bepaalde manier.<br /><br />
-                Herinneringen bewegen met ons mee.<br />
-                Door de tijd. Door het leven.<br /><br />
-                Wij geloven dat herinneren iets levends is.<br />
-                Iets dat kan groeien.<br />
-                Een foto die opnieuw betekenis krijgt.<br />
-                Een gedachte die later pas woorden vindt.<br />
-                Een moment dat je samen wilt delen.<br /><br />
-                Daarom zien wij herdenken als een open ruimte. Een digitale plek die meebeweegt.
+                Wij geloven in een samenleving waarin herdenken niet stopt na de uitvaart, maar uitgroeit tot een
+                blijvend en persoonlijk proces.
               </p>
 
               <div class="value-image-wrap">
                 <img class="value-image" :src="assetPaths.images.missionVision" alt="Twee personen onder maanlicht" />
               </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section team-section" aria-labelledby="team-heading" v-scroll-reveal>
+        <div class="section-container team-inner">
+          <h2 id="team-heading" class="section-heading">Ons Team</h2>
+
+          <p class="body-text team-intro">
+            Drie <strong>studenten</strong> van <strong>Thomas More</strong> Mechelen ontwikkelden dit Noek als
+            <strong>bachelorproef</strong>. Met dit digitale platform willen we een toegankelijke en persoonlijke plek
+            bieden waar mensen hun dierbaren kunnen herdenken en herinneringen kunnen delen.
+          </p>
+
+          <div class="team-cards" aria-label="team leden">
+            <article class="team-card">
+              <figure class="team-photo-wrap">
+                <img class="team-photo" src="/assets/images/ben-devos.jpg" alt="Ben Devos" />
+              </figure>
+              <h3 class="team-name">Ben Devos</h3>
+            </article>
+
+            <article class="team-card">
+              <figure class="team-photo-wrap">
+                <img class="team-photo" src="/assets/images/seren-koca.jpg" alt="Seren Koca" />
+              </figure>
+              <h3 class="team-name">Seren koca</h3>
+            </article>
+
+            <article class="team-card">
+              <figure class="team-photo-wrap">
+                <img class="team-photo" src="/assets/images/audrey-kudjo.jpg" alt="Audrey Kudjo" />
+              </figure>
+              <h3 class="team-name">Audrey Kudjo</h3>
             </article>
           </div>
         </div>
@@ -248,7 +264,7 @@ import { assetPaths } from '../config/asset-paths';
 }
 
 .what-section {
-  background: var(--color-surface-light);
+  background: var(--color-surface-soft);
 }
 
 .what-inner {
@@ -271,7 +287,7 @@ import { assetPaths } from '../config/asset-paths';
 }
 
 .values-section {
-  background: var(--color-surface-soft);
+  background: transparent;
 }
 
 .values-inner {
@@ -316,6 +332,58 @@ import { assetPaths } from '../config/asset-paths';
   height: 100%;
   display: block;
   object-fit: cover;
+}
+
+.team-section {
+  background: transparent;
+}
+
+.team-inner {
+  display: grid;
+  gap: var(--space-24);
+}
+
+.team-intro {
+  color: var(--color-text);
+  max-width: 100%;
+}
+
+.team-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-24);
+}
+
+.team-card {
+  display: grid;
+  gap: var(--space-16);
+}
+
+.team-photo-wrap {
+  margin: 0;
+  background: var(--color-surface-soft);
+  border-radius: var(--radius-16);
+  padding: 24px;
+  overflow: hidden;
+  aspect-ratio: 5 / 6;
+}
+
+.team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: var(--radius-12);
+}
+
+.team-name {
+  margin: 0;
+  text-align: center;
+  color: #1f1f29;
+  font-family: var(--font-poppins);
+  font-size: clamp(1.4rem, calc(1.1rem + 1vw), 2rem);
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 @media (max-width: 48rem) {
@@ -386,6 +454,11 @@ import { assetPaths } from '../config/asset-paths';
   }
 
   .values-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-24);
+  }
+
+  .team-cards {
     grid-template-columns: 1fr;
     gap: var(--space-24);
   }

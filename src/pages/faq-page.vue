@@ -5,7 +5,7 @@
     <section class="faq-hero" aria-labelledby="faq-title" v-scroll-reveal>
       <div class="section-container faq-hero-inner" v-scroll-reveal="{ delay: 40 }">
         <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&gt;</span> <span>FAQ</span></p>
-        <h1 id="faq-title" class="faq-title">FAQ</h1>
+        <h1 id="faq-title" class="faq-title">Veelgestelde vragen</h1>
       </div>
 
       <div class="faq-hero-art" aria-hidden="true">

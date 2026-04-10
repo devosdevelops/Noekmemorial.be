@@ -449,6 +449,14 @@ import { assetPaths } from '../config/asset-paths';
     gap: var(--space-16);
   }
 
+  .what-section {
+    margin-inline: -24px;
+  }
+
+  .about-stack .what-section .section-container {
+    padding-inline: 24px;
+  }
+
   .values-heading {
     display: none;
   }

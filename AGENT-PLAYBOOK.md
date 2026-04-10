@@ -2,6 +2,19 @@
 
 This document is for an AI coding agent that needs to extend this website with new pages while staying consistent with the current implementation.
 
+## Redesign Status (Current Baseline)
+
+The homepage has been redesigned and is now the visual reference for all other pages.
+
+When redesigning any non-home page, agents must align to this same concept:
+- Header uses the shared `site-header.vue` pill navigation component.
+- Footer uses the shared `site-footer.vue` card component.
+- Main page content is grouped in one rounded surface block (not multiple disconnected rounded blocks).
+- Global gradient background remains visible behind grouped content.
+- Typography and button gradients come from the current token system in `src/assets/styles.css`.
+
+Do not redesign header/footer per page. Reuse components and focus on each page's main content block(s).
+
 ## 1) Project Purpose
 
 This codebase is a Vue + Vite website for Noek. The current implementation is a landing page with reusable UI building blocks, design tokens, and responsive behavior already set up.
@@ -161,6 +174,44 @@ For new animated sections:
    - Add page component under `src/pages/` and compose with existing header/footer.
 8. **Validate**
    - Run `npm run build` and resolve any issues.
+
+## 10.1) How to Redesign Existing Pages (Required Workflow)
+
+Use this workflow when restyling existing pages (`/over-ons`, `/features`, `/faq`, `/contact`, `/toon-je-interesse`, legal pages):
+
+1. **Keep global shell fixed**
+   - Keep `site-header` at top and `site-footer` at bottom.
+   - Do not duplicate header/footer markup inside page components.
+
+2. **Create one grouped main content surface**
+   - Wrap primary page sections inside one grouped content container where possible.
+   - Reuse the homepage approach: one rounded container with inner section spacing.
+   - Avoid creating multiple large outer cards unless content type genuinely requires separation.
+
+3. **Respect tokenized spacing and gutters**
+   - Use `--page-gutter` for horizontal outer spacing.
+   - Keep left/right edge spacing consistent between main content and footer.
+   - For mobile, prefer explicit 24px inner spacing only when design requires strict parity.
+
+4. **Use existing component patterns before creating new ones**
+   - Reuse `base-button`, section wrappers, and card patterns.
+   - If a new block type is needed, style it with existing tokens and match homepage rhythm.
+
+5. **Apply responsive behavior early**
+   - Desktop first parity with provided design.
+   - Mobile/tablet adjustments must preserve hierarchy, not collapse into unrelated layouts.
+   - Ensure no clipping/overflow regressions for decorative graphics.
+
+6. **Page completion order**
+   - Redesign pages one-by-one.
+   - For each page, complete: structure -> desktop style -> mobile style -> build validation.
+   - Do not partially redesign many pages at once.
+
+7. **Per-page Definition of Done**
+   - Matches homepage redesign language (surface, spacing, typography, gradient/button system).
+   - Header/footer are unchanged shared components.
+   - Main content is visibly grouped and consistent.
+   - `npm run build` passes.
 
 ## 11) Navigation & Linking Rules
 

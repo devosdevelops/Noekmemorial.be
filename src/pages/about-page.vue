@@ -2,108 +2,115 @@
   <site-header />
 
   <main class="about-page">
-    <section class="about-hero" :style="heroStyle" aria-labelledby="about-title" v-scroll-reveal>
+    <section class="about-hero" aria-labelledby="about-title" v-scroll-reveal>
       <div class="section-container about-hero-inner" v-scroll-reveal="{ delay: 40 }">
         <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&gt;</span> <span>Over ons</span></p>
         <h1 id="about-title" class="about-title">Over ons</h1>
       </div>
-    </section>
 
-    <section class="page-section story-section" aria-labelledby="story-heading" v-scroll-reveal>
-      <div class="section-container story-grid">
-        <figure class="story-image-wrap" v-scroll-reveal="{ delay: 40, origin: 'left' }">
-          <img class="story-image" :src="assetPaths.images.howItWorksThumb" alt="Drie mensen in gesprek" />
-        </figure>
-
-        <div class="story-copy" v-scroll-reveal="{ delay: 80, origin: 'right' }">
-          <h2 id="story-heading" class="section-heading">Het verhaal achter Noek</h2>
-          <p class="body-text story-text">
-            Soms wil je even stilstaan bij iemand.<br />
-            Niet op een vaste plek.<br />
-            Maar waar je op dat moment bent.<br /><br />
-
-            In de trein.<br />
-            Aan een tafel.<br />
-            Op een stille wandeling.<br /><br />
-
-            Noek ontstond vanuit dat gevoel.<br />
-            De behoefte aan een plek die altijd dichtbij is.<br /><br />
-
-            Een plek waar herinneringen zacht aanwezig mogen zijn.<br />
-            Niet groot. Niet zwaar.<br />
-            Gewoon een ruimte waar iemand nog even kan blijven.
-          </p>
-        </div>
+      <div class="about-hero-art" aria-hidden="true">
+        <img src="/assets/graphics/chrysant.svg" alt="" />
       </div>
     </section>
 
-    <section class="page-section what-section" aria-labelledby="what-heading" v-scroll-reveal>
-      <div class="section-container what-inner">
-        <h2 id="what-heading" class="section-heading" v-scroll-reveal="{ delay: 20 }">Wat doen we?</h2>
+    <section class="about-stack" aria-label="Over Noek inhoud">
+      <section class="page-section story-section" aria-labelledby="story-heading" v-scroll-reveal>
+        <div class="section-container story-grid">
+          <figure class="story-image-wrap" v-scroll-reveal="{ delay: 40, origin: 'left' }">
+            <img class="story-image" :src="assetPaths.images.howItWorksThumb" alt="Drie mensen in gesprek" />
+          </figure>
 
-        <div class="what-row" v-scroll-reveal="{ delay: 60 }">
-          <img class="what-thumb" :src="assetPaths.images.hands" alt="Handen die elkaar vasthouden" />
-          <p class="body-text">
-            Noek is een white-label platform waarmee uitvaartondernemingen families een persoonlijke, digitale
-            herdenkingsruimte aanbieden. Naadloos geïntegreerd in jouw dienstverlening. Het is een plek waar de
-            herinneringen van dierbaren blijven bestaan.
-          </p>
-        </div>
-      </div>
-    </section>
+          <div class="story-copy" v-scroll-reveal="{ delay: 80, origin: 'right' }">
+            <h2 id="story-heading" class="section-heading">Het verhaal achter Noek</h2>
+            <p class="body-text story-text">
+              Soms wil je even stilstaan bij iemand.<br />
+              Niet op een vaste plek.<br />
+              Maar waar je op dat moment bent.<br /><br />
 
-    <section class="page-section values-section" aria-labelledby="values-heading" v-scroll-reveal>
-      <div class="section-container values-inner">
-        <h2 id="values-heading" class="section-heading values-heading">Missie &amp; Visie</h2>
+              In de trein.<br />
+              Aan een tafel.<br />
+              Op een stille wandeling.<br /><br />
 
-        <div class="values-grid">
-          <article class="value-card mission" v-scroll-reveal="{ delay: 40, origin: 'up' }">
-            <h3 class="subheading">Onze missie</h3>
-            <p class="body-text value-text">
-              Noek wil mensen een digitale plek geven waar herinneringen kunnen blijven bestaan.<br /><br />
-              Niet als iets dat afgesloten wordt.<br />
-              Maar als iets dat mag blijven.<br /><br />
-              Een plek waar je iemand kan herinneren op jouw manier.<br />
-              Met woorden.<br />
-              Met beelden.<br />
-              Met stilte.<br /><br />
-              En waar anderen even kunnen meekomen.<br /><br />
-              Soms samen.<br />
-              Soms alleen.<br /><br />
-              Vanuit verschillende plekken.<br />
-              Maar toch dichtbij.<br /><br />
-              Zo ontstaat er een kleine digitale ruimte rond een herinnering.<br />
-              Een plek van licht.<br />
-              Waar iemand nog even aanwezig mag zijn.
+              Noek ontstond vanuit dat gevoel.<br />
+              De behoefte aan een plek die altijd dichtbij is.<br /><br />
+
+              Een plek waar herinneringen zacht aanwezig mogen zijn.<br />
+              Niet groot. Niet zwaar.<br />
+              Gewoon een ruimte waar iemand nog even kan blijven.
             </p>
-
-            <div class="value-image-wrap">
-              <img class="value-image" :src="assetPaths.images.missionMission" alt="Twee mensen in digitale herinneringsruimte" />
-            </div>
-          </article>
-
-          <article class="value-card vision" v-scroll-reveal="{ delay: 80, origin: 'up' }">
-            <h3 class="subheading">Onze visie</h3>
-            <p class="body-text value-text">
-              Herdenken hoort niet vast te zitten aan één plaats.<br /><br />
-              Niet aan een dag op de kalender.<br />
-              Niet aan een bepaalde manier.<br /><br />
-              Herinneringen bewegen met ons mee.<br />
-              Door de tijd. Door het leven.<br /><br />
-              Wij geloven dat herinneren iets levends is.<br />
-              Iets dat kan groeien.<br />
-              Een foto die opnieuw betekenis krijgt.<br />
-              Een gedachte die later pas woorden vindt.<br />
-              Een moment dat je samen wilt delen.<br /><br />
-              Daarom zien wij herdenken als een open ruimte. Een digitale plek die meebeweegt.
-            </p>
-
-            <div class="value-image-wrap">
-              <img class="value-image" :src="assetPaths.images.missionVision" alt="Twee personen onder maanlicht" />
-            </div>
-          </article>
+          </div>
         </div>
-      </div>
+
+      </section>
+
+      <section class="page-section what-section" aria-labelledby="what-heading" v-scroll-reveal>
+        <div class="section-container what-inner">
+          <h2 id="what-heading" class="section-heading" v-scroll-reveal="{ delay: 20 }">Wat doen we?</h2>
+
+          <div class="what-row" v-scroll-reveal="{ delay: 60 }">
+            <img class="what-thumb" :src="assetPaths.images.hands" alt="Handen die elkaar vasthouden" />
+            <p class="body-text">
+              Noek is een white-label platform waarmee uitvaartondernemingen families een persoonlijke, digitale
+              herdenkingsruimte aanbieden. Naadloos geïntegreerd in jouw dienstverlening. Het is een plek waar de
+              herinneringen van dierbaren blijven bestaan.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section values-section" aria-labelledby="values-heading" v-scroll-reveal>
+        <div class="section-container values-inner">
+          <h2 id="values-heading" class="section-heading values-heading">Missie &amp; Visie</h2>
+
+          <div class="values-grid">
+            <article class="value-card mission" v-scroll-reveal="{ delay: 40, origin: 'up' }">
+              <h3 class="subheading">Onze missie</h3>
+              <p class="body-text value-text">
+                Noek wil mensen een digitale plek geven waar herinneringen kunnen blijven bestaan.<br /><br />
+                Niet als iets dat afgesloten wordt.<br />
+                Maar als iets dat mag blijven.<br /><br />
+                Een plek waar je iemand kan herinneren op jouw manier.<br />
+                Met woorden.<br />
+                Met beelden.<br />
+                Met stilte.<br /><br />
+                En waar anderen even kunnen meekomen.<br /><br />
+                Soms samen.<br />
+                Soms alleen.<br /><br />
+                Vanuit verschillende plekken.<br />
+                Maar toch dichtbij.<br /><br />
+                Zo ontstaat er een kleine digitale ruimte rond een herinnering.<br />
+                Een plek van licht.<br />
+                Waar iemand nog even aanwezig mag zijn.
+              </p>
+
+              <div class="value-image-wrap">
+                <img class="value-image" :src="assetPaths.images.missionMission" alt="Twee mensen in digitale herinneringsruimte" />
+              </div>
+            </article>
+
+            <article class="value-card vision" v-scroll-reveal="{ delay: 80, origin: 'up' }">
+              <h3 class="subheading">Onze visie</h3>
+              <p class="body-text value-text">
+                Herdenken hoort niet vast te zitten aan één plaats.<br /><br />
+                Niet aan een dag op de kalender.<br />
+                Niet aan een bepaalde manier.<br /><br />
+                Herinneringen bewegen met ons mee.<br />
+                Door de tijd. Door het leven.<br /><br />
+                Wij geloven dat herinneren iets levends is.<br />
+                Iets dat kan groeien.<br />
+                Een foto die opnieuw betekenis krijgt.<br />
+                Een gedachte die later pas woorden vindt.<br />
+                Een moment dat je samen wilt delen.<br /><br />
+                Daarom zien wij herdenken als een open ruimte. Een digitale plek die meebeweegt.
+              </p>
+
+              <div class="value-image-wrap">
+                <img class="value-image" :src="assetPaths.images.missionVision" alt="Twee personen onder maanlicht" />
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
     </section>
   </main>
 
@@ -112,40 +119,28 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
 import { assetPaths } from '../config/asset-paths';
-
-const heroStyle = computed(() => {
-  const heroImage = assetPaths.images.aboutHeroBackground || assetPaths.images.heroBackground;
-
-  if (!heroImage) {
-    return {};
-  }
-
-  return {
-    '--about-hero-image': `url(${heroImage})`
-  };
-});
 </script>
 
 <style scoped>
 .about-hero {
-  min-height: clamp(13rem, 22vw, 17.5rem);
+  min-height: clamp(15rem, 26vw, 20rem);
   display: grid;
-  align-items: end;
-  padding: var(--space-40) var(--space-0);
-  background:
-    var(--about-hero-image, none) center / cover no-repeat,
-    linear-gradient(120deg, var(--color-surface-soft) 0%, var(--color-surface-light) 100%);
+  align-items: center;
+  padding: var(--space-56) 0 var(--space-32);
+  position: relative;
+  overflow: visible;
 }
 
 .about-hero-inner {
   display: grid;
-  gap: var(--space-24);
-  padding-bottom: var(--space-8);
+  gap: var(--space-8);
+  position: relative;
+  z-index: 2;
+  max-width: none;
 }
 
 .breadcrumb {
@@ -169,16 +164,58 @@ const heroStyle = computed(() => {
 
 .about-title {
   margin: 0;
-  color: var(--color-text);
-  font-family: var(--font-ambella);
+  color: var(--color-primary-deep);
+  font-family: var(--font-brand);
   font-size: var(--type-landing-h1-size);
   font-weight: var(--type-h1-weight);
   line-height: var(--type-landing-h1-line-height);
-  letter-spacing: var(--type-h1-letter-spacing);
+  letter-spacing: 0.02em;
 }
 
-.story-section {
-  background: var(--color-page);
+.about-hero-art {
+  position: absolute;
+  right: min(-20rem, -15vw);
+  top: 53%;
+  transform: translateY(-50%);
+  width: min(56vw, 50rem);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.about-hero-art img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.25;
+}
+
+.about-stack {
+  width: min(100% - 2 * var(--page-gutter), var(--container-max));
+  margin: var(--space-48) auto var(--space-80);
+  background: var(--color-surface-light);
+  border-radius: var(--radius-48);
+  padding: var(--space-32) 0;
+  box-shadow: 0 30px 60px rgba(73, 55, 108, 0.12);
+  position: relative;
+  z-index: 2;
+}
+
+.about-stack .page-section {
+  padding: var(--space-40) 0;
+}
+
+.about-stack .page-section:first-child {
+  padding-top: var(--space-48);
+}
+
+.about-stack .page-section:last-child {
+  padding-bottom: var(--space-48);
+}
+
+.story-section,
+.what-section,
+.values-section {
+  background: transparent;
 }
 
 .story-grid {
@@ -190,7 +227,7 @@ const heroStyle = computed(() => {
 
 .story-image-wrap {
   margin: 0;
-  border-radius: var(--radius-12);
+  border-radius: var(--radius-16);
   overflow: hidden;
 }
 
@@ -221,15 +258,15 @@ const heroStyle = computed(() => {
 
 .what-row {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: start;
-  gap: var(--space-16);
+  gap: var(--space-24);
 }
 
 .what-thumb {
   width: clamp(7rem, 22vw, 10rem);
   aspect-ratio: 5 / 6;
-  border-radius: var(--radius-12);
+  border-radius: var(--radius-16);
   object-fit: cover;
 }
 
@@ -269,7 +306,7 @@ const heroStyle = computed(() => {
   margin-top: var(--space-24);
   width: 100%;
   aspect-ratio: 5 / 4;
-  border-radius: var(--radius-12);
+  border-radius: var(--radius-16);
   background: var(--color-white);
   overflow: hidden;
 }
@@ -283,16 +320,47 @@ const heroStyle = computed(() => {
 
 @media (max-width: 48rem) {
   .about-hero {
-    min-height: 10rem;
-    padding: var(--space-24) var(--space-0);
+    min-height: 11.5rem;
+    padding: var(--space-32) 0 var(--space-24);
   }
 
   .about-hero-inner {
-    gap: var(--space-4);
+    gap: var(--space-8);
+    max-width: 100%;
   }
 
   .breadcrumb {
     display: none;
+  }
+
+  .about-hero-art {
+    right: -36%;
+    top: 58%;
+    width: min(28rem, 90vw);
+  }
+
+  .about-stack {
+    margin: 24px var(--page-gutter) var(--space-64);
+    width: auto;
+    border-radius: var(--radius-48);
+    padding: 24px;
+  }
+
+  .about-stack .section-container {
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  .about-stack .page-section {
+    padding: 24px 0;
+  }
+
+  .about-stack .page-section:first-child {
+    padding-top: 0;
+  }
+
+  .about-stack .page-section:last-child {
+    padding-bottom: 24px;
   }
 
   .story-grid {
@@ -309,8 +377,8 @@ const heroStyle = computed(() => {
   }
 
   .what-row {
-    grid-template-columns: auto 1fr;
-    gap: var(--space-8);
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
   }
 
   .values-heading {

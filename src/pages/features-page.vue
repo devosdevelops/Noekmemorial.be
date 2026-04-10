@@ -43,10 +43,14 @@
                 <span class="step-circle">{{ step.number }}</span>
                 <div class="step-copy">
                   <p class="step-title">{{ step.title }}</p>
-                  <p class="step-text">{{ step.subtitle }}</p>
+                  <p v-if="step.subtitle" class="step-text">{{ step.subtitle }}</p>
                 </div>
               </li>
             </ol>
+
+            <div class="how-list-cta">
+              <base-button href="/toon-je-interesse" label="Toon je interesse" block-mobile />
+            </div>
           </div>
 
           <div class="how-media" v-scroll-reveal="{ delay: 60, origin: 'right' }">
@@ -55,7 +59,9 @@
               <span class="play-badge" aria-hidden="true">▶</span>
             </figure>
 
-            <base-button href="/toon-je-interesse" label="Boek een demo" block-mobile />
+            <figure v-if="howLogo" class="how-logo">
+              <img :src="howLogo" alt="Noek logo" />
+            </figure>
           </div>
         </div>
       </section>
@@ -126,6 +132,7 @@ import { assetPaths } from '../config/asset-paths';
 const activeSlide = ref(0);
 
 const videoPoster = computed(() => assetPaths.images.featuresVideoThumb || '');
+const howLogo = computed(() => assetPaths.logos.main || '');
 const previewIcon = computed(() => assetPaths.icons.previewSection || '');
 
 const screens = computed(() => [
@@ -174,10 +181,10 @@ const featureItems = computed(() => [
 ]);
 
 const steps = [
-  { number: 1, title: 'Kies een template', subtitle: 'Lorem ipsum' },
-  { number: 2, title: 'Maak je ruimte', subtitle: 'Lorem ipsum' },
-  { number: 3, title: 'Upload de ruimte', subtitle: 'Lorem ipsum' },
-  { number: 4, title: 'Deel op sociale media of email', subtitle: 'Lorem ipsum' }
+  { number: 1, title: 'Kies een template', subtitle: '' },
+  { number: 2, title: 'Maak je herdenkingsruimte', subtitle: '' },
+  { number: 3, title: 'Upload de herdenkingsruimte', subtitle: '' },
+  { number: 4, title: 'Deel op sociale media of email', subtitle: '' }
 ];
 </script>
 
@@ -315,7 +322,11 @@ const steps = [
 
 .how-list {
   display: grid;
-  gap: var(--space-24);
+  gap: var(--space-16);
+}
+
+.how-list-cta {
+  margin-top: var(--space-16);
 }
 
 .how-list ol {
@@ -337,7 +348,7 @@ const steps = [
   width: 1.75rem;
   height: 1.75rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(63, 44, 117, 0.7);
+  border: 2px solid rgba(63, 44, 117, 0.7);
   color: var(--color-primary-deep);
   display: grid;
   place-items: center;
@@ -371,6 +382,20 @@ const steps = [
 .how-media {
   display: grid;
   gap: var(--space-24);
+}
+
+.how-logo {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.how-logo img {
+  width: min(100%, 30rem);
+  height: auto;
+  max-height: 18rem;
+  object-fit: contain;
 }
 
 .video-card {
@@ -538,6 +563,13 @@ const steps = [
 
   .how-layout {
     grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .how-logo img {
+    width: min(100%, 30rem);
+    height: auto;
+    max-height: 18rem;
   }
 }
 

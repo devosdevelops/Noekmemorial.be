@@ -7,13 +7,10 @@ export const assetPaths = {
     // mark: '/assets/logos/noek-mark.svg'
   },
   images: {
-    heroBackground: '/assets/images/banner.png',
     howItWorksThumb: '/assets/images/aboutus.png',
     missionVision: '/assets/images/vision.jpg',
     missionMission: '/assets/images/mission.jpg',
-    faq: '/assets/images/faq.png',
     hands: '/assets/images/hands.jpg',
-    featuresHero: '/assets/images/faq.png',
     featuresVideoThumb: '',
     featuresPreviewOne: '/assets/images/preview-1.jpg',
     featuresPreviewTwo: '/assets/images/preview-2.jpg',
@@ -21,7 +18,6 @@ export const assetPaths = {
     featuresPreviewFour: '/assets/images/preview-4.jpg',
     featuresPreviewFive: '/assets/images/preview-5.jpg'
     // Example:
-    // heroBackground: '/assets/images/hero-bg.webp',
     // howItWorksThumb: '/assets/images/how-it-works-video-cover.jpg',
     // missionVision: '/assets/images/mission-vision.jpg',
     // missionMission: '/assets/images/mission-mission.jpg'
@@ -33,9 +29,5 @@ export const assetPaths = {
     featurePersonalized: '/assets/icons/personaliseer.svg',
     featureBrowser: '/assets/icons/3d.svg',
     previewSection: '/assets/icons/preview.svg'
-  },
-  fonts: {
-    ambellaRegularTtf: '/fonts/Ambella-nAy9O.ttf',
-    ambellaItalicTtf: '/fonts/AmbellaItalic-lxWRw.ttf'
   }
 };

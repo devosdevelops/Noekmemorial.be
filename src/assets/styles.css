@@ -1,28 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import './alpino.css';
 
-@font-face {
-  font-family: 'Ambella';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/Ambella-nAy9O.ttf') format('truetype');
-  /* Example pathing to replace:
-     src: url('/fonts/ambella-regular.woff2') format('woff2'),
-          url('/fonts/ambella-regular.woff') format('woff'); */
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ambella';
-  font-style: italic;
-  font-weight: 400;
-  src: url('/fonts/AmbellaItalic-lxWRw.ttf') format('truetype');
-  /* Example pathing to replace:
-     src: url('/fonts/ambella-italic.woff2') format('woff2'),
-          url('/fonts/ambella-italic.woff') format('woff'); */
-  font-display: swap;
-}
-
 :root {
   --color-page: #fefbec;
   --color-surface-light: #ffffff;

@@ -311,9 +311,6 @@ import { assetPaths } from '../config/asset-paths';
 
 .value-text {
   color: var(--color-text);
-}
-
-.value-text {
   margin: 0;
   margin-bottom: auto;
 }

@@ -1,7 +1,7 @@
 <template>
   <site-header />
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <hero-section />
 
     <section class="home-stack" aria-label="Noek informatie">

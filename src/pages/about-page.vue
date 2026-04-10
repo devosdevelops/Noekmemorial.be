@@ -1,7 +1,7 @@
 <template>
   <site-header />
 
-  <main class="about-page">
+  <main id="main-content" tabindex="-1" class="about-page">
     <section class="about-hero" aria-labelledby="about-title" v-scroll-reveal>
       <div class="section-container about-hero-inner" v-scroll-reveal="{ delay: 40 }">
         <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&gt;</span> <span>Over ons</span></p>

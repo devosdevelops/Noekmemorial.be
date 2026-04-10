@@ -1,7 +1,7 @@
 <template>
   <site-header />
 
-  <main class="contact-page">
+  <main id="main-content" tabindex="-1" class="contact-page">
     <section class="contact-hero" aria-labelledby="contact-title" v-scroll-reveal>
       <div class="section-container contact-hero-inner" v-scroll-reveal="{ delay: 40 }">
         <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&gt;</span> <span>Contacteer ons</span></p>

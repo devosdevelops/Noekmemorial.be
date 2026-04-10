@@ -1,5 +1,7 @@
 <template>
   <header class="site-header" id="top">
+    <a class="skip-link" href="#main-content">Sla navigatie over</a>
+
     <div class="section-container header-row">
       <a href="/" class="logo-link" aria-label="Noek home">
         <site-logo :compact="isCompactLogo" src="/assets/logos/noek-logo-name.svg" />
@@ -142,6 +144,30 @@ watch(menuOpen, (isOpen) => {
   z-index: 30;
   background: transparent;
   padding: var(--space-16) 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-16);
+  top: 0;
+  transform: translateY(-140%);
+  z-index: 40;
+  background: var(--color-white);
+  color: var(--color-primary-deep);
+  border: 2px solid var(--color-primary-deep);
+  border-radius: var(--radius-12);
+  padding: var(--space-8) var(--space-16);
+  font-family: var(--font-poppins);
+  font-size: var(--type-small-size);
+  font-weight: 600;
+  line-height: var(--type-small-line-height);
+  transition: transform 200ms ease-out;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(var(--space-8));
+  outline: none;
 }
 
 .header-row {

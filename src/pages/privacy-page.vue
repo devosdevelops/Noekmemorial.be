@@ -1,7 +1,7 @@
 <template>
   <site-header />
 
-  <main class="privacy-page">
+  <main id="main-content" tabindex="-1" class="privacy-page">
     <section class="privacy-hero" aria-labelledby="privacy-title" v-scroll-reveal>
       <div class="section-container privacy-hero-inner" v-scroll-reveal="{ delay: 40 }">
         <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&gt;</span> <span>Privacybeleid</span></p>

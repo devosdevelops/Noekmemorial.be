@@ -1,7 +1,7 @@
 <template>
   <site-header />
 
-  <main class="interest-page">
+  <main id="main-content" tabindex="-1" class="interest-page">
     <section class="interest-hero" aria-labelledby="interest-title" v-scroll-reveal>
       <div class="section-container interest-hero-inner" v-scroll-reveal="{ delay: 40 }">
         <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&gt;</span> <span>Toon je interesse</span></p>

@@ -92,7 +92,7 @@ import BaseButton from './base-button.vue';
   opacity: 0.25;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 48rem) {
   .hero-section {
     padding: var(--space-40) 0 var(--space-32);
   }
@@ -111,12 +111,11 @@ import BaseButton from './base-button.vue';
 
   .hero-art {
     position: absolute;
-    right: -28%;
-    top: 38%;
-    width: min(30rem, 92vw);
+    right: -36%;
+    top: 58%;
+    width: min(28rem, 90vw);
     z-index: 1;
     pointer-events: none;
-    justify-items: end;
   }
 }
 

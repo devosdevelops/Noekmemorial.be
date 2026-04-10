@@ -89,7 +89,7 @@
   --radius-48: 3rem;
   --radius-pill: 999px;
 
-  --container-max: 76rem;
+  --container-max: 87.5rem;
   --page-gutter: var(--space-16);
 }
 
@@ -111,6 +111,7 @@ body {
   width: 100%;
   max-width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
   font-family: var(--font-poppins);
   font-size: var(--type-body-size);
   line-height: var(--type-body-line-height);

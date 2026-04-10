@@ -75,10 +75,9 @@ defineProps({
 @media (max-width: 40rem) {
   .mission-card {
     height: auto;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-16);
-    align-items: center;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .mission-image {
@@ -86,15 +85,7 @@ defineProps({
   }
 
   .mission-title {
-    grid-column: 1 / -1;
-  }
-
-  .mission-card.is-reversed .mission-image {
-    order: 2;
-  }
-
-  .mission-card.is-reversed .mission-text {
-    order: 1;
+    width: 100%;
   }
 }
 </style>

@@ -138,7 +138,7 @@ watch(menuOpen, (isOpen) => {
 
 <style scoped>
 .site-header {
-  --header-height: 7rem;
+  --header-height: 6rem;
   position: sticky;
   top: 0;
   z-index: 30;
@@ -175,11 +175,11 @@ watch(menuOpen, (isOpen) => {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  min-height: 5.5rem;
+  min-height: 4.75rem;
   gap: var(--space-24);
   background: rgba(255, 255, 255, 0.85);
   border-radius: 999px;
-  padding: 40px;
+  padding: 28px 36px;
   box-shadow: 0 18px 30px rgba(73, 55, 108, 0.15);
   backdrop-filter: blur(8px);
 }
@@ -337,12 +337,12 @@ watch(menuOpen, (isOpen) => {
 
 @media (max-width: 70rem) {
   .header-row {
-    min-height: 4.75rem;
-    padding: 16px 40px;
+    min-height: 4.25rem;
+    padding: 12px 32px;
   }
 
   .site-header {
-    --header-height: 6rem;
+    --header-height: 5.25rem;
   }
 
   .desktop-nav,

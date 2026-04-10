@@ -2,121 +2,115 @@
   <site-header />
 
   <main class="contact-page">
-    <section class="contact-hero" :style="heroStyle" aria-labelledby="contact-title" v-scroll-reveal>
-      <div class="section-container contact-hero-inner">
-        <p class="breadcrumb" v-scroll-reveal="{ delay: 20 }">
-          <a href="/">Home</a>
-          <span aria-hidden="true">&gt;</span>
-          <span>Contacteer ons</span>
-        </p>
+    <section class="contact-hero" aria-labelledby="contact-title" v-scroll-reveal>
+      <div class="section-container contact-hero-inner" v-scroll-reveal="{ delay: 40 }">
+        <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&gt;</span> <span>Contacteer ons</span></p>
+        <h1 id="contact-title" class="contact-title">Contacteer ons</h1>
+      </div>
 
-        <h1 id="contact-title" class="contact-title" v-scroll-reveal="{ delay: 40 }">Contacteer ons</h1>
-
-        <p class="body-text hero-copy mobile-only" v-scroll-reveal="{ delay: 80 }">
-          Heb je een vraag over onze services of wil je weten wat we voor elkaar zouden kunnen betekenen? Aarzel dan
-          zeker niet om ons een berichtje te sturen!
-        </p>
-
-        <a class="faq-link mobile-only" href="/#faq" v-scroll-reveal="{ delay: 110 }">Bekijk zeker ook onze veelgestelde vragen</a>
-
+      <div class="contact-hero-art" aria-hidden="true">
+        <img src="/assets/graphics/chrysant.svg" alt="" />
       </div>
     </section>
 
-    <section class="contact-intro" aria-label="Contactintro" v-scroll-reveal>
-      <div class="section-container contact-intro-inner" v-scroll-reveal="{ delay: 20 }">
-        <p class="body-text hero-copy desktop-copy">
-          Heb je een vraag over onze services of wil je weten wat we voor elkaar zouden kunnen betekenen? Aarzel dan
-          zeker niet om ons een berichtje te sturen!
-        </p>
-        <a class="faq-link" href="/#faq">Bekijk zeker ook onze veelgestelde vragen</a>
-      </div>
-    </section>
-
-    <section class="contact-cta" aria-label="Contactopties" v-scroll-reveal>
-      <div class="section-container contact-cta-inner" v-scroll-reveal="{ delay: 30 }">
-        <p class="contact-cta-copy">
-          Je kan ons contacteren via het contactformulier of door ons rechtstreeks te mailen. Wil je Noek in actie zien?
-          Boek dan een demo met ons.
-        </p>
-
-        <div class="hero-actions" aria-label="Contactacties">
-          <a class="email-chip" href="mailto:info@noek.be" aria-label="Stuur een e-mail naar info@noek.be">
-            <span class="email-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img" focusable="false">
-                <path
-                  d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25zm2.14-.9a.75.75 0 0 0-.09 1.11l6.45 5.4a.75.75 0 0 0 .96 0l6.45-5.4a.75.75 0 1 0-.96-1.15L12 10.92z"
-                />
-              </svg>
-            </span>
-            <span class="email-text">info@noek.be</span>
-          </a>
-
-          <base-button href="/toon-je-interesse" label="Toon je interesse" variant="outline" class="hero-read-more" block-mobile />
+    <section class="contact-stack" aria-label="Contact inhoud">
+      <section class="page-section contact-intro-section" aria-label="Contactintro" v-scroll-reveal>
+        <div class="section-container contact-intro-inner">
+          <p class="contact-intro-copy">
+            Heb je een vraag over onze services of wil je weten wat we voor elkaar zouden kunnen betekenen? Aarzel dan
+            zeker niet om ons een berichtje te sturen.
+          </p>
+          <a class="faq-link" href="/#faq">Bekijk zeker ook onze veelgestelde vragen</a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="contact-form-section" aria-labelledby="form-heading" v-scroll-reveal>
-      <div class="section-container form-shell" v-scroll-reveal="{ delay: 30 }">
-        <h2 id="form-heading" class="sr-only">Contactformulier</h2>
-        <p class="form-lead">Vul het onderstaande contactformulier in en wij helpen je graag.</p>
+      <section class="page-section contact-options-section" aria-label="Contactopties" v-scroll-reveal>
+        <div class="section-container contact-options-inner">
+          <p class="contact-options-copy">
+            Je kan ons contacteren via het contactformulier of door ons rechtstreeks te mailen. Wil je Noek in actie
+            zien? Boek dan een demo met ons.
+          </p>
 
-        <form class="contact-form" @submit.prevent="handleSubmit">
-          <div class="name-row">
+          <div class="contact-actions" aria-label="Contactacties">
+            <a class="email-chip" href="mailto:info@noek.be" aria-label="Stuur een e-mail naar info@noek.be">
+              <span class="email-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img" focusable="false">
+                  <path
+                    d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25zm2.14-.9a.75.75 0 0 0-.09 1.11l6.45 5.4a.75.75 0 0 0 .96 0l6.45-5.4a.75.75 0 1 0-.96-1.15L12 10.92z"
+                  />
+                </svg>
+              </span>
+              <span class="email-text">info@noek.be</span>
+            </a>
+
+            <base-button href="/toon-je-interesse" label="Toon je interesse" variant="outline" block-mobile />
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section contact-form-section" aria-labelledby="form-heading" v-scroll-reveal>
+        <div class="section-container form-shell" v-scroll-reveal="{ delay: 30 }">
+          <h2 id="form-heading" class="section-heading">Contactformulier</h2>
+          <p class="form-lead">Vul het onderstaande contactformulier in en wij helpen je graag.</p>
+
+          <form class="contact-form" @submit.prevent="handleSubmit">
+            <div class="name-row">
+              <div class="field-group">
+                <label class="field-label" for="first-name">
+                  Contact persoon<span class="required-mark" aria-hidden="true">*</span>
+                  <span class="sr-only">verplicht</span>
+                </label>
+                <input id="first-name" name="firstName" type="text" autocomplete="given-name" placeholder="Voornaam" required v-model="firstName" />
+              </div>
+
+              <div class="field-group">
+                <label class="field-label sr-only" for="last-name">Achternaam</label>
+                <input id="last-name" name="lastName" type="text" autocomplete="family-name" placeholder="Naam" required v-model="lastName" />
+              </div>
+            </div>
+
             <div class="field-group">
-              <label class="field-label" for="first-name">
-                Contact persoon<span class="required-mark" aria-hidden="true">*</span>
+              <label class="field-label" for="email-address">
+                E-mail <span class="required-mark" aria-hidden="true">*</span>
                 <span class="sr-only">verplicht</span>
               </label>
-              <input id="first-name" name="firstName" type="text" autocomplete="given-name" placeholder="Voornaam" required v-model="firstName" />
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="naam@company.com"
+                inputmode="email"
+                required
+                v-model="email"
+              />
             </div>
 
-            <div class="field-group last-name-field">
-              <label class="field-label sr-only" for="last-name">Achternaam</label>
-              <input id="last-name" name="lastName" type="text" autocomplete="family-name" placeholder="Naam" required v-model="lastName" />
+            <div class="field-group">
+              <label class="field-label" for="message-body">
+                Reden voor aanvraag<span class="required-mark" aria-hidden="true">*</span>
+                <span class="sr-only">verplicht</span>
+              </label>
+              <textarea
+                id="message-body"
+                name="message"
+                placeholder="Type hier uw bericht..."
+                maxlength="800"
+                required
+                v-model="message"
+              ></textarea>
             </div>
-          </div>
 
-          <div class="field-group">
-            <label class="field-label" for="email-address">
-              E-mail <span class="required-mark" aria-hidden="true">*</span>
-              <span class="sr-only">verplicht</span>
-            </label>
-            <input
-              id="email-address"
-              name="email"
-              type="email"
-              autocomplete="email"
-              placeholder="naam@company.com"
-              inputmode="email"
-              required
-              v-model="email"
-            />
-          </div>
+            <p v-if="charsRemaining <= 100" class="character-limit">{{ charsRemaining }} karakters resterend</p>
 
-          <div class="field-group">
-            <label class="field-label" for="message-body">
-              Reden voor aanvraag<span class="required-mark" aria-hidden="true">*</span>
-              <span class="sr-only">verplicht</span>
-            </label>
-            <textarea
-              id="message-body"
-              name="message"
-              placeholder="Type hier uw bericht..."
-              maxlength="800"
-              required
-              v-model="message"
-            ></textarea>
-          </div>
-
-          <p v-if="charsRemaining <= 100" class="character-limit">{{ charsRemaining }} karakters resterend</p>
-
-          <div class="submit-row">
-            <button type="submit" class="submit-button" :disabled="!isFormValid || isSubmitting">Verzenden</button>
-          </div>
-        </form>
-      </div>
+            <div class="submit-row">
+              <button type="submit" class="submit-button" :disabled="!isFormValid || isSubmitting">Verzenden</button>
+            </div>
+          </form>
+        </div>
+      </section>
     </section>
+
     <status-toast :open="toastOpen" :variant="toastVariant" :message="toastMessage" />
   </main>
 
@@ -133,7 +127,6 @@ import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
 import StatusToast from '../components/status-toast.vue';
-import { assetPaths } from '../config/asset-paths';
 import { EMAILJS_CONFIG, createRequestId, createRequestTimestamp } from '../config/emailjs';
 
 const firstName = ref('');
@@ -225,70 +218,93 @@ const handleSubmit = async () => {
     isSubmitting.value = false;
   }
 };
-
-const heroStyle = computed(() => {
-  if (!assetPaths.images.heroBackground) {
-    return {};
-  }
-
-  return {
-    '--contact-hero-image': `url(${assetPaths.images.heroBackground})`
-  };
-});
 </script>
 
 <style scoped>
 .contact-hero {
-  min-height: clamp(13rem, 22vw, 17.5rem);
+  min-height: clamp(15rem, 26vw, 20rem);
   display: grid;
-  align-items: end;
-  padding: var(--space-40) var(--space-0);
-  background:
-    linear-gradient(90deg, rgba(247, 240, 248, 0.38) 0%, rgba(238, 226, 245, 0.24) 100%),
-    var(--contact-hero-image, none) center / cover no-repeat;
+  align-items: center;
+  padding: var(--space-56) 0 var(--space-32);
+  position: relative;
+  overflow: visible;
 }
 
 .contact-hero-inner {
   display: grid;
-  gap: var(--space-24);
-  padding-bottom: var(--space-8);
+  gap: var(--space-8);
+  position: relative;
+  z-index: 2;
+  max-width: none;
 }
 
 .breadcrumb {
   margin: 0;
   display: inline-flex;
-  gap: var(--space-8);
   align-items: center;
+  gap: var(--space-8);
   width: fit-content;
   color: var(--color-text);
   font-family: var(--font-brand);
   font-size: var(--type-small-size);
+  font-weight: 500;
   line-height: var(--type-small-line-height);
 }
 
 .breadcrumb a {
-  min-height: 2rem;
   display: inline-flex;
   align-items: center;
+  min-height: 2rem;
 }
 
 .contact-title {
   margin: 0;
-  color: var(--color-text);
-  font-family: var(--font-ambella);
+  color: var(--color-primary-deep);
+  font-family: var(--font-brand);
   font-size: var(--type-landing-h1-size);
-  line-height: var(--type-landing-h1-line-height);
-  letter-spacing: var(--type-h1-letter-spacing);
   font-weight: var(--type-h1-weight);
+  line-height: var(--type-landing-h1-line-height);
+  letter-spacing: 0.02em;
 }
 
-.mobile-only {
-  display: none;
+.contact-hero-art {
+  position: absolute;
+  right: min(-20rem, -15vw);
+  top: 53%;
+  transform: translateY(-50%);
+  width: min(56vw, 50rem);
+  z-index: 0;
+  pointer-events: none;
 }
 
-.contact-intro {
-  padding: var(--space-24) var(--space-0);
-  background: #f8f8f8;
+.contact-hero-art img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.25;
+}
+
+.contact-stack {
+  width: min(100% - 2 * var(--page-gutter), var(--container-max));
+  margin: var(--space-48) auto var(--space-80);
+  background: var(--color-surface-light);
+  border-radius: var(--radius-48);
+  padding: var(--space-32) 0;
+  box-shadow: 0 30px 60px rgba(73, 55, 108, 0.12);
+  position: relative;
+  z-index: 2;
+}
+
+.contact-stack .page-section {
+  padding: var(--space-40) 0;
+}
+
+.contact-stack .page-section:first-child {
+  padding-top: var(--space-48);
+}
+
+.contact-stack .page-section:last-child {
+  padding-bottom: var(--space-48);
 }
 
 .contact-intro-inner {
@@ -296,21 +312,36 @@ const heroStyle = computed(() => {
   gap: var(--space-8);
 }
 
-.desktop-copy {
-  max-width: 58rem;
+.contact-intro-copy {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--color-text);
+  font-family: var(--font-poppins);
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  line-height: var(--type-body-line-height);
 }
 
-.contact-cta {
-  padding: var(--space-24) var(--space-0);
-  background: #f5efe6;
+.faq-link {
+  width: fit-content;
+  color: var(--color-primary);
+  font-family: var(--font-poppins);
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-line-height);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
-.contact-cta-inner {
+.contact-options-section {
+  background: var(--color-surface-soft);
+}
+
+.contact-options-inner {
   display: grid;
-  gap: var(--space-16);
+  gap: var(--space-24);
 }
 
-.contact-cta-copy {
+.contact-options-copy {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-poppins);
@@ -318,20 +349,7 @@ const heroStyle = computed(() => {
   line-height: var(--type-body-line-height);
 }
 
-.hero-copy {
-  max-width: 39rem;
-  color: var(--color-text);
-}
-
-.faq-link {
-  width: fit-content;
-  color: var(--color-primary);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
-
-.hero-actions {
+.contact-actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-16);
@@ -342,7 +360,7 @@ const heroStyle = computed(() => {
   display: inline-flex;
   align-items: center;
   border-radius: var(--radius-12);
-  border: 4px solid var(--color-primary);
+  border: 2px solid var(--color-primary);
   background: var(--color-white);
   overflow: hidden;
 }
@@ -358,27 +376,18 @@ const heroStyle = computed(() => {
 }
 
 .email-icon svg {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.25rem;
+  height: 1.25rem;
   fill: currentColor;
 }
 
 .email-text {
   padding: var(--space-8) var(--space-16);
+  color: var(--color-primary);
   font-family: var(--font-brand);
   font-size: var(--type-button-size);
-  line-height: var(--type-button-line-height);
   font-weight: var(--type-button-weight);
-  color: var(--color-primary);
-}
-
-.hero-read-more {
-  min-height: 3rem;
-}
-
-.contact-form-section {
-  padding: var(--space-48) var(--space-0) var(--space-64);
-  background: linear-gradient(110deg, #f9f7fb 0%, #ece7f7 100%);
+  line-height: var(--type-button-line-height);
 }
 
 .form-shell {
@@ -396,14 +405,13 @@ const heroStyle = computed(() => {
 
 .contact-form {
   display: grid;
-  gap: var(--space-24);
+  gap: var(--space-32);
 }
 
 .name-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-24);
-  align-items: end;
+  gap: var(--space-32);
 }
 
 .field-group {
@@ -413,7 +421,7 @@ const heroStyle = computed(() => {
 
 .field-label {
   margin: 0;
-  color: #23212f;
+  color: var(--color-primary-deep);
   font-family: var(--font-brand);
   font-size: var(--type-h4-size);
   line-height: var(--type-h4-line-height);
@@ -427,12 +435,12 @@ const heroStyle = computed(() => {
 input,
 textarea {
   width: 100%;
-  border: 0;
+  border: 1px solid rgba(73, 55, 108, 0.2);
   border-radius: 10px;
   padding: var(--space-8) var(--space-16);
-  color: var(--color-white);
-  background: #a5a9b3;
-  font-family: var(--font-brand);
+  color: var(--color-text);
+  background: #f9f6fd;
+  font-family: var(--font-poppins);
   font-size: var(--type-link-size);
   line-height: var(--type-link-line-height);
 }
@@ -448,7 +456,7 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(46, 40, 80, 0.6);
 }
 
 input:focus-visible,
@@ -463,7 +471,7 @@ textarea:focus-visible,
 .character-limit {
   margin: 0;
   color: #ac3b27;
-  font-family: var(--font-brand);
+  font-family: var(--font-poppins);
   font-size: var(--type-small-size);
   line-height: var(--type-small-line-height);
 }
@@ -478,38 +486,29 @@ textarea:focus-visible,
   min-height: 3rem;
   padding: var(--space-8) var(--space-24);
   border-radius: var(--radius-12);
-  border: 2px solid var(--color-primary);
-  background: var(--color-primary);
+  border: none;
+  background: var(--gradient-primary);
   color: var(--color-white);
   font-family: var(--font-brand);
   font-size: var(--type-button-size);
   font-weight: var(--type-button-weight);
   line-height: var(--type-button-line-height);
   cursor: pointer;
-  transition:
-    transform 300ms ease-out,
-    border-color 300ms ease-out,
-    color 300ms ease-out,
-    background-color 300ms ease-out;
+  transition: transform 300ms ease-out, opacity 300ms ease-out;
 }
 
 .submit-button:hover {
   transform: translateY(-1px);
-  border-color: #7f60df;
-  background: #7f60df;
 }
 
 .submit-button:active {
-  transform: scale(0.97);
-  border-color: rgba(23, 16, 44, 0.92);
-  background: rgba(23, 16, 44, 0.92);
-  color: var(--color-primary);
+  transform: scale(0.98);
 }
 
 .submit-button:disabled {
-  border: 4px solid #ac3b27;
+  border: 2px solid rgba(73, 55, 108, 0.35);
   background: transparent;
-  color: #a5a9b3;
+  color: rgba(73, 55, 108, 0.6);
   cursor: not-allowed;
   transform: none;
 }
@@ -525,69 +524,51 @@ textarea:focus-visible,
   border: 0;
 }
 
-@media (max-width: 30rem) {
+@media (max-width: 48rem) {
   .contact-hero {
-    min-height: 14rem;
-    padding: var(--space-16) var(--space-0) var(--space-40);
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(155deg, #f8f5f1 0%, #f8f2f3 58%, #f0ecf7 100%);
+    min-height: 11.5rem;
+    padding: var(--space-32) 0 var(--space-24);
   }
 
   .contact-hero-inner {
-    gap: var(--space-16);
-  }
-
-  .contact-hero::before {
-    content: '';
-    position: absolute;
-    right: -2rem;
-    top: 7.5rem;
-    width: 12.5rem;
-    height: 10.5rem;
-    background: rgba(244, 205, 204, 0.72);
-    clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 78%);
-    pointer-events: none;
-  }
-
-  .contact-hero::after {
-    content: '';
-    position: absolute;
-    right: -3.5rem;
-    top: 11rem;
-    width: 11rem;
-    height: 7rem;
-    background:
-      repeating-linear-gradient(
-        35deg,
-        transparent 0,
-        transparent 10px,
-        rgba(230, 81, 61, 0.22) 10px,
-        rgba(230, 81, 61, 0.22) 12px
-      );
-    opacity: 0.75;
-    pointer-events: none;
+    gap: var(--space-8);
   }
 
   .breadcrumb {
     display: none;
   }
 
-  .mobile-only {
-    display: block;
+  .contact-hero-art {
+    right: -36%;
+    top: 58%;
+    width: min(28rem, 90vw);
   }
 
-  .contact-title {
-    font-size: calc(var(--type-h1-size) + 0.2rem);
-    line-height: var(--type-h1-line-height);
-    letter-spacing: var(--type-h1-letter-spacing);
+  .contact-stack {
+    margin: 24px var(--page-gutter) var(--space-64);
+    width: auto;
+    border-radius: var(--radius-48);
+    padding: 24px;
   }
 
-  .hero-copy {
-    max-width: 32rem;
+  .contact-stack .section-container {
+    width: 100%;
+    padding-inline: 0;
   }
 
-  .hero-actions {
+  .contact-stack .page-section {
+    padding: 24px 0;
+  }
+
+  .contact-stack .page-section:first-child {
+    padding-top: 0;
+  }
+
+  .contact-stack .page-section:last-child {
+    padding-bottom: 24px;
+  }
+
+  .contact-actions {
     gap: var(--space-8);
   }
 
@@ -595,16 +576,17 @@ textarea:focus-visible,
     padding-right: var(--space-8);
   }
 
-  .contact-form-section {
-    padding-top: var(--space-40);
+  .name-row {
+    gap: var(--space-16);
   }
 
-  .name-row {
+  .contact-form {
     gap: var(--space-16);
   }
 
   .submit-button {
     min-width: auto;
+    width: 100%;
   }
 }
 

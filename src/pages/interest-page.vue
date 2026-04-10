@@ -2,147 +2,160 @@
   <site-header />
 
   <main class="interest-page">
-    <section class="interest-intro" aria-labelledby="interest-title" v-scroll-reveal>
-      <div class="section-container intro-inner" v-scroll-reveal="{ delay: 20 }">
-        <h1 id="interest-title" class="interest-title">Heb je interesse in Noek?</h1>
-        <p class="intro-copy">
-          We zijn momenteel ons platform aan het ontwikkelen. Heb je interesse om het later te gebruiken, updates te
-          ontvangen of ons te helpen met feedback? Laat hieronder je gegevens achter.
-        </p>
+    <section class="interest-hero" aria-labelledby="interest-title" v-scroll-reveal>
+      <div class="section-container interest-hero-inner" v-scroll-reveal="{ delay: 40 }">
+        <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&gt;</span> <span>Toon je interesse</span></p>
+        <h1 id="interest-title" class="interest-title">Toon je interesse</h1>
+      </div>
+
+      <div class="interest-hero-art" aria-hidden="true">
+        <img src="/assets/graphics/chrysant.svg" alt="" />
       </div>
     </section>
 
-    <section class="interest-form-section" aria-labelledby="interest-form-heading" v-scroll-reveal>
-      <div class="section-container form-shell" v-scroll-reveal="{ delay: 30 }">
-        <h2 id="interest-form-heading" class="sr-only">Interesseformulier</h2>
+    <section class="interest-stack" aria-label="Interesse inhoud">
+      <section class="page-section interest-intro-section" aria-label="Interesseintro" v-scroll-reveal>
+        <div class="section-container interest-intro-inner">
+          <p class="intro-copy">
+            We zijn momenteel ons platform aan het ontwikkelen. Heb je interesse om het later te gebruiken, updates te
+            ontvangen of ons te helpen met feedback? Laat hieronder je gegevens achter.
+          </p>
+        </div>
+      </section>
 
-        <form class="interest-form" @submit.prevent="handleSubmit">
-          <div class="field-group">
-            <label class="field-label" for="interest-first-name">
-              Naam<span class="required-mark" aria-hidden="true">*</span>
-              <span class="sr-only">verplicht</span>
-            </label>
+      <section class="page-section interest-form-section" aria-labelledby="interest-form-heading" v-scroll-reveal>
+        <div class="section-container form-shell" v-scroll-reveal="{ delay: 30 }">
+          <h2 id="interest-form-heading" class="section-heading">Interesseformulier</h2>
 
-            <div class="name-row">
-              <input
-                id="interest-first-name"
-                name="firstName"
-                type="text"
-                autocomplete="given-name"
-                placeholder="Voornaam"
-                required
-                v-model="firstName"
-              />
-              <input name="lastName" type="text" autocomplete="family-name" placeholder="Naam" required v-model="lastName" />
-            </div>
-          </div>
-
-          <fieldset class="field-group radio-group">
-            <legend class="field-label">
-              Ik ben...<span class="required-mark" aria-hidden="true">*</span>
-              <span class="sr-only">verplicht</span>
-            </legend>
-            <div class="radio-row" role="radiogroup" aria-label="Ik ben">
-              <label class="radio-option">
-                <input type="radio" name="profileType" value="individu" required v-model="profileType" />
-                <span class="radio-mark" aria-hidden="true"></span>
-                <span>Individu</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="profileType" value="bedrijf" required v-model="profileType" />
-                <span class="radio-mark" aria-hidden="true"></span>
-                <span>Bedrijf</span>
-              </label>
-            </div>
-          </fieldset>
-
-          <transition name="field-reveal">
-            <div class="field-group" v-if="showCompanyField">
-              <label class="field-label" for="company-name">
-                Naam van het bedrijf<span class="required-mark" aria-hidden="true">*</span>
+          <form class="interest-form" @submit.prevent="handleSubmit">
+            <div class="field-group">
+              <label class="field-label" for="interest-first-name">
+                Naam<span class="required-mark" aria-hidden="true">*</span>
                 <span class="sr-only">verplicht</span>
               </label>
-              <input
-                id="company-name"
-                name="companyName"
-                type="text"
-                autocomplete="organization"
-                placeholder="Naam bedrijf"
-                :required="showCompanyField"
-                v-model="companyName"
-              />
-            </div>
-          </transition>
 
-          <fieldset class="field-group radio-group">
-            <legend class="field-label">
-              Wil je updates ontvangen?<span class="required-mark" aria-hidden="true">*</span>
-              <span class="sr-only">verplicht</span>
-            </legend>
-            <div class="radio-row" role="radiogroup" aria-label="Wil je updates ontvangen">
-              <label class="radio-option">
-                <input type="radio" name="receiveUpdates" value="ja" required v-model="receiveUpdates" />
-                <span class="radio-mark" aria-hidden="true"></span>
-                <span>Ja</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="receiveUpdates" value="nee" required v-model="receiveUpdates" />
-                <span class="radio-mark" aria-hidden="true"></span>
-                <span>Nee</span>
-              </label>
+              <div class="name-row">
+                <input
+                  id="interest-first-name"
+                  name="firstName"
+                  type="text"
+                  autocomplete="given-name"
+                  placeholder="Voornaam"
+                  required
+                  v-model="firstName"
+                />
+                <input name="lastName" type="text" autocomplete="family-name" placeholder="Naam" required v-model="lastName" />
+              </div>
             </div>
-          </fieldset>
 
-          <fieldset class="field-group radio-group">
-            <legend class="field-label">
-              Mogen we je contacteren?<span class="required-mark" aria-hidden="true">*</span>
-              <span class="sr-only">verplicht</span>
-            </legend>
-            <p class="helper-copy">Bijvoorbeeld voor feedback of gebruikerstesten</p>
-            <div class="radio-row" role="radiogroup" aria-label="Mogen we je contacteren">
-              <label class="radio-option">
-                <input type="radio" name="allowContact" value="ja" required v-model="allowContact" />
-                <span class="radio-mark" aria-hidden="true"></span>
-                <span>Ja</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="allowContact" value="nee" required v-model="allowContact" />
-                <span class="radio-mark" aria-hidden="true"></span>
-                <span>Nee</span>
-              </label>
-            </div>
-          </fieldset>
-
-          <transition name="field-reveal">
-            <div class="field-group" v-if="showEmailField">
-              <label class="field-label" for="interest-email">
-                Emailadres<span class="required-mark" aria-hidden="true">*</span>
+            <fieldset class="field-group radio-group">
+              <legend class="field-label">
+                Ik ben...<span class="required-mark" aria-hidden="true">*</span>
                 <span class="sr-only">verplicht</span>
-              </label>
-              <input
-                id="interest-email"
-                name="email"
-                type="email"
-                autocomplete="email"
-                placeholder="naam@company.com"
-                inputmode="email"
-                :required="showEmailField"
-                v-model="interestEmail"
-              />
+              </legend>
+              <div class="radio-row" role="radiogroup" aria-label="Ik ben">
+                <label class="radio-option">
+                  <input type="radio" name="profileType" value="individu" required v-model="profileType" />
+                  <span class="radio-mark" aria-hidden="true"></span>
+                  <span>Individu</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="profileType" value="bedrijf" required v-model="profileType" />
+                  <span class="radio-mark" aria-hidden="true"></span>
+                  <span>Bedrijf</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <transition name="field-reveal">
+              <div class="field-group" v-if="showCompanyField">
+                <label class="field-label" for="company-name">
+                  Naam van het bedrijf<span class="required-mark" aria-hidden="true">*</span>
+                  <span class="sr-only">verplicht</span>
+                </label>
+                <input
+                  id="company-name"
+                  name="companyName"
+                  type="text"
+                  autocomplete="organization"
+                  placeholder="Naam bedrijf"
+                  :required="showCompanyField"
+                  v-model="companyName"
+                />
+              </div>
+            </transition>
+
+            <fieldset class="field-group radio-group">
+              <legend class="field-label">
+                Wil je updates ontvangen?<span class="required-mark" aria-hidden="true">*</span>
+                <span class="sr-only">verplicht</span>
+              </legend>
+              <div class="radio-row" role="radiogroup" aria-label="Wil je updates ontvangen">
+                <label class="radio-option">
+                  <input type="radio" name="receiveUpdates" value="ja" required v-model="receiveUpdates" />
+                  <span class="radio-mark" aria-hidden="true"></span>
+                  <span>Ja</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="receiveUpdates" value="nee" required v-model="receiveUpdates" />
+                  <span class="radio-mark" aria-hidden="true"></span>
+                  <span>Nee</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field-group radio-group">
+              <legend class="field-label">
+                Mogen we je contacteren?<span class="required-mark" aria-hidden="true">*</span>
+                <span class="sr-only">verplicht</span>
+              </legend>
+              <p class="helper-copy">Bijvoorbeeld voor feedback of gebruikerstesten</p>
+              <div class="radio-row" role="radiogroup" aria-label="Mogen we je contacteren">
+                <label class="radio-option">
+                  <input type="radio" name="allowContact" value="ja" required v-model="allowContact" />
+                  <span class="radio-mark" aria-hidden="true"></span>
+                  <span>Ja</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="allowContact" value="nee" required v-model="allowContact" />
+                  <span class="radio-mark" aria-hidden="true"></span>
+                  <span>Nee</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <transition name="field-reveal">
+              <div class="field-group" v-if="showEmailField">
+                <label class="field-label" for="interest-email">
+                  Emailadres<span class="required-mark" aria-hidden="true">*</span>
+                  <span class="sr-only">verplicht</span>
+                </label>
+                <input
+                  id="interest-email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="naam@company.com"
+                  inputmode="email"
+                  :required="showEmailField"
+                  v-model="interestEmail"
+                />
+              </div>
+            </transition>
+
+            <div class="field-group">
+              <label class="field-label" for="interest-message">Heb je nog opmerkingen?</label>
+              <textarea id="interest-message" name="message" placeholder="Type hier uw bericht..." v-model="interestMessage"></textarea>
             </div>
-          </transition>
 
-          <div class="field-group">
-            <label class="field-label" for="interest-message">Heb je nog opmerkingen?</label>
-            <textarea id="interest-message" name="message" placeholder="Type hier uw bericht..." v-model="interestMessage"></textarea>
-          </div>
-
-          <div class="submit-row">
-            <button type="submit" class="submit-button" :disabled="!isFormValid || isSubmitting">Verzenden</button>
-          </div>
-        </form>
-      </div>
+            <div class="submit-row">
+              <button type="submit" class="submit-button" :disabled="!isFormValid || isSubmitting">Verzenden</button>
+            </div>
+          </form>
+        </div>
+      </section>
     </section>
+
     <status-toast :open="toastOpen" :variant="toastVariant" :message="toastMessage" />
   </main>
 
@@ -273,88 +286,118 @@ const handleSubmit = async () => {
     isSubmitting.value = false;
   }
 };
-
 </script>
 
 <style scoped>
-.interest-intro {
-  position: relative;
-  overflow: hidden;
-  padding: var(--space-32) var(--space-0) var(--space-24);
-  background: #f8f5f1;
-}
-
-.interest-intro::before {
-  content: '';
-  position: absolute;
-  right: -2rem;
-  top: 9rem;
-  width: 14rem;
-  height: 12rem;
-  background: rgba(244, 205, 204, 0.78);
-  clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 78%);
-  pointer-events: none;
-}
-
-.interest-intro::after {
-  content: '';
-  position: absolute;
-  right: -3rem;
-  top: 13rem;
-  width: 12rem;
-  height: 8.5rem;
-  background:
-    repeating-linear-gradient(
-      35deg,
-      transparent 0,
-      transparent 10px,
-      rgba(230, 81, 61, 0.22) 10px,
-      rgba(230, 81, 61, 0.22) 12px
-    );
-  opacity: 0.75;
-  pointer-events: none;
-}
-
-.intro-inner {
-  position: relative;
-  z-index: 1;
+.interest-hero {
+  min-height: clamp(15rem, 26vw, 20rem);
   display: grid;
-  gap: var(--space-24);
+  align-items: center;
+  padding: var(--space-56) 0 var(--space-32);
+  position: relative;
+  overflow: visible;
+}
+
+.interest-hero-inner {
+  display: grid;
+  gap: var(--space-8);
+  position: relative;
+  z-index: 2;
+  max-width: none;
+}
+
+.breadcrumb {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  width: fit-content;
+  color: var(--color-text);
+  font-family: var(--font-brand);
+  font-size: var(--type-small-size);
+  font-weight: 500;
+  line-height: var(--type-small-line-height);
+}
+
+.breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
 }
 
 .interest-title {
   margin: 0;
-  max-width: 32rem;
-  color: #14121f;
-  font-family: var(--font-ambella);
+  color: var(--color-primary-deep);
+  font-family: var(--font-brand);
   font-size: var(--type-landing-h1-size);
-  line-height: var(--type-landing-h1-line-height);
-  letter-spacing: var(--type-h1-letter-spacing);
   font-weight: var(--type-h1-weight);
+  line-height: var(--type-landing-h1-line-height);
+  letter-spacing: 0.02em;
+}
+
+.interest-hero-art {
+  position: absolute;
+  right: min(-20rem, -15vw);
+  top: 53%;
+  transform: translateY(-50%);
+  width: min(56vw, 50rem);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.interest-hero-art img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.25;
+}
+
+.interest-stack {
+  width: min(100% - 2 * var(--page-gutter), var(--container-max));
+  margin: var(--space-48) auto var(--space-80);
+  background: var(--color-surface-light);
+  border-radius: var(--radius-48);
+  padding: var(--space-32) 0;
+  box-shadow: 0 30px 60px rgba(73, 55, 108, 0.12);
+  position: relative;
+  z-index: 2;
+}
+
+.interest-stack .page-section {
+  padding: var(--space-40) 0;
+}
+
+.interest-stack .page-section:first-child {
+  padding-top: var(--space-48);
+}
+
+.interest-stack .page-section:last-child {
+  padding-bottom: var(--space-48);
+}
+
+.interest-intro-inner {
+  display: grid;
+  gap: var(--space-8);
 }
 
 .intro-copy {
   margin: 0;
-  max-width: 35rem;
-  color: #1e1b28;
+  max-width: 64ch;
+  color: var(--color-text);
   font-family: var(--font-poppins);
   font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
   line-height: var(--type-body-line-height);
-}
-
-.interest-form-section {
-  padding: var(--space-48) var(--space-0) var(--space-64);
-  background: linear-gradient(110deg, #f9f7fb 0%, #ece7f7 100%);
 }
 
 .form-shell {
   display: grid;
-  gap: var(--space-16);
+  gap: var(--space-24);
 }
 
 .interest-form {
   display: grid;
-  gap: var(--space-16);
+  gap: var(--space-32);
 }
 
 .field-group {
@@ -367,7 +410,7 @@ const handleSubmit = async () => {
 
 .field-reveal-enter-active,
 .field-reveal-leave-active {
-  transition: opacity 500ms ease, transform 500ms ease;
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
 }
 
 .field-reveal-enter-from,
@@ -378,7 +421,7 @@ const handleSubmit = async () => {
 
 .field-label {
   margin: 0;
-  color: #23212f;
+  color: var(--color-primary-deep);
   font-family: var(--font-brand);
   font-size: var(--type-h4-size);
   line-height: var(--type-h4-line-height);
@@ -392,18 +435,18 @@ const handleSubmit = async () => {
 .name-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
+  gap: var(--space-32);
 }
 
 input,
 textarea {
   width: 100%;
-  border: 0;
+  border: 1px solid rgba(73, 55, 108, 0.2);
   border-radius: 10px;
   padding: var(--space-8) var(--space-16);
-  color: var(--color-white);
-  background: #a5a9b3;
-  font-family: var(--font-brand);
+  color: var(--color-text);
+  background: #f9f6fd;
+  font-family: var(--font-poppins);
   font-size: var(--type-link-size);
   line-height: var(--type-link-line-height);
 }
@@ -419,7 +462,7 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(46, 40, 80, 0.6);
 }
 
 .radio-group {
@@ -442,7 +485,7 @@ textarea::placeholder {
   display: inline-flex;
   align-items: center;
   gap: var(--space-16);
-  color: #2a2736;
+  color: var(--color-text);
   font-family: var(--font-brand);
   font-size: var(--type-h4-size);
   line-height: var(--type-h4-line-height);
@@ -461,8 +504,8 @@ textarea::placeholder {
 .radio-mark {
   width: 2rem;
   height: 2rem;
-  border: 6px solid #9e9dc7;
-  border-radius: 999px;
+  border: 2px solid rgba(73, 55, 108, 0.35);
+  border-radius: var(--radius-pill);
   background: #fff;
   transition: border-color 300ms ease-out, box-shadow 300ms ease-out;
 }
@@ -475,7 +518,7 @@ textarea::placeholder {
 
 .helper-copy {
   margin: 0 0 var(--space-8);
-  color: #31303d;
+  color: var(--color-text);
   font-family: var(--font-poppins);
   font-size: var(--type-body-size);
   line-height: var(--type-body-line-height);
@@ -491,38 +534,29 @@ textarea::placeholder {
   min-height: 3rem;
   padding: var(--space-8) var(--space-24);
   border-radius: var(--radius-12);
-  border: 2px solid var(--color-primary);
-  background: var(--color-primary);
+  border: none;
+  background: var(--gradient-primary);
   color: var(--color-white);
   font-family: var(--font-brand);
   font-size: var(--type-button-size);
   font-weight: var(--type-button-weight);
   line-height: var(--type-button-line-height);
   cursor: pointer;
-  transition:
-    transform 300ms ease-out,
-    border-color 300ms ease-out,
-    color 300ms ease-out,
-    background-color 300ms ease-out;
+  transition: transform 300ms ease-out, opacity 300ms ease-out;
 }
 
 .submit-button:hover {
   transform: translateY(-1px);
-  border-color: #7f60df;
-  background: #7f60df;
 }
 
 .submit-button:active {
-  transform: scale(0.97);
-  border-color: rgba(23, 16, 44, 0.92);
-  background: rgba(23, 16, 44, 0.92);
-  color: var(--color-primary);
+  transform: scale(0.98);
 }
 
 .submit-button:disabled {
-  border: 4px solid #ac3b27;
+  border: 2px solid rgba(73, 55, 108, 0.35);
   background: transparent;
-  color: #a5a9b3;
+  color: rgba(73, 55, 108, 0.6);
   cursor: not-allowed;
   transform: none;
 }
@@ -546,44 +580,56 @@ textarea:focus-visible,
   border: 0;
 }
 
-@media (min-width: 40.0625rem) {
-  .interest-intro {
-    padding: var(--space-48) var(--space-0) var(--space-32);
+@media (max-width: 48rem) {
+  .interest-hero {
+    min-height: 11.5rem;
+    padding: var(--space-32) 0 var(--space-24);
   }
 
-  .interest-title {
-    max-width: 44rem;
+  .interest-hero-inner {
+    gap: var(--space-8);
   }
 
-  .intro-copy {
-    max-width: 44rem;
+  .breadcrumb {
+    display: none;
   }
 
-  .interest-form-section {
-    padding-top: var(--space-24);
-  }
-}
-
-@media (min-width: 48.0625rem) {
-  .interest-title {
-    max-width: 40rem;
-    font-size: var(--type-h1-size);
-    line-height: var(--type-h1-line-height);
+  .interest-hero-art {
+    right: -36%;
+    top: 58%;
+    width: min(28rem, 90vw);
   }
 
-  .intro-copy {
-    max-width: 40rem;
+  .interest-stack {
+    margin: 24px var(--page-gutter) var(--space-64);
+    width: auto;
+    border-radius: var(--radius-48);
+    padding: 24px;
+  }
+
+  .interest-stack .section-container {
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  .interest-stack .page-section {
+    padding: 24px 0;
+  }
+
+  .interest-stack .page-section:first-child {
+    padding-top: 0;
+  }
+
+  .interest-stack .page-section:last-child {
+    padding-bottom: 24px;
   }
 
   .interest-form {
-    gap: var(--space-32);
+    gap: var(--space-16);
   }
-}
 
-@media (max-width: 25rem) {
   .name-row {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
+    gap: var(--space-16);
   }
 
   .radio-row {
@@ -592,6 +638,14 @@ textarea:focus-visible,
 
   .submit-button {
     min-width: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 25rem) {
+  .name-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
   }
 }
 </style>

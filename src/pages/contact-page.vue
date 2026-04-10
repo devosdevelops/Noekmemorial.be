@@ -549,7 +549,7 @@ textarea:focus-visible,
     margin: 24px var(--page-gutter) var(--space-64);
     width: auto;
     border-radius: var(--radius-48);
-    padding: 24px;
+    padding: 32px 24px;
   }
 
   .contact-stack .section-container {

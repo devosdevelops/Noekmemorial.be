@@ -412,6 +412,7 @@ const handleSubmit = async () => {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-32);
+  align-items: end;
 }
 
 .field-group {
@@ -570,6 +571,14 @@ textarea:focus-visible,
 
   .contact-actions {
     gap: var(--space-8);
+  }
+
+  .contact-options-section {
+    margin-inline: -24px;
+  }
+
+  .contact-stack .contact-options-section .section-container {
+    padding-inline: 24px;
   }
 
   .email-text {

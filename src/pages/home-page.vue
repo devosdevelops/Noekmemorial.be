@@ -6,10 +6,9 @@
 
     <section class="home-stack" aria-label="Noek informatie">
       <content-section title="Wat is Noek?" section-id="wat-is-noek" surface="light">
-        Met Noek evolueert herdenken mee met de tijd. Ons white-label SaaS-platform geeft uitvaartondernemingen de
-        mogelijkheid om families een persoonlijke digitale herdenkingsruimte aan te bieden. Een centrale plek om
-        herinneringen te bewaren en te delen, ook lang na de uitvaart. Zo maken we nazorg persoonlijker, duurzamer en
-        blijvend verbonden.
+        <strong>Noek geeft herinneringen een plek die blijft bestaan.</strong><br />
+        Een warme, digitale ruimte waar mensen samen herinneringen delen en verbonden blijven met wie ze missen.
+        Niet gebonden aan een plaats, maar altijd dichtbij wanneer het nodig is.
       </content-section>
 
       <how-it-works-section />

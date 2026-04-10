@@ -352,8 +352,12 @@ const steps = [
   color: var(--color-primary-deep);
   display: grid;
   place-items: center;
-  font-family: var(--font-brand);
+  font-family: var(--font-poppins);
   font-size: var(--type-small-size);
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  transform: translateY(-2px);
 }
 
 .step-copy {

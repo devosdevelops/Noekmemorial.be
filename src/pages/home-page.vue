@@ -49,6 +49,19 @@ import SiteHeader from '../components/site-header.vue';
   box-shadow: 0 30px 60px rgba(73, 55, 108, 0.12);
 }
 
+.home-stack :deep(.section-heading) {
+  margin-bottom: var(--space-12);
+}
+
+.home-stack :deep(.body-text) {
+  line-height: 2;
+}
+
+.home-stack :deep(.content-inner),
+.home-stack :deep(.how-header) {
+  gap: var(--space-16);
+}
+
 .home-stack .page-section {
   padding: var(--space-40) 0;
 }

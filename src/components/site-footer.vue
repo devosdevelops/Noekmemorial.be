@@ -126,7 +126,7 @@ import BaseButton from './base-button.vue';
   font-family: var(--font-poppins);
   font-size: var(--type-small-size);
   font-weight: var(--type-small-weight);
-  line-height: var(--type-small-line-height);
+  line-height: 1.75;
   letter-spacing: var(--type-small-letter-spacing);
 }
 

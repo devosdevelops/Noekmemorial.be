@@ -1,4 +1,4 @@
-# Noek Marketimg Website
+# Noek Marketing Website
 
 This is the repo for the Marketing Website for Noek. Noek is a digital memorial builder that will be sold as a white label SaaS.
 

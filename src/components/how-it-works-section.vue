@@ -90,7 +90,8 @@ import BaseButton from './base-button.vue';
   display: flex;
   align-items: center;
   gap: var(--space-16);
-  padding: var(--space-12) var(--space-16);
+  padding: var(--space-24) var(--space-24);
+  min-height: 72px;
   border-radius: 16px;
   background: #f1edf9;
   box-shadow: 0 10px 16px rgba(73, 55, 108, 0.08);
@@ -182,7 +183,7 @@ import BaseButton from './base-button.vue';
     grid-template-columns: auto 1fr;
     align-items: stretch;
     min-height: 72px;
-    padding: 0;
+    padding: var(--space-16) var(--space-18);
     border-radius: 16px;
     overflow: hidden;
   }

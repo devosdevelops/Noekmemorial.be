@@ -115,7 +115,7 @@
               <figure class="team-photo-wrap">
                 <img class="team-photo" src="/assets/images/seren-koca.jpg" alt="Seren Koca" />
               </figure>
-              <h3 class="team-name">Seren koca</h3>
+              <h3 class="team-name">Seren Koca</h3>
             </article>
 
             <article class="team-card">

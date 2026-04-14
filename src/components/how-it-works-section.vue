@@ -98,16 +98,19 @@ import BaseButton from './base-button.vue';
 }
 
 .step-index {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 16px;
   background: #e6dcf7;
   color: var(--color-primary-deep);
-  font-family: var(--font-brand);
-  font-weight: 600;
+  font-family: var(--font-poppins);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  transform: translateY(-2px);
 }
 
 .step-text {
@@ -195,9 +198,8 @@ import BaseButton from './base-button.vue';
     min-height: 100%;
     border-radius: 16px;
     align-self: stretch;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
   }
 
   .step-text {

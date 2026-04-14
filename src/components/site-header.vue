@@ -4,7 +4,7 @@
 
     <div class="section-container header-row">
       <a href="/" class="logo-link" aria-label="Noek home">
-        <site-logo :compact="isCompactLogo" src="/assets/logos/noek-logo-name.svg" />
+        <site-logo :compact="isCompactLogo" :split="true" />
       </a>
 
       <nav class="desktop-nav" aria-label="hoofd navigatie">
@@ -182,6 +182,11 @@ watch(menuOpen, (isOpen) => {
   padding: 28px 36px;
   box-shadow: 0 18px 30px rgba(73, 55, 108, 0.15);
   backdrop-filter: blur(8px);
+}
+
+.logo-link {
+  display: inline-flex;
+  margin-right: var(--space-8);
 }
 
 .desktop-nav {
@@ -386,6 +391,12 @@ watch(menuOpen, (isOpen) => {
 
   .drawer-divider {
     border-top-color: rgba(255, 255, 255, 0.95);
+  }
+}
+
+@media (min-width: 75rem) {
+  .header-row {
+    padding: 28px 52px;
   }
 }
 </style>

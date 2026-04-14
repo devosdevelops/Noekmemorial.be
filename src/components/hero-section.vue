@@ -54,9 +54,9 @@ import BaseButton from './base-button.vue';
   margin: 0;
   color: var(--color-primary-deep);
   font-family: var(--font-brand);
-  font-size: var(--type-landing-h1-size);
+  font-size: clamp(2.9rem, calc(2.2rem + 3.9vw), calc(var(--type-landing-h1-size) * 1.6));
   font-weight: var(--type-h1-weight);
-  line-height: var(--type-landing-h1-line-height);
+  line-height: clamp(3rem, calc(2.3rem + 3.8vw), var(--type-landing-h1-line-height));
   letter-spacing: var(--type-h1-letter-spacing);
 }
 
@@ -64,7 +64,7 @@ import BaseButton from './base-button.vue';
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-poppins);
-  font-size: clamp(1.4rem, calc(1.1rem + 1.6vw), 2.2rem);
+  font-size: clamp(1.25rem, calc(1rem + 1.2vw), 1.95rem);
   line-height: var(--type-h2-line-height);
   letter-spacing: var(--type-h2-letter-spacing);
 }
@@ -95,6 +95,11 @@ import BaseButton from './base-button.vue';
 @media (max-width: 48rem) {
   .hero-section {
     padding: var(--space-40) 0 var(--space-32);
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, calc(2.05rem + 5.4vw), 3.4rem);
+    line-height: 1.05;
   }
 
   .hero-grid {

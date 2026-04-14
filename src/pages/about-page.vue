@@ -167,9 +167,9 @@ import { assetPaths } from '../config/asset-paths';
   width: fit-content;
   color: var(--color-text);
   font-family: var(--font-brand);
-  font-size: var(--type-small-size);
+  font-size: clamp(0.95rem, calc(0.85rem + 0.35vw), 1.1rem);
   font-weight: 500;
-  line-height: var(--type-small-line-height);
+  line-height: 1.35;
 }
 
 .breadcrumb a {
@@ -383,6 +383,52 @@ import { assetPaths } from '../config/asset-paths';
   line-height: 1.2;
 }
 
+@media (min-width: 75rem) {
+  .about-hero {
+    min-height: clamp(12rem, 18vw, 15rem);
+    padding: var(--space-40) 0 var(--space-24);
+  }
+
+  .contact-hero {
+    min-height: clamp(12rem, 18vw, 15rem);
+    padding: var(--space-40) 0 var(--space-24);
+  }
+
+  .faq-hero {
+    min-height: clamp(12rem, 18vw, 15rem);
+    padding: var(--space-40) 0 var(--space-24);
+  }
+
+  .features-hero {
+    min-height: clamp(12rem, 18vw, 15rem);
+    padding: var(--space-40) 0 var(--space-24);
+  }
+
+  .interest-hero {
+    min-height: clamp(12rem, 18vw, 15rem);
+    padding: var(--space-40) 0 var(--space-24);
+  }
+
+  .privacy-hero {
+    min-height: clamp(12rem, 18vw, 15rem);
+    padding: var(--space-40) 0 var(--space-24);
+  }
+
+  .terms-hero {
+    min-height: clamp(12rem, 18vw, 15rem);
+    padding: var(--space-40) 0 var(--space-24);
+  }
+
+  .breadcrumb {
+    font-size: 1.2rem;
+  }
+
+  .about-title {
+    font-size: calc(var(--type-landing-h1-size) * 1.18);
+    line-height: calc(var(--type-landing-h1-line-height) * 1.08);
+  }
+}
+
 @media (max-width: 48rem) {
   .about-hero {
     min-height: 11.5rem;
@@ -395,7 +441,7 @@ import { assetPaths } from '../config/asset-paths';
   }
 
   .breadcrumb {
-    display: none;
+    display: inline-flex;
   }
 
   .about-hero-art {

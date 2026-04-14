@@ -178,7 +178,7 @@ import { createPageHead } from '../utils/seo';
 useHead(
   createPageHead({
     title: 'Toon je interesse',
-    description: 'Laat je gegevens achter om updates te ontvangen of feedback te geven over Noek.',
+    description: 'Interesse in dit concept? Laat het hier weten! We ontvangen graag feedback en houden je op de hoogte van de nieuwste ontwikkelingen.',
     path: '/toon-je-interesse'
   })
 );

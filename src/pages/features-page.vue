@@ -134,7 +134,7 @@ import { createPageHead, SITE_URL } from '../utils/seo';
 useHead(
   createPageHead({
     title: 'Features',
-    description: 'Ontdek de belangrijkste features van Noek: white-label, personaliseerbaar en veilig herdenken.',
+    description: 'Ontdek wat Noek kan aanbieden voor uitvaartondernemingen en nabestaanden.',
     path: '/features',
     image: `${SITE_URL}${assetPaths.images.featuresPreviewOne}`
   })

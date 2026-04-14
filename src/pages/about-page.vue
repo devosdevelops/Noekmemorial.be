@@ -145,7 +145,7 @@ import { createPageHead, SITE_URL } from '../utils/seo';
 useHead(
   createPageHead({
     title: 'Over Noek',
-    description: 'Lees het verhaal achter Noek en ontdek onze missie en visie voor digitaal herdenken.',
+    description: 'Lees het verhaal achter Noek en waar we voor staan.',
     path: '/over-ons',
     image: `${SITE_URL}${assetPaths.images.howItWorksThumb}`
   })

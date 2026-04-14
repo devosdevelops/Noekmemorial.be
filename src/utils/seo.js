@@ -1,5 +1,5 @@
 export const SITE_URL = 'https://noekmemorial.be';
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/images/preview-1.jpg`;
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/images/OG_image.jpg`;
 
 const buildTitle = (title) => (title ? `${title} | Noek` : 'Noek');
 

@@ -37,7 +37,7 @@ useHead(
   createPageHead({
     title: 'Digitale herdenkingsruimte',
     description:
-      'Noek biedt uitvaartondernemingen een white-label digitale herdenkingsruimte waar families herinneringen delen en verbonden blijven.',
+      'Noek geeft herinneringen een plek die blijft bestaan. Een warme, digitale ruimte waar mensen samen herinneringen delen en verbonden blijven met wie ze missen.',
     path: '/'
   })
 );

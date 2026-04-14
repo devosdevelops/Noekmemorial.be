@@ -19,8 +19,17 @@ export const createApp = ViteSSG(
 		app.directive('scroll-reveal', scrollReveal);
 
 		if (isClient) {
-			router.afterEach(() => {
-				nextTick(() => applyHeadingDigitFont());
+			router.afterEach((to) => {
+				nextTick(() => {
+					applyHeadingDigitFont();
+					window.dataLayer = window.dataLayer || [];
+					window.dataLayer.push({
+						event: 'pageview',
+						page_path: to.fullPath,
+						page_title: document.title,
+						page_location: window.location.href
+					});
+				});
 			});
 
 			nextTick(() => applyHeadingDigitFont());

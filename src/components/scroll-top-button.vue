@@ -6,7 +6,7 @@
     aria-label="Ga naar boven"
     @click="scrollToTop"
   >
-    ↑
+    <img class="scroll-top-icon" src="/assets/icons/backtotoparrow.svg" alt="" aria-hidden="true" />
   </button>
 </template>
 
@@ -38,13 +38,15 @@ onUnmounted(() => {
   position: fixed;
   right: var(--space-24);
   bottom: var(--space-40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 3rem;
   height: 3rem;
   border: 0;
   border-radius: 999px;
   background: var(--color-secondary);
   color: var(--color-white);
-  font-size: 2rem;
   line-height: 0;
   cursor: pointer;
   z-index: 15;
@@ -60,6 +62,12 @@ onUnmounted(() => {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+
+.scroll-top-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  display: block;
 }
 
 @media (max-width: 40rem) {

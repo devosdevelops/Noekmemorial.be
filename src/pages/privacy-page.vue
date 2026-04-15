@@ -6,7 +6,7 @@
       <div class="section-container privacy-hero-inner" v-scroll-reveal="{ delay: 40 }">
         <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&gt;</span> <span>Privacybeleid</span></p>
         <h1 id="privacy-title" class="privacy-title">Privacybeleid</h1>
-        <p class="privacy-last-updated">Laatst bijgewerkt: 5/03/2026</p>
+        <p class="privacy-last-updated">Laatst bijgewerkt: 15/04/2026</p>
       </div>
 
       <div class="privacy-hero-art" aria-hidden="true">
@@ -196,6 +196,10 @@
               Onze website gebruikt essentiele cookies om de werking van de website te garanderen. Analytische cookies
               worden pas geplaatst nadat je toestemming hebt gegeven. Je kan je voorkeuren altijd aanpassen via
               "Cookievoorkeuren" in de footer.
+            </p>
+            <p class="body-text">
+              We bewaren je keuze in de consent cookie "noek_consent" zodat we jouw voorkeur kunnen onthouden. Deze
+              cookie blijft 180 dagen bewaard.
             </p>
           </div>
 

@@ -6,6 +6,7 @@ import './assets/styles.css';
 import { scrollReveal } from './directives/scroll-reveal';
 import { routes, scrollBehavior } from './router';
 import { applyHeadingDigitFont } from './utils/apply-heading-digit-font';
+import { CONSENT_STATUS, hasAnalyticsConsent, initConsent, onConsentChange } from './utils/consent';
 import { initOverflowDebug } from './utils/debug-overflow';
 
 export const createApp = ViteSSG(
@@ -21,18 +22,32 @@ export const createApp = ViteSSG(
 
 		if (isClient) {
 			initOverflowDebug();
+			initConsent();
+
+			const pushPageview = (route) => {
+				if (!hasAnalyticsConsent()) {
+					return;
+				}
+				window.dataLayer = window.dataLayer || [];
+				window.dataLayer.push({
+					event: 'pageview',
+					page_path: route.fullPath,
+					page_title: document.title,
+					page_location: window.location.href
+				});
+			};
 
 			router.afterEach((to) => {
 				nextTick(() => {
 					applyHeadingDigitFont();
-					window.dataLayer = window.dataLayer || [];
-					window.dataLayer.push({
-						event: 'pageview',
-						page_path: to.fullPath,
-						page_title: document.title,
-						page_location: window.location.href
-					});
+					pushPageview(to);
 				});
+			});
+
+			onConsentChange(({ status }) => {
+				if (status === CONSENT_STATUS.ALL) {
+					pushPageview(router.currentRoute.value);
+				}
 			});
 
 			nextTick(() => applyHeadingDigitFont());

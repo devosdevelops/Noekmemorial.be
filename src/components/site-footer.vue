@@ -35,6 +35,7 @@
           <h3 class="footer-heading">Legal</h3>
           <a href="/privacybeleid">Privacybeleid</a>
           <a href="/algemene-voorwaarden">Algemene Voorwaarden</a>
+          <button class="footer-consent-button" type="button" @click="handleManageConsent">Cookievoorkeuren</button>
 
           <div class="social-row" aria-label="socials">
             <a href="https://www.linkedin.com/company/noekmemorial/about/" aria-label="LinkedIn" class="social-icon" target="blank">
@@ -56,6 +57,11 @@
 
 <script setup>
 import BaseButton from './base-button.vue';
+import { openConsentManager } from '../utils/consent';
+
+const handleManageConsent = () => {
+  openConsentManager();
+};
 </script>
 
 <style scoped>
@@ -169,6 +175,42 @@ import BaseButton from './base-button.vue';
 
 .footer-links > a:hover::after,
 .footer-links > a:active::after {
+  transform: scaleX(1);
+}
+
+.footer-consent-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  width: fit-content;
+}
+
+.footer-consent-button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.25rem;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 300ms ease-out;
+}
+
+.footer-consent-button:hover,
+.footer-consent-button:active {
+  color: #fad1cf;
+}
+
+.footer-consent-button:hover::after,
+.footer-consent-button:active::after {
   transform: scaleX(1);
 }
 

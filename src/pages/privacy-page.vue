@@ -193,8 +193,9 @@
           <div class="legal-block" v-scroll-reveal="{ delay: 20 }">
             <h2 class="legal-heading">10 Cookies</h2>
             <p class="body-text">
-              Onze website kan cookies of gelijkaardige technologieen gebruiken om de werking van de website te
-              verbeteren en het gebruik te analyseren.
+              Onze website gebruikt essentiele cookies om de werking van de website te garanderen. Analytische cookies
+              worden pas geplaatst nadat je toestemming hebt gegeven. Je kan je voorkeuren altijd aanpassen via
+              "Cookievoorkeuren" in de footer.
             </p>
           </div>
 

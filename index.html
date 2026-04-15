@@ -9,6 +9,21 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/logos/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/logos/site.webmanifest" />
     <meta name="theme-color" content="#ffffff" />
+    <!-- Consent Mode defaults -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
+    </script>
+    <!-- End Consent Mode defaults -->
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {

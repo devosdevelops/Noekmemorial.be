@@ -36,20 +36,19 @@
           <a href="/privacybeleid">Privacybeleid</a>
           <a href="/algemene-voorwaarden">Algemene Voorwaarden</a>
           <button class="footer-consent-button" type="button" @click="handleManageConsent">Cookievoorkeuren</button>
-
-          <div class="social-row" aria-label="socials">
-            <a href="https://www.linkedin.com/company/noekmemorial/about/" aria-label="LinkedIn" class="social-icon" target="blank">
-              <img class="social-image" src="/assets/icons/Linkedin.svg" alt="" aria-hidden="true" />
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61579523811833" aria-label="Facebook" class="social-icon" target="blank">
-              <img class="social-image" src="/assets/icons/Facebook.svg" alt="" aria-hidden="true" />
-            </a>
-            <a href="https://www.instagram.com/noekmemorial/" aria-label="Instagram" class="social-icon" target="blank">
-              <img class="social-image" src="/assets/icons/Instagram.svg" alt="" aria-hidden="true" />
-            </a>
-          </div>
         </section>
       </section>
+      <div class="social-row" aria-label="socials">
+        <a href="https://www.linkedin.com/company/noekmemorial/about/" aria-label="LinkedIn" class="social-icon" target="blank">
+          <img class="social-image" src="/assets/icons/Linkedin.svg" alt="" aria-hidden="true" />
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61579523811833" aria-label="Facebook" class="social-icon" target="blank">
+          <img class="social-image" src="/assets/icons/Facebook.svg" alt="" aria-hidden="true" />
+        </a>
+        <a href="https://www.instagram.com/noekmemorial/" aria-label="Instagram" class="social-icon" target="blank">
+          <img class="social-image" src="/assets/icons/Instagram.svg" alt="" aria-hidden="true" />
+        </a>
+      </div>
       </div>
     </div>
   </footer>
@@ -88,7 +87,7 @@ const handleManageConsent = () => {
 
 .footer-brand-brand-wrap {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: flex-start;
   gap: var(--space-24);
 }
@@ -216,11 +215,12 @@ const handleManageConsent = () => {
 
 .footer-demo-button {
   flex-shrink: 0;
-  width: fit-content;
+  width: min(100%, 18rem);
   min-height: 2.5rem;
   padding: var(--space-4) var(--space-16);
   font-size: var(--type-link-size);
   line-height: var(--type-link-line-height);
+  align-self: flex-start;
 }
 
 .footer-heading {
@@ -235,8 +235,8 @@ const handleManageConsent = () => {
 
 .social-row {
   display: flex;
-  gap: var(--space-16);
-  margin-top: var(--space-24);
+  gap: var(--space-20, var(--space-16));
+  margin-top: var(--space-8);
   align-items: center;
 }
 
@@ -274,14 +274,15 @@ const handleManageConsent = () => {
 
 @media (min-width: 40.0625rem) {
   .footer-grid {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      'brand links'
+      'social links';
+    gap: var(--space-32);
   }
 
   .footer-brand-brand-wrap {
-    flex-direction: column;
-    align-items: flex-start;
     flex: 1 1 42%;
   }
 
@@ -290,6 +291,19 @@ const handleManageConsent = () => {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-32);
+  }
+
+  .footer-brand-brand-wrap {
+    grid-area: brand;
+  }
+
+  .footer-link-wrap {
+    grid-area: links;
+  }
+
+  .social-row {
+    grid-area: social;
+    margin-top: 0;
   }
 }
 
@@ -309,14 +323,21 @@ const handleManageConsent = () => {
 
   .footer-brand-brand-wrap {
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
     gap: var(--space-16);
   }
 
   .footer-brand {
     gap: var(--space-12);
+  }
+
+  .brand-name {
+    font-size: calc(var(--type-h3-size) - 0.15rem);
+    line-height: 1.6rem;
+  }
+
+  .footer-copy {
+    font-size: calc(var(--type-small-size) - 0.1rem);
+    line-height: 1.4;
   }
 
   .footer-link-wrap {
@@ -327,16 +348,23 @@ const handleManageConsent = () => {
     align-items: start;
   }
 
+  .footer-heading {
+    font-size: calc(var(--type-h4-size) - 0.1rem);
+    line-height: 1.5rem;
+  }
+
+  .footer-links {
+    font-size: calc(var(--type-link-size) - 0.1rem);
+    line-height: 1.4rem;
+  }
+
   .footer-demo-button {
-    margin-top: 0;
-    align-self: start;
-    justify-self: stretch;
-    width: 100%;
     white-space: nowrap;
+    align-self: flex-start;
   }
 
   .social-row {
-    margin-top: var(--space-16);
+    margin-top: 0;
   }
 }
 </style>

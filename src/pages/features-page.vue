@@ -206,7 +206,7 @@ const steps = [
   align-items: center;
   padding: var(--space-56) 0 var(--space-32);
   position: relative;
-  overflow: visible;
+  overflow-x: clip;
 }
 
 .features-hero-inner {

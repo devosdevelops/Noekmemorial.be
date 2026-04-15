@@ -29,7 +29,7 @@ import BaseButton from './base-button.vue';
   align-items: center;
   padding: var(--space-80) 0 var(--space-64);
   position: relative;
-  overflow: visible;
+  overflow-x: clip;
 }
 
 .hero-grid {

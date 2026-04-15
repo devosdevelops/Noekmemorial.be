@@ -6,6 +6,7 @@ import './assets/styles.css';
 import { scrollReveal } from './directives/scroll-reveal';
 import { routes, scrollBehavior } from './router';
 import { applyHeadingDigitFont } from './utils/apply-heading-digit-font';
+import { initOverflowDebug } from './utils/debug-overflow';
 
 export const createApp = ViteSSG(
 	App,
@@ -19,6 +20,8 @@ export const createApp = ViteSSG(
 		app.directive('scroll-reveal', scrollReveal);
 
 		if (isClient) {
+			initOverflowDebug();
+
 			router.afterEach((to) => {
 				nextTick(() => {
 					applyHeadingDigitFont();

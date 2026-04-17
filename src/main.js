@@ -24,6 +24,17 @@ export const createApp = ViteSSG(
 			initOverflowDebug();
 			initConsent();
 
+			const resetPageScrollState = () => {
+				const hasOpenConsentModal = Boolean(document.querySelector('.consent-backdrop'));
+				if (hasOpenConsentModal) {
+					return;
+				}
+
+				document.body.style.overflow = '';
+				document.body.style.paddingRight = '';
+				document.documentElement.style.overflow = '';
+			};
+
 			const pushPageview = (route) => {
 				if (!hasAnalyticsConsent()) {
 					return;
@@ -39,6 +50,7 @@ export const createApp = ViteSSG(
 
 			router.afterEach((to) => {
 				nextTick(() => {
+					resetPageScrollState();
 					applyHeadingDigitFont();
 					pushPageview(to);
 				});
@@ -50,7 +62,10 @@ export const createApp = ViteSSG(
 				}
 			});
 
-			nextTick(() => applyHeadingDigitFont());
+			nextTick(() => {
+				resetPageScrollState();
+				applyHeadingDigitFont();
+			});
 		}
 	}
 );

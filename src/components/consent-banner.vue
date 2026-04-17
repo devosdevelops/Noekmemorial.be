@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import {
   CONSENT_STATUS,
   getConsentStatus,
@@ -29,6 +29,52 @@ import {
 
 const isOpen = ref(false);
 let removeOpenListener;
+let previousBodyOverflow = '';
+let previousBodyPaddingRight = '';
+let previousHtmlOverflow = '';
+let isScrollLocked = false;
+
+const getScrollbarWidth = () => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return 0;
+  }
+  return Math.max(0, window.innerWidth - document.documentElement.clientWidth);
+};
+
+const lockPageScroll = () => {
+  if (typeof document === 'undefined' || isScrollLocked) {
+    return;
+  }
+
+  const bodyStyle = document.body.style;
+  const htmlStyle = document.documentElement.style;
+  previousBodyOverflow = bodyStyle.overflow;
+  previousBodyPaddingRight = bodyStyle.paddingRight;
+  previousHtmlOverflow = htmlStyle.overflow;
+
+  const scrollbarWidth = getScrollbarWidth();
+  bodyStyle.overflow = 'hidden';
+  htmlStyle.overflow = 'hidden';
+
+  if (scrollbarWidth > 0) {
+    bodyStyle.paddingRight = `${scrollbarWidth}px`;
+  }
+
+  isScrollLocked = true;
+};
+
+const unlockPageScroll = () => {
+  if (typeof document === 'undefined' || !isScrollLocked) {
+    return;
+  }
+
+  const bodyStyle = document.body.style;
+  const htmlStyle = document.documentElement.style;
+  bodyStyle.overflow = previousBodyOverflow;
+  bodyStyle.paddingRight = previousBodyPaddingRight;
+  htmlStyle.overflow = previousHtmlOverflow;
+  isScrollLocked = false;
+};
 
 const openBanner = () => {
   isOpen.value = true;
@@ -63,7 +109,17 @@ onMounted(() => {
   });
 });
 
+watch(isOpen, (open) => {
+  if (open) {
+    lockPageScroll();
+    return;
+  }
+
+  unlockPageScroll();
+});
+
 onBeforeUnmount(() => {
+  unlockPageScroll();
   if (removeOpenListener) {
     removeOpenListener();
   }
@@ -79,6 +135,8 @@ onBeforeUnmount(() => {
   align-items: flex-end;
   justify-content: center;
   padding: 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   z-index: 2000;
 }
 

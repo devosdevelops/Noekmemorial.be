@@ -1,6 +1,5 @@
 import { nextTick } from 'vue';
 import { ViteSSG } from 'vite-ssg';
-import { createHeadCore } from '@unhead/vue';
 import App from './App.vue';
 import './assets/styles.css';
 import { scrollReveal } from './directives/scroll-reveal';
@@ -8,6 +7,7 @@ import { routes, scrollBehavior } from './router';
 import { applyHeadingDigitFont } from './utils/apply-heading-digit-font';
 import { CONSENT_STATUS, hasAnalyticsConsent, initConsent, onConsentChange } from './utils/consent';
 import { initOverflowDebug } from './utils/debug-overflow';
+import { clearAllPageScrollLocks } from './utils/scroll-lock';
 
 export const createApp = ViteSSG(
 	App,
@@ -16,8 +16,6 @@ export const createApp = ViteSSG(
 		scrollBehavior
 	},
 	({ app, router, isClient }) => {
-		const head = createHeadCore();
-		app.use(head);
 		app.directive('scroll-reveal', scrollReveal);
 
 		if (isClient) {
@@ -30,9 +28,7 @@ export const createApp = ViteSSG(
 					return;
 				}
 
-				document.body.style.overflow = '';
-				document.body.style.paddingRight = '';
-				document.documentElement.style.overflow = '';
+				clearAllPageScrollLocks();
 			};
 
 			const pushPageview = (route) => {

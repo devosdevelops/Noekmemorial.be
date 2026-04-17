@@ -103,6 +103,7 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  overflow-y: auto;
   background: var(--gradient-page);
 }
 
@@ -113,6 +114,7 @@ body {
   max-width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+  overflow-y: hidden;
   font-family: var(--font-poppins);
   font-size: var(--type-body-size);
   line-height: var(--type-body-line-height);

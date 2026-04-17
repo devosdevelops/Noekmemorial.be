@@ -26,33 +26,11 @@ import {
   onConsentManagerOpen,
   setConsentStatus
 } from '../utils/consent';
+import { lockPageScroll, unlockPageScroll } from '../utils/scroll-lock';
 
 const isOpen = ref(false);
 let removeOpenListener;
-let previousBodyOverflow = '';
-let isScrollLocked = false;
-
-const lockPageScroll = () => {
-  if (typeof document === 'undefined' || isScrollLocked) {
-    return;
-  }
-
-  const bodyStyle = document.body.style;
-  previousBodyOverflow = bodyStyle.overflow;
-  bodyStyle.overflow = 'hidden';
-
-  isScrollLocked = true;
-};
-
-const unlockPageScroll = () => {
-  if (typeof document === 'undefined' || !isScrollLocked) {
-    return;
-  }
-
-  const bodyStyle = document.body.style;
-  bodyStyle.overflow = previousBodyOverflow;
-  isScrollLocked = false;
-};
+const CONSENT_SCROLL_LOCK_ID = 'consent-banner';
 
 const openBanner = () => {
   isOpen.value = true;
@@ -89,15 +67,15 @@ onMounted(() => {
 
 watch(isOpen, (open) => {
   if (open) {
-    lockPageScroll();
+    lockPageScroll(CONSENT_SCROLL_LOCK_ID);
     return;
   }
 
-  unlockPageScroll();
+  unlockPageScroll(CONSENT_SCROLL_LOCK_ID);
 });
 
 onBeforeUnmount(() => {
-  unlockPageScroll();
+  unlockPageScroll(CONSENT_SCROLL_LOCK_ID);
   if (removeOpenListener) {
     removeOpenListener();
   }

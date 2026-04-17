@@ -65,6 +65,9 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import BaseButton from './base-button.vue';
 import SiteLogo from './site-logo.vue';
+import { lockPageScroll, unlockPageScroll } from '../utils/scroll-lock';
+
+const MENU_SCROLL_LOCK_ID = 'header-mobile-menu';
 
 const menuOpen = ref(false);
 const viewportWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 1280);
@@ -125,14 +128,19 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  document.body.style.overflow = '';
+  unlockPageScroll(MENU_SCROLL_LOCK_ID);
   window.removeEventListener('resize', onResize);
   window.removeEventListener('hashchange', syncLocationState);
   window.removeEventListener('popstate', syncLocationState);
 });
 
 watch(menuOpen, (isOpen) => {
-  document.body.style.overflow = isOpen ? 'hidden' : '';
+  if (isOpen) {
+    lockPageScroll(MENU_SCROLL_LOCK_ID);
+    return;
+  }
+
+  unlockPageScroll(MENU_SCROLL_LOCK_ID);
 });
 </script>
 

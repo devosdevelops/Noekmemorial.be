@@ -1,16 +1,7 @@
 const activeLocks = new Set();
 
 let previousHtmlOverflow = '';
-let previousHtmlPaddingRight = '';
 let hasStoredInitialStyles = false;
-
-const getScrollbarWidth = () => {
-  if (typeof window === 'undefined' || typeof document === 'undefined') {
-    return 0;
-  }
-
-  return Math.max(0, window.innerWidth - document.documentElement.clientWidth);
-};
 
 const applyLockStyles = () => {
   if (typeof document === 'undefined') {
@@ -21,13 +12,10 @@ const applyLockStyles = () => {
 
   if (!hasStoredInitialStyles) {
     previousHtmlOverflow = htmlStyle.overflow;
-    previousHtmlPaddingRight = htmlStyle.paddingRight;
     hasStoredInitialStyles = true;
   }
 
-  const scrollbarWidth = getScrollbarWidth();
   htmlStyle.overflow = 'hidden';
-  htmlStyle.paddingRight = scrollbarWidth > 0 ? `${scrollbarWidth}px` : '';
 };
 
 const restoreStyles = () => {
@@ -37,7 +25,6 @@ const restoreStyles = () => {
 
   const htmlStyle = document.documentElement.style;
   htmlStyle.overflow = previousHtmlOverflow;
-  htmlStyle.paddingRight = previousHtmlPaddingRight;
   hasStoredInitialStyles = false;
 };
 

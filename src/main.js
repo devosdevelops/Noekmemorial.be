@@ -19,8 +19,17 @@ export const createApp = ViteSSG(
 		app.directive('scroll-reveal', scrollReveal);
 
 		if (isClient) {
-			initOverflowDebug();
 			initConsent();
+
+			const startOverflowDebug = () => {
+				requestAnimationFrame(() => initOverflowDebug());
+			};
+
+			if (document.readyState === 'complete') {
+				startOverflowDebug();
+			} else {
+				window.addEventListener('load', startOverflowDebug, { passive: true, once: true });
+			}
 
 			const resetPageScrollState = () => {
 				const hasOpenConsentModal = Boolean(document.querySelector('.consent-backdrop'));

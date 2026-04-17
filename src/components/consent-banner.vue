@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { onBeforeUnmount, onMounted, ref } from 'vue';
 import {
   CONSENT_STATUS,
   getConsentStatus,
@@ -26,11 +26,9 @@ import {
   onConsentManagerOpen,
   setConsentStatus
 } from '../utils/consent';
-import { lockPageScroll, unlockPageScroll } from '../utils/scroll-lock';
 
 const isOpen = ref(false);
 let removeOpenListener;
-const CONSENT_SCROLL_LOCK_ID = 'consent-banner';
 
 const openBanner = () => {
   isOpen.value = true;
@@ -65,17 +63,7 @@ onMounted(() => {
   });
 });
 
-watch(isOpen, (open) => {
-  if (open) {
-    lockPageScroll(CONSENT_SCROLL_LOCK_ID);
-    return;
-  }
-
-  unlockPageScroll(CONSENT_SCROLL_LOCK_ID);
-});
-
 onBeforeUnmount(() => {
-  unlockPageScroll(CONSENT_SCROLL_LOCK_ID);
   if (removeOpenListener) {
     removeOpenListener();
   }

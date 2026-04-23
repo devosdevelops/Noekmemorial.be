@@ -18,7 +18,7 @@
             </p>
           </div>
         </section>
-        <base-button class="footer-demo-button" href="/toon-je-interesse" label="Toon je interesse" variant="outline" />
+        <base-button class="footer-demo-button" href="/toon-je-interesse" :label="ctaLabel" variant="outline" />
       </section>
 
       <section class="footer-link-wrap">
@@ -56,7 +56,10 @@
 
 <script setup>
 import BaseButton from './base-button.vue';
+import { getCtaTextLabel } from '../utils/cta-variant';
 import { openConsentManager } from '../utils/consent';
+
+const ctaLabel = getCtaTextLabel();
 
 const handleManageConsent = () => {
   openConsentManager();

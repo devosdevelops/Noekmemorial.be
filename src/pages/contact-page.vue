@@ -43,7 +43,7 @@
               <span class="email-text">info@noek.be</span>
             </a>
 
-            <base-button href="/toon-je-interesse" label="Toon je interesse" variant="outline" block-mobile />
+            <base-button href="/toon-je-interesse" :label="ctaLabel" variant="outline" block-mobile />
           </div>
         </div>
       </section>
@@ -129,6 +129,7 @@ import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
 import StatusToast from '../components/status-toast.vue';
 import { EMAILJS_CONFIG, createRequestId, createRequestTimestamp } from '../config/emailjs';
+import { getCtaTextLabel } from '../utils/cta-variant';
 import { createPageHead } from '../utils/seo';
 
 useHead(
@@ -150,6 +151,7 @@ const toastMessage = ref('');
 let toastTimer;
 let redirectTimer;
 const router = useRouter();
+const ctaLabel = getCtaTextLabel();
 
 const charsRemaining = computed(() => 800 - message.value.length);
 

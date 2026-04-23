@@ -19,7 +19,7 @@
         </a>
       </nav>
 
-      <base-button class="desktop-cta" href="/toon-je-interesse" label="Toon je interesse" />
+      <base-button class="desktop-cta" href="/toon-je-interesse" :label="ctaLabel" />
 
       <button
         class="menu-toggle"
@@ -47,7 +47,7 @@
           >
             {{ item.label }}
           </a>
-          <a class="drawer-link" :class="{ 'is-current': isCurrentLink('/toon-je-interesse') }" href="/toon-je-interesse" @click="menuOpen = false">Toon je interesse</a>
+          <a class="drawer-link" :class="{ 'is-current': isCurrentLink('/toon-je-interesse') }" href="/toon-je-interesse" @click="menuOpen = false">{{ ctaLabel }}</a>
         </nav>
 
         <span class="drawer-divider" aria-hidden="true"></span>
@@ -65,6 +65,7 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import BaseButton from './base-button.vue';
 import SiteLogo from './site-logo.vue';
+import { getCtaTextLabel } from '../utils/cta-variant';
 import { lockPageScroll, unlockPageScroll } from '../utils/scroll-lock';
 
 const MENU_SCROLL_LOCK_ID = 'header-mobile-menu';
@@ -81,6 +82,8 @@ const navItems = [
   { label: 'F.A.Q', href: '/faq' },
   { label: 'Contact', href: '/contact' }
 ];
+
+const ctaLabel = getCtaTextLabel();
 
 const isCompactLogo = computed(() => viewportWidth.value <= 1024);
 

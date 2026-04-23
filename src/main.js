@@ -5,6 +5,7 @@ import './assets/styles.css';
 import { scrollReveal } from './directives/scroll-reveal';
 import { routes, scrollBehavior } from './router';
 import { applyHeadingDigitFont } from './utils/apply-heading-digit-font';
+import { pushCtaVariantToDataLayer } from './utils/cta-variant';
 import { CONSENT_STATUS, hasAnalyticsConsent, initConsent, onConsentChange } from './utils/consent';
 import { initOverflowDebug } from './utils/debug-overflow';
 import { clearAllPageScrollLocks } from './utils/scroll-lock';
@@ -20,6 +21,7 @@ export const createApp = ViteSSG(
 
 		if (isClient) {
 			initConsent();
+			pushCtaVariantToDataLayer();
 
 			const startOverflowDebug = () => {
 				requestAnimationFrame(() => initOverflowDebug());

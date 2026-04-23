@@ -38,7 +38,7 @@
       </div>
 
       <div class="action-row">
-        <base-button href="/toon-je-interesse" label="Toon je interesse" block-mobile />
+        <base-button href="/toon-je-interesse" :label="ctaLabel" block-mobile />
         <base-button href="/over-ons" label="Meer info" variant="outline" block-mobile />
       </div>
     </div>
@@ -47,7 +47,10 @@
 
 <script setup>
 import { assetPaths } from '../config/asset-paths';
+import { getCtaTextLabel } from '../utils/cta-variant';
 import BaseButton from './base-button.vue';
+
+const ctaLabel = getCtaTextLabel();
 </script>
 
 <style scoped>

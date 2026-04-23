@@ -49,7 +49,7 @@
             </ol>
 
             <div class="how-list-cta">
-              <base-button href="/toon-je-interesse" label="Toon je interesse" block-mobile />
+              <base-button href="/toon-je-interesse" :label="ctaLabel" block-mobile />
             </div>
           </div>
 
@@ -129,6 +129,7 @@ import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
 import { assetPaths } from '../config/asset-paths';
+import { getCtaTextLabel } from '../utils/cta-variant';
 import { createPageHead, SITE_URL } from '../utils/seo';
 
 useHead(
@@ -141,6 +142,7 @@ useHead(
 );
 
 const activeSlide = ref(0);
+const ctaLabel = getCtaTextLabel();
 
 const videoPoster = computed(() => assetPaths.images.featuresVideoThumb || '');
 const howLogo = computed(() => assetPaths.logos.main || '');

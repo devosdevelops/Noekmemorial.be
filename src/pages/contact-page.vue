@@ -53,7 +53,7 @@
           <h2 id="form-heading" class="section-heading">Contactformulier</h2>
           <p class="form-lead">Vul het onderstaande contactformulier in en wij helpen je graag.</p>
 
-          <form class="contact-form" @submit.prevent="handleSubmit">
+          <form class="contact-form" @submit.prevent="handleSubmit" :aria-busy="isSubmitting ? 'true' : 'false'">
             <div class="name-row">
               <div class="field-group">
                 <label class="field-label" for="first-name">
@@ -112,6 +112,7 @@
     </section>
 
     <status-toast :open="toastOpen" :variant="toastVariant" :message="toastMessage" />
+    <loading-overlay :active="isSubmitting" />
   </main>
 
   <site-footer />
@@ -119,11 +120,12 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, onBeforeUnmount, ref, watch } from 'vue';
 import { useHead } from '@unhead/vue';
 import { useRouter } from 'vue-router';
 import emailjs from '@emailjs/browser';
 import BaseButton from '../components/base-button.vue';
+import LoadingOverlay from '../components/loading-overlay.vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
@@ -177,6 +179,22 @@ const showToast = (variant, messageText) => {
     toastOpen.value = false;
   }, 4000);
 };
+
+const toggleBodyLoading = (active) => {
+  if (typeof document === 'undefined') {
+    return;
+  }
+
+  document.body.classList.toggle('is-loading', active);
+};
+
+watch(isSubmitting, (active) => {
+  toggleBodyLoading(active);
+}, { immediate: true });
+
+onBeforeUnmount(() => {
+  toggleBodyLoading(false);
+});
 
 const scheduleRedirect = () => {
   if (redirectTimer) {

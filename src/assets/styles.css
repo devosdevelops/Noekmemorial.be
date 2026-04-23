@@ -230,3 +230,8 @@ a {
     --page-gutter: var(--space-128);
   }
 }
+
+body.is-loading,
+body.is-loading * {
+  cursor: progress;
+}

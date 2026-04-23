@@ -27,7 +27,7 @@
         <div class="section-container form-shell" v-scroll-reveal="{ delay: 30 }">
           <h2 id="interest-form-heading" class="section-heading">Interesseformulier</h2>
 
-          <form class="interest-form" @submit.prevent="handleSubmit">
+          <form class="interest-form" @submit.prevent="handleSubmit" @focusin="handleFormStart">
             <div class="field-group">
               <label class="field-label" for="interest-first-name">
                 Naam<span class="required-mark" aria-hidden="true">*</span>
@@ -192,6 +192,7 @@ const allowContact = ref('');
 const interestEmail = ref('');
 const interestMessage = ref('');
 const isSubmitting = ref(false);
+const hasFormStarted = ref(false);
 const toastOpen = ref(false);
 const toastVariant = ref('success');
 const toastMessage = ref('');
@@ -225,6 +226,26 @@ watch(showEmailField, (shouldShow) => {
 });
 
 const buildFullName = () => `${firstName.value.trim()} ${lastName.value.trim()}`.trim();
+
+const pushFormEvent = (eventName) => {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: eventName
+  });
+};
+
+const handleFormStart = () => {
+  if (hasFormStarted.value) {
+    return;
+  }
+
+  hasFormStarted.value = true;
+  pushFormEvent('interest_form_start');
+};
 
 const showToast = (variant, messageText) => {
   toastVariant.value = variant;
@@ -278,6 +299,8 @@ const handleSubmit = async () => {
     await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, templateParams, {
       publicKey: EMAILJS_CONFIG.publicKey
     });
+
+    pushFormEvent('interest_form_submit');
 
     firstName.value = '';
     lastName.value = '';

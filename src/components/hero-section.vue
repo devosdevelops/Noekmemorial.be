@@ -3,7 +3,7 @@
     <div class="section-container hero-grid">
       <div class="hero-content">
         <h1 id="hero-title" class="hero-title" v-scroll-reveal="{ delay: 40 }">Noek</h1>
-        <p class="hero-tagline" v-scroll-reveal="{ delay: 80 }">Herdenken stopt niet na de uitvaart.</p>
+        <p class="hero-tagline" v-scroll-reveal="{ delay: 80 }">Herdenken stopt niet na de uitvaart</p>
 
         <div class="hero-actions" v-scroll-reveal="{ delay: 120 }">
           <base-button href="/#features" label="Ontdek de Features" />

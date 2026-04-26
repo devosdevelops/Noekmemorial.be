@@ -7,10 +7,6 @@
           Wij verbinden technologie en uitvaartzorg voor blijvende digitale herdenkingsplekken. Zonder extra werkdruk,
           met jou als menselijk aanspreekpunt.
         </p>
-        <h3 class="interest-title">Lijkt dit product interessant?</h3>
-        <p class="body-text">
-          Meld je interesse of lees meer door op de knop te drukken! Misschien kan jij ons helpen dit product nog beter te maken.
-        </p>
       </div>
 
       <div class="how-grid" v-scroll-reveal="{ delay: 80, origin: 'up' }">

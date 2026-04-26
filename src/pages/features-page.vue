@@ -4,8 +4,8 @@
   <main id="main-content" tabindex="-1" class="features-page">
     <section class="features-hero" aria-labelledby="features-title" v-scroll-reveal>
       <div class="section-container features-hero-inner" v-scroll-reveal="{ delay: 40 }">
-        <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&gt;</span> <span>Features</span></p>
-        <h1 id="features-title" class="features-title">Features</h1>
+        <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&gt;</span> <span>Mogelijkheden</span></p>
+        <h1 id="features-title" class="features-title">Mogelijkheden</h1>
       </div>
 
       <div class="features-hero-art" aria-hidden="true">

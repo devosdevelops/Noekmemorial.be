@@ -163,9 +163,9 @@ const carouselStyle = computed(() => ({
 
 const featureItems = computed(() => [
   {
-    title: 'White-label, jouw merk',
+    title: 'Jouw merk, onze herdenkingsruimte',
     description:
-      'Kies huisstijl, kleuren en branding—Noek voeelt als een natuurlijk onderdeel van jouw uitvaartservice.',
+      'Pas huisstijl, kleuren en branding aan—Noek voelt aan als een natuurlijk onderdeel van jouw uitvaartservice.',
     icon: assetPaths.icons.featureWhiteLabel,
     fallback: '✎'
   },
@@ -190,8 +190,8 @@ const featureItems = computed(() => [
     fallback: '▣'
   },
   {
-    title: '3D Experience',
-    description: 'Een interactieve ruimte in de browser die voelbaar is. Altijd beschikbaar, overal ter wereld.',
+    title: '3D herdenkingsruimte – interactief en voelbaar',
+    description: 'Een immersieve ruimte in de browser, voelbaar en persoonlijk. Altijd beschikbaar, overal ter wereld.',
     icon: assetPaths.icons.featureBrowser,
     fallback: '◫'
   }

@@ -55,12 +55,12 @@
 
           <div class="how-media" v-scroll-reveal="{ delay: 60, origin: 'right' }">
             <figure v-if="videoPoster" class="video-card">
-              <img :src="videoPoster" alt="Preview van Noek herdenkingsruimte" />
+              <img :src="videoPoster" alt="Familie die samen een warme herdenkingsruimte inrichten in Noek" />
               <span class="play-badge" aria-hidden="true">▶</span>
             </figure>
 
             <figure v-if="howLogo" class="how-logo">
-              <img :src="howLogo" alt="Noek logo" />
+              <img :src="howLogo" alt="Noek" />
             </figure>
           </div>
         </div>
@@ -84,7 +84,7 @@
         <div class="section-container previews-shell">
           <div class="previews-desktop" v-scroll-reveal="{ delay: 30 }">
             <figure v-for="(screen, index) in screens" :key="`desktop-${index}`" class="preview-phone">
-              <img v-if="screen" :src="screen" :alt="`Preview scherm ${index + 1}`" />
+              <img v-if="screen" :src="screen" :alt="`Noek interface – pagina ${index + 1}: herdenkingsruimte interactie`" />
               <span v-else class="preview-placeholder">Preview {{ index + 1 }}</span>
             </figure>
           </div>
@@ -93,7 +93,7 @@
             <div class="carousel-window">
               <div class="carousel-track" :style="carouselStyle">
                 <figure v-for="(screen, index) in screens" :key="`mobile-${index}`" class="preview-phone carousel-slide">
-                  <img v-if="screen" :src="screen" :alt="`Preview scherm ${index + 1}`" />
+                  <img v-if="screen" :src="screen" :alt="`Noek app – pagina ${index + 1}: herdenkingsruimte op mobiel`" />
                   <span v-else class="preview-placeholder">Preview {{ index + 1 }}</span>
                 </figure>
               </div>

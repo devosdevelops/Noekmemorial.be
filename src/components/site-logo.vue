@@ -1,9 +1,9 @@
 <template>
   <div class="site-logo" :class="{ 'is-compact': props.compact }">
-    <img v-if="hasMainLogo && !props.split" class="logo-image" :src="mainLogoSrc" alt="Noek logo" />
+    <img v-if="hasMainLogo && !props.split" class="logo-image" :src="mainLogoSrc" alt="Noek" />
 
     <template v-else>
-      <img v-if="hasMarkLogo" class="logo-mark-image" :src="markLogoSrc" alt="Noek logo mark" />
+      <img v-if="hasMarkLogo" class="logo-mark-image" :src="markLogoSrc" alt="Noek" />
       <span v-else class="logo-mark" aria-hidden="true">🦊</span>
       <span class="logo-wordmark">Noek</span>
     </template>

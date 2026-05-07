@@ -17,7 +17,7 @@
       <section class="page-section story-section" aria-labelledby="story-heading" v-scroll-reveal>
         <div class="section-container story-grid">
           <figure class="story-image-wrap" v-scroll-reveal="{ delay: 40, origin: 'left' }">
-            <img class="story-image" :src="assetPaths.images.howItWorksThumb" alt="Drie mensen in gesprek" width="800" height="600" />
+            <img class="story-image" :src="assetPaths.images.howItWorksThumb" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 800px" alt="Drie mensen in gesprek" width="800" height="600" />
           </figure>
 
           <div class="story-copy" v-scroll-reveal="{ delay: 80, origin: 'right' }">
@@ -74,7 +74,7 @@
               </p>
 
               <div class="value-image-wrap">
-                <img class="value-image" :src="assetPaths.images.missionMission" alt="Twee mensen in digitale herinneringsruimte" width="600" height="480" loading="lazy" decoding="async" />
+                <img class="value-image" :src="assetPaths.images.missionMission" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px" alt="Twee mensen in digitale herinneringsruimte" width="600" height="480" loading="lazy" decoding="async" />
               </div>
             </article>
 
@@ -86,7 +86,7 @@
               </p>
 
               <div class="value-image-wrap">
-                <img class="value-image" :src="assetPaths.images.missionVision" alt="Twee personen onder maanlicht" width="600" height="480" loading="lazy" decoding="async" />
+                <img class="value-image" :src="assetPaths.images.missionVision" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px" alt="Twee personen onder maanlicht" width="600" height="480" loading="lazy" decoding="async" />
               </div>
             </article>
           </div>

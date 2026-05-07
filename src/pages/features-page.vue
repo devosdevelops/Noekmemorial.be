@@ -84,7 +84,7 @@
         <div class="section-container previews-shell">
           <div class="previews-desktop" v-scroll-reveal="{ delay: 30 }">
             <figure v-for="(screen, index) in screens" :key="`desktop-${index}`" class="preview-phone">
-              <img v-if="screen" :src="screen" :alt="`Noek interface – pagina ${index + 1}: herdenkingsruimte interactie`" width="300" height="450" loading="lazy" decoding="async" />
+              <img v-if="screen" :src="screen" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 300px" :alt="`Noek interface – pagina ${index + 1}: herdenkingsruimte interactie`" width="300" height="450" loading="lazy" decoding="async" />
               <span v-else class="preview-placeholder">Preview {{ index + 1 }}</span>
             </figure>
           </div>
@@ -93,7 +93,7 @@
             <div class="carousel-window">
               <div class="carousel-track" :style="carouselStyle">
                 <figure v-for="(screen, index) in screens" :key="`mobile-${index}`" class="preview-phone carousel-slide">
-                  <img v-if="screen" :src="screen" :alt="`Noek app – pagina ${index + 1}: herdenkingsruimte op mobiel`" width="300" height="450" loading="lazy" decoding="async" />
+                  <img v-if="screen" :src="screen" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 300px" :alt="`Noek app – pagina ${index + 1}: herdenkingsruimte op mobiel`" width="300" height="450" loading="lazy" decoding="async" />
                   <span v-else class="preview-placeholder">Preview {{ index + 1 }}</span>
                 </figure>
               </div>

@@ -4,8 +4,8 @@
       <div class="how-header" v-scroll-reveal="{ delay: 40, origin: 'left' }">
         <h2 id="features-heading" class="section-heading">Hoe werkt Noek?</h2>
         <p class="body-text">
-          Wij verbinden technologie en uitvaartzorg voor blijvende digitale herdenkingsplekken. Zonder extra werkdruk,
-          met jou als menselijk aanspreekpunt.
+          Wij verbinden technologie en uitvaartzorg in een warme digitale herdenkingsruimte. Zo kunnen families online
+          herdenken en op een persoonlijke manier samen herdenken, zonder extra werkdruk voor jouw team.
         </p>
       </div>
 
@@ -26,7 +26,7 @@
         </div>
 
         <div class="how-media" aria-hidden="true">
-          <img :src="assetPaths.images.howItWorksThumb" alt="" />
+          <img :src="assetPaths.images.howItWorksThumb" alt="Nabestaanden die samen herdenken in een warme digitale herdenkingsruimte" />
           <span class="play-badge" aria-hidden="true">
             <span class="play-icon"></span>
           </span>

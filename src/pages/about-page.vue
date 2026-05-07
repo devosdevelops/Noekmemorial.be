@@ -106,21 +106,21 @@
           <div class="team-cards" aria-label="team leden">
             <article class="team-card">
               <figure class="team-photo-wrap">
-                <img class="team-photo" src="/assets/images/ben-devos.jpg" alt="Ben Devos" />
+                <img class="team-photo" src="/assets/images/ben-devos.avif" alt="Ben Devos" />
               </figure>
               <h3 class="team-name">Ben Devos</h3>
             </article>
 
             <article class="team-card">
               <figure class="team-photo-wrap">
-                <img class="team-photo" src="/assets/images/seren-koca.jpg" alt="Seren Koca" />
+                <img class="team-photo" src="/assets/images/seren-koca.avif" alt="Seren Koca" />
               </figure>
               <h3 class="team-name">Seren Koca</h3>
             </article>
 
             <article class="team-card">
               <figure class="team-photo-wrap">
-                <img class="team-photo" src="/assets/images/audrey-kudjo.jpg" alt="Audrey Kudjo" />
+                <img class="team-photo" src="/assets/images/audrey-kudjo.avif" alt="Audrey Kudjo" />
               </figure>
               <h3 class="team-name">Audrey Kudjo</h3>
             </article>

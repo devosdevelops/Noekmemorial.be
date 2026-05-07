@@ -7,10 +7,10 @@ export const assetPaths = {
     // mark: '/assets/logos/noek-mark.svg'
   },
   images: {
-    howItWorksThumb: '/assets/images/aboutus.png',
-    missionVision: '/assets/images/vision.jpg',
-    missionMission: '/assets/images/mission.jpg',
-    hands: '/assets/images/hands.jpg',
+    howItWorksThumb: '/assets/images/aboutus.avif',
+    missionVision: '/assets/images/vision.avif',
+    missionMission: '/assets/images/mission.avif',
+    hands: '/assets/images/hands.avif',
     featuresVideoThumb: '',
     featuresPreviewOne: '/assets/images/preview-1.jpg',
     featuresPreviewTwo: '/assets/images/preview-2.jpg',

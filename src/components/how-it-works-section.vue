@@ -4,8 +4,8 @@
       <div class="how-header" v-scroll-reveal="{ delay: 40, origin: 'left' }">
         <h2 id="features-heading" class="section-heading">Hoe werkt Noek?</h2>
         <p class="body-text">
-          We brengen technologie en menselijkheid samen. Families maken hun eigen herdenkingsruimte, delen deze met wie
-          hen het meest dierbaar zijn, en gaan met gemak—zonder extra administratie voor jouw team.
+          We brengen technologie en menselijkheid samen. Families maken hun eigen digitale herdenkingsruimte, delen die met
+          wie hen het meest dierbaar is, en maken online herdenken eenvoudig, zonder extra administratie voor jouw team.
         </p>
       </div>
 
@@ -21,7 +21,7 @@
           </div>
           <div class="step-card">
             <span class="step-index">03</span>
-            <p class="step-text">Samen kunnen ze blijvende herinneringen delen</p>
+            <p class="step-text">Samen delen ze blijvende herinneringen en momenten van herdenken</p>
           </div>
         </div>
 

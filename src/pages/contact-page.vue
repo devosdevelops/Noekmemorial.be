@@ -17,8 +17,8 @@
       <section class="page-section contact-intro-section" aria-label="Contactintro" v-scroll-reveal>
         <div class="section-container contact-intro-inner">
           <p class="contact-intro-copy">
-            Heb je een vraag over onze services of wil je weten wat we voor elkaar zouden kunnen betekenen? Aarzel dan
-            zeker niet om ons een berichtje te sturen.
+            Vragen over hoe Noek families helpt samen te herdenken? Of wil je zien hoe het platform werkt? 
+            Wij horen graag van je—stuur ons een berichtje.
           </p>
           <a class="faq-link" href="/#faq">Bekijk zeker ook onze veelgestelde vragen</a>
         </div>
@@ -51,7 +51,7 @@
       <section class="page-section contact-form-section" aria-labelledby="form-heading" v-scroll-reveal>
         <div class="section-container form-shell" v-scroll-reveal="{ delay: 30 }">
           <h2 id="form-heading" class="section-heading">Contactformulier</h2>
-          <p class="form-lead">Vul het onderstaande contactformulier in en wij helpen je graag.</p>
+          <p class="form-lead">Vul het formulier in en we nemen snel contact op. Jouw verhaal en vragen zijn belangrijk voor ons.</p>
 
           <form class="contact-form" @submit.prevent="handleSubmit" :aria-busy="isSubmitting ? 'true' : 'false'">
             <div class="name-row">
@@ -136,8 +136,8 @@ import { createPageHead } from '../utils/seo';
 
 useHead(
   createPageHead({
-    title: 'Contacteer Noek',
-    description: 'Stel je vraag, vraag een demo aan of neem contact op met het Noek team.',
+    title: 'Contact – Neem contact op met Noek',
+    description: 'Heb je vragen over onze digitale herdenkingsruimte? Neem contact op met ons team of vraag een demo aan.',
     path: '/contact'
   })
 );

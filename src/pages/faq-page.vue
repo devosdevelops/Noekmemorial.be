@@ -18,8 +18,8 @@
         <div class="section-container faq-intro-content">
           <h2 class="section-heading">Veelgestelde vragen</h2>
           <p class="faq-intro-copy">
-            Heb je een vraag? Hier vind je antwoorden op de meest voorkomende vragen, zodat je snel de informatie vindt
-            die je nodig hebt.
+            Heb je een vraag over Noek of hoe je samen met je naasten kunt herdenken? We helpen je graag.
+            Hieronder vind je antwoorden op veel gestelde vragen.
           </p>
         </div>
       </section>
@@ -105,7 +105,7 @@
       <section class="page-section faq-contact-section" aria-label="Contact hulp" v-scroll-reveal>
         <div class="section-container faq-contact-content">
           <article class="faq-contact-card">
-            <p class="faq-contact-copy">Je antwoord niet gevonden? We helpen je graag verder.</p>
+            <p class="faq-contact-copy">Je vraag niet hier? We helpen je graag verder.</p>
             <base-button href="/contact" label="Neem contact op" />
           </article>
         </div>
@@ -128,8 +128,8 @@ import { createPageHead } from '../utils/seo';
 
 useHead(
   createPageHead({
-    title: 'Veelgestelde vragen',
-    description: 'Antwoorden op de meest voorkomende vragen over Noek en digitale herdenkingsruimtes.',
+    title: 'FAQ – Veelgestelde vragen over samen herdenken',
+    description: 'Antwoorden op vragen over Noek, digitale herdenkingsruimtes en hoe families samen kunnen herdenken.',
     path: '/faq'
   })
 );

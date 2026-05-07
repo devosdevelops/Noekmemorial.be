@@ -17,8 +17,8 @@
       <section class="page-section interest-intro-section" aria-label="Interesseintro" v-scroll-reveal>
         <div class="section-container interest-intro-inner">
           <p class="intro-copy">
-            We zijn momenteel ons platform aan het ontwikkelen. Heb je interesse om het later te gebruiken, updates te
-            ontvangen of ons te helpen met feedback? Laat hieronder je gegevens achter.
+            We bouwen aan iets waarvan we geloven dat het families kan helpen. Heb je interesse om Noek te gebruiken,
+            wil je op de hoogte blijven, of heb je feedback? Laat je gegevens achter—wij nemen graag contact op.
           </p>
         </div>
       </section>
@@ -184,8 +184,8 @@ import { createPageHead } from '../utils/seo';
 
 useHead(
   createPageHead({
-    title: 'Toon je interesse',
-    description: 'Interesse in dit concept? Laat het hier weten! We ontvangen graag feedback en houden je op de hoogte van de nieuwste ontwikkelingen.',
+    title: 'Toon je interesse – Word onderdeel van Noek',
+    description: 'Ben je geïnteresseerd in Noek? Laat je gegevens achter om op de hoogte te blijven van de nieuwste ontwikkelingen en feedback te geven.',
     path: '/toon-je-interesse'
   })
 );

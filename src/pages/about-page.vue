@@ -98,9 +98,9 @@
           <h2 id="team-heading" class="section-heading">Ons Team</h2>
 
           <p class="body-text team-intro">
-            Drie <strong>studenten</strong> van <strong>Thomas More</strong> Mechelen ontwikkelden dit Noek als
-            <strong>bachelorproef</strong>. Met dit digitale platform willen we een toegankelijke en persoonlijke plek
-            bieden waar mensen hun dierbaren kunnen herdenken en herinneringen kunnen delen.
+            Drie <strong>studenten</strong> van <strong>Thomas More</strong> Mechelen maakten Noek als bachelorproef.
+            Ze geloven dat herdenken niet in stilte hoeft—dat het sterker wordt als families het samen doen.
+            Met dit platform willen we een toegankelijke, warme plek bieden waar iemands verhaal door kan groeien.
           </p>
 
           <div class="team-cards" aria-label="team leden">
@@ -144,8 +144,8 @@ import { createPageHead, SITE_URL } from '../utils/seo';
 
 useHead(
   createPageHead({
-    title: 'Over Noek',
-    description: 'Lees het verhaal achter Noek en waar we voor staan.',
+    title: 'Over Noek – Een plek om samen te herdenken',
+    description: 'Ontdek het verhaal achter Noek, onze missie en hoe we families helpen om samen herinneringen te bewaren.',
     path: '/over-ons',
     image: `${SITE_URL}${assetPaths.images.howItWorksThumb}`
   })

@@ -6,9 +6,9 @@
 
     <section class="home-stack" aria-label="Noek informatie">
       <content-section title="Wat is Noek?" section-id="wat-is-noek" surface="light">
-        <strong>Noek geeft herinneringen een warme plek die blijft bestaan.</strong><br />
-        Een digitale herdenkingsruimte waar families online herdenken en op hun eigen ritme samen herdenken.
-        Niet gebonden aan een plaats, maar troostend dichtbij wanneer het nodig is.
+        <strong>Noek geeft herinneringen een plek die blijft bestaan.</strong><br />
+        Een warme digitale ruimte waar families en vrienden samenkomen om herinneringen te delen.
+        Niet gebonden aan een plaats of moment—altijd daar wanneer je iemand wilt herdenken.
       </content-section>
 
       <how-it-works-section />
@@ -35,9 +35,9 @@ import { createPageHead, SITE_URL } from '../utils/seo';
 
 useHead(
   createPageHead({
-    title: 'Warme digitale herdenkingsruimte voor online herdenken',
+    title: 'Samen herdenken in een digitale herdenkingsruimte',
     description:
-      'Noek is een warme digitale herdenkingsruimte waar families online herdenken en samen herdenken. Deel blijvende herinneringen en blijf verbonden met wie je mist.',
+      'Noek geeft families een plek om samen te herdenken. Een warme ruimte waar herinneringen blijvend bewaard en gedeeld worden, altijd dichtbij wanneer het nodig is.',
     path: '/'
   })
 );

@@ -3,10 +3,10 @@
     <div class="section-container hero-grid">
       <div class="hero-content">
         <h1 id="hero-title" class="hero-title" v-scroll-reveal="{ delay: 40 }">Noek</h1>
-        <p class="hero-tagline" v-scroll-reveal="{ delay: 80 }">Warm online herdenken in een digitale herdenkingsruimte</p>
+        <p class="hero-tagline" v-scroll-reveal="{ delay: 80 }">Samen herdenken in een digitale herdenkingsruimte</p>
 
         <div class="hero-actions" v-scroll-reveal="{ delay: 120 }">
-          <base-button href="/#features" label="Ontdek online herdenken" />
+          <base-button href="/#features" label="Ontdek Noek" />
           <base-button href="/over-ons" label="Wie zijn we?" variant="outline" />
         </div>
       </div>

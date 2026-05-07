@@ -17,8 +17,8 @@
       <section class="page-section intro-section" aria-label="Features intro">
         <div class="section-container intro-content" v-scroll-reveal>
           <p class="intro-copy">
-            Noek biedt uitvaartondernemingen een warm white-label platform voor een digitale herdenkingsruimte.
-            Hiermee kunnen families online herdenken en op elk moment samen herdenken, waar ze ook zijn.
+            Noek biedt jouw team een white-label platform waarmee families samen herinneringen kunnen delen en koesteren.
+            Persoonlijk, voelbaar, en ontworpen voor elk moment van het rouwproces.
           </p>
 
           <div class="feature-grid" v-scroll-reveal="{ delay: 30 }">
@@ -134,9 +134,9 @@ import { createPageHead, SITE_URL } from '../utils/seo';
 
 useHead(
   createPageHead({
-    title: 'Digitale herdenkingsruimte voor online herdenken',
+    title: 'Mogelijkheden: digitale herdenkingsruimte voor jouw team',
     description:
-      'Ontdek hoe Noek uitvaartondernemingen helpt met een warme digitale herdenkingsruimte waarin families online herdenken en samen herdenken.',
+      'Ontdek hoe Noek jouw team helpt families samen herinneringen te bewaren. White-label platform met troostende sfeer.',
     path: '/features',
     image: `${SITE_URL}${assetPaths.images.featuresPreviewOne}`
   })
@@ -163,35 +163,35 @@ const carouselStyle = computed(() => ({
 
 const featureItems = computed(() => [
   {
-    title: 'White-label herdenkingsruimte',
+    title: 'White-label, jouw merk',
     description:
-      'Pas huisstijl en kleuren aan zodat de digitale herdenkingsruimte perfect aansluit bij jouw uitvaartonderneming.',
+      'Kies huisstijl, kleuren en branding—Noek voeelt als een natuurlijk onderdeel van jouw uitvaartservice.',
     icon: assetPaths.icons.featureWhiteLabel,
     fallback: '✎'
   },
   {
-    title: 'Warme sfeerbeleving',
+    title: 'Troostende sfeer',
     description:
-      'Rustgevende geluiden en lichteffecten geven online herdenken een warme, troostende sfeer die mensen samenbrengt.',
+      'Subtiele geluiden en licht creëren een warme, voelbare omgeving die mensen samenbrengt in een moeilijk moment.',
     icon: assetPaths.icons.featureAtmosphere,
     fallback: '◍'
   },
   {
     title: 'Flexibele hosting',
-    description: 'Je kan Noek hosten op je eigen domein of op een van onze subdomeinen.',
+    description: 'Host op je eigen domein of gebruik één van onze subdomeinen—jij beslist.',
     icon: assetPaths.icons.featureOwnDomain,
     fallback: '☁'
   },
   {
-    title: 'Persoonlijk en aanpasbaar',
+    title: 'Volledig personaliseerbaar',
     description:
-      'Elke herdenkingsruimte kan volledig afgestemd worden op het leven en de herinneringen van wie herdacht wordt.',
+      'Elke plek wordt precies zo ingevuld als de overledene verdient—met foto\'s, verhalen en momenten die tellen.',
     icon: assetPaths.icons.featurePersonalized,
     fallback: '▣'
   },
   {
-    title: '3D Herdenkingsruimte',
-    description: 'Een levendige digitale herdenkingsruimte in de browser, altijd en overal beschikbaar voor samen herdenken.',
+    title: '3D Experience',
+    description: 'Een interactieve ruimte in de browser die voelbaar is. Altijd beschikbaar, overal ter wereld.',
     icon: assetPaths.icons.featureBrowser,
     fallback: '◫'
   }

@@ -132,7 +132,7 @@ import SiteHeader from '../components/site-header.vue';
 import StatusToast from '../components/status-toast.vue';
 import { EMAILJS_CONFIG, createRequestId, createRequestTimestamp } from '../config/emailjs';
 import { getCtaTextLabel } from '../utils/cta-variant';
-import { createPageHead } from '../utils/seo';
+import { createPageHead, SITE_URL } from '../utils/seo';
 
 useHead(
   createPageHead({

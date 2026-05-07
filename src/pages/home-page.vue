@@ -58,6 +58,23 @@ useHead({
           email: 'info@noek.be'
         }
       })
+    },
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Noek',
+        url: SITE_URL,
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${SITE_URL}?search={search_term_string}`
+          },
+          query_input: 'required name=search_term_string'
+        }
+      })
     }
   ]
 });

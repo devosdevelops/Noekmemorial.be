@@ -124,51 +124,9 @@ import BaseButton from '../components/base-button.vue';
 import ScrollTopButton from '../components/scroll-top-button.vue';
 import SiteFooter from '../components/site-footer.vue';
 import SiteHeader from '../components/site-header.vue';
-import { createPageHead } from '../utils/seo';
+import { createPageHead, SITE_URL } from '../utils/seo';
 
-useHead(
-  createPageHead({
-    title: 'FAQ – Veelgestelde vragen over samen herdenken',
-    description: 'Antwoorden op vragen over Noek, digitale herdenkingsruimtes en hoe families samen kunnen herdenken.',
-    path: '/faq'
-  })
-);
-
-const openIndex = ref(null);
-
-const toggle = (index) => {
-  openIndex.value = openIndex.value === index ? null : index;
-};
-
-const enterAnswer = (element) => {
-  element.style.height = '0';
-  element.style.opacity = '0';
-  element.style.overflow = 'hidden';
-
-  requestAnimationFrame(() => {
-    element.style.height = `${element.scrollHeight}px`;
-    element.style.opacity = '1';
-  });
-};
-
-const afterEnterAnswer = (element) => {
-  element.style.height = 'auto';
-  element.style.overflow = '';
-};
-
-const beforeLeaveAnswer = (element) => {
-  element.style.height = `${element.scrollHeight}px`;
-  element.style.opacity = '1';
-  element.style.overflow = 'hidden';
-};
-
-const leaveAnswer = (element) => {
-  requestAnimationFrame(() => {
-    element.style.height = '0';
-    element.style.opacity = '0';
-  });
-};
-
+// Define FAQ items first so we can use them for structured data
 const faqItems = [
   {
     question: 'Voor wie is Noek bedoeld?',
@@ -206,6 +164,90 @@ const faqItems = [
       'Noek is een besloten, rustige ruimte zonder advertenties of algoritmen. Het is volledig gericht op herdenken, niet op likes of betrokkenheid. Privacy en rust staan centraal.'
   }
 ];
+
+useHead(
+  createPageHead({
+    title: 'FAQ – Veelgestelde vragen over samen herdenken',
+    description: 'Antwoorden op vragen over Noek, digitale herdenkingsruimtes en hoe families samen kunnen herdenken.',
+    path: '/faq'
+  })
+);
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: SITE_URL
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'FAQ',
+            item: `${SITE_URL}/faq`
+          }
+        ]
+      })
+    },
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map(item => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer
+          }
+        }))
+      })
+    }
+  ]
+});
+
+const openIndex = ref(null);
+
+const toggle = (index) => {
+  openIndex.value = openIndex.value === index ? null : index;
+};
+
+const enterAnswer = (element) => {
+  element.style.height = '0';
+  element.style.opacity = '0';
+  element.style.overflow = 'hidden';
+
+  requestAnimationFrame(() => {
+    element.style.height = `${element.scrollHeight}px`;
+    element.style.opacity = '1';
+  });
+};
+
+const afterEnterAnswer = (element) => {
+  element.style.height = 'auto';
+  element.style.overflow = '';
+};
+
+const beforeLeaveAnswer = (element) => {
+  element.style.height = `${element.scrollHeight}px`;
+  element.style.opacity = '1';
+  element.style.overflow = 'hidden';
+};
+
+const leaveAnswer = (element) => {
+  requestAnimationFrame(() => {
+    element.style.height = '0';
+    element.style.opacity = '0';
+  });
+};
 
 const splitIndex = Math.ceil(faqItems.length / 2);
 

@@ -17,7 +17,7 @@
       <section class="page-section story-section" aria-labelledby="story-heading" v-scroll-reveal>
         <div class="section-container story-grid">
           <figure class="story-image-wrap" v-scroll-reveal="{ delay: 40, origin: 'left' }">
-            <img class="story-image" :src="assetPaths.images.howItWorksThumb" alt="Drie mensen in gesprek" />
+            <img class="story-image" :src="assetPaths.images.howItWorksThumb" alt="Drie mensen in gesprek" width="800" height="600" />
           </figure>
 
           <div class="story-copy" v-scroll-reveal="{ delay: 80, origin: 'right' }">
@@ -48,7 +48,7 @@
           <h2 id="what-heading" class="section-heading" v-scroll-reveal="{ delay: 20 }">Wat doen we?</h2>
 
           <div class="what-row" v-scroll-reveal="{ delay: 60 }">
-            <img class="what-thumb" :src="assetPaths.images.hands" alt="Handen die elkaar vasthouden" />
+            <img class="what-thumb" :src="assetPaths.images.hands" alt="Handen die elkaar vasthouden" width="160" height="192" loading="lazy" decoding="async" />
             <p class="body-text">
               <strong>Noek geeft herinneringen een plek die blijft bestaan.</strong><br />
               Een warme, persoonlijke ruimte waar familie en vrienden samenkomen om stil te staan, te delen en
@@ -74,7 +74,7 @@
               </p>
 
               <div class="value-image-wrap">
-                <img class="value-image" :src="assetPaths.images.missionMission" alt="Twee mensen in digitale herinneringsruimte" />
+                <img class="value-image" :src="assetPaths.images.missionMission" alt="Twee mensen in digitale herinneringsruimte" width="600" height="480" loading="lazy" decoding="async" />
               </div>
             </article>
 
@@ -86,7 +86,7 @@
               </p>
 
               <div class="value-image-wrap">
-                <img class="value-image" :src="assetPaths.images.missionVision" alt="Twee personen onder maanlicht" />
+                <img class="value-image" :src="assetPaths.images.missionVision" alt="Twee personen onder maanlicht" width="600" height="480" loading="lazy" decoding="async" />
               </div>
             </article>
           </div>
@@ -106,21 +106,21 @@
           <div class="team-cards" aria-label="team leden">
             <article class="team-card">
               <figure class="team-photo-wrap">
-                <img class="team-photo" src="/assets/images/ben-devos.avif" alt="Ben Devos" />
+                <img class="team-photo" src="/assets/images/ben-devos.avif" alt="Ben Devos" width="300" height="360" loading="lazy" decoding="async" />
               </figure>
               <h3 class="team-name">Ben Devos</h3>
             </article>
 
             <article class="team-card">
               <figure class="team-photo-wrap">
-                <img class="team-photo" src="/assets/images/seren-koca.avif" alt="Seren Koca" />
+                <img class="team-photo" src="/assets/images/seren-koca.avif" alt="Seren Koca" width="300" height="360" loading="lazy" decoding="async" />
               </figure>
               <h3 class="team-name">Seren Koca</h3>
             </article>
 
             <article class="team-card">
               <figure class="team-photo-wrap">
-                <img class="team-photo" src="/assets/images/audrey-kudjo.avif" alt="Audrey Kudjo" />
+                <img class="team-photo" src="/assets/images/audrey-kudjo.avif" alt="Audrey Kudjo" width="300" height="360" loading="lazy" decoding="async" />
               </figure>
               <h3 class="team-name">Audrey Kudjo</h3>
             </article>

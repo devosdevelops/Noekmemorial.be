@@ -9,6 +9,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/logos/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/logos/site.webmanifest" />
     <meta name="theme-color" content="#ffffff" />
+    <!-- Font optimization: preconnect + font stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
     <!-- Consent Mode defaults -->
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -24,23 +28,6 @@
       });
     </script>
     <!-- End Consent Mode defaults -->
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-          'gtm.start': new Date().getTime(),
-          event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-PSS6J47R');
-    </script>
-    <!-- End Google Tag Manager -->
     <title>Noek</title>
   </head>
   <body>
@@ -55,6 +42,25 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="app"></div>
+    <!-- Google Tag Manager (loaded after DOM ready to balance performance & tracking) -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+          });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PSS6J47R');
+      });
+    </script>
+    <!-- End Google Tag Manager -->
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

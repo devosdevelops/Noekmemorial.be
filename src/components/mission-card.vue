@@ -2,7 +2,7 @@
   <article class="mission-card" :class="{ 'is-reversed': reverseMobile }">
     <h3 class="subheading mission-title">{{ title }}</h3>
     <p class="body-text mission-text">{{ text }}</p>
-    <img v-if="imageSrc" class="mission-image" :src="imageSrc" :alt="title" />
+    <img v-if="imageSrc" class="mission-image" :src="imageSrc" :alt="title" width="600" height="480" loading="lazy" decoding="async" />
     <div v-else class="mission-image" :class="`is-${imageTone}`" aria-hidden="true"></div>
   </article>
 </template>

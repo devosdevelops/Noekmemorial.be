@@ -26,7 +26,7 @@
         </div>
 
         <div class="how-media" aria-hidden="true">
-          <img :src="assetPaths.images.howItWorksThumb" alt="Nabestaanden die samen het leven herdenken" />
+          <img :src="assetPaths.images.howItWorksThumb" alt="Nabestaanden die samen het leven herdenken" width="600" height="400" loading="lazy" decoding="async" />
           <span class="play-badge" aria-hidden="true">
             <span class="play-icon"></span>
           </span>

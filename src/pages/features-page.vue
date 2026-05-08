@@ -9,7 +9,7 @@
       </div>
 
       <div class="features-hero-art" aria-hidden="true">
-        <img src="/assets/graphics/chrysant.svg" alt="" />
+        <img src="/assets/graphics/chrysant.svg" alt="" width="343" height="283" />
       </div>
     </section>
 
@@ -55,12 +55,12 @@
 
           <div class="how-media" v-scroll-reveal="{ delay: 60, origin: 'right' }">
             <figure v-if="videoPoster" class="video-card">
-              <img :src="videoPoster" alt="Familie die samen een warme herdenkingsruimte inrichten in Noek" />
+              <img :src="videoPoster" alt="Familie die samen een warme herdenkingsruimte inrichten in Noek" width="800" height="600" loading="lazy" decoding="async" />
               <span class="play-badge" aria-hidden="true">▶</span>
             </figure>
 
             <figure v-if="howLogo" class="how-logo">
-              <img :src="howLogo" alt="Noek" />
+              <img :src="howLogo" alt="Noek" width="160" height="200" loading="lazy" decoding="async" />
             </figure>
           </div>
         </div>
@@ -69,7 +69,7 @@
       <section class="page-section preview-header" aria-labelledby="preview-title" v-scroll-reveal>
         <div class="section-container preview-header-inner">
           <span class="preview-icon-wrap" aria-hidden="true">
-            <img v-if="previewIcon" :src="previewIcon" class="preview-icon" alt="" />
+            <img v-if="previewIcon" :src="previewIcon" class="preview-icon" alt="" width="156" height="95" />
             <span v-else class="preview-icon-fallback">▭</span>
           </span>
 

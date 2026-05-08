@@ -9,7 +9,7 @@
       </div>
 
       <div class="contact-hero-art" aria-hidden="true">
-        <img src="/assets/graphics/chrysant.svg" alt="" />
+        <img src="/assets/graphics/chrysant.svg" alt="" width="343" height="283" />
       </div>
     </section>
 

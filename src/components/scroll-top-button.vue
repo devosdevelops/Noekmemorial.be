@@ -6,7 +6,7 @@
     aria-label="Ga naar boven"
     @click="scrollToTop"
   >
-    <img class="scroll-top-icon" src="/assets/icons/backtotoparrow.svg" alt="" aria-hidden="true" />
+    <img class="scroll-top-icon" src="/assets/icons/backtotoparrow.svg" alt="" aria-hidden="true" width="24" height="31" />
   </button>
 </template>
 

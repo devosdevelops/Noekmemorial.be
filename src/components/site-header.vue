@@ -4,7 +4,7 @@
 
     <div class="section-container header-row">
       <a href="/" class="logo-link" aria-label="Noek home">
-        <site-logo :compact="isCompactLogo" :split="true" />
+        <site-logo :split="true" />
       </a>
 
       <nav class="desktop-nav" aria-label="hoofd navigatie">
@@ -62,7 +62,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
+import { onMounted, onUnmounted, ref, watch } from 'vue';
 import BaseButton from './base-button.vue';
 import SiteLogo from './site-logo.vue';
 import { getCtaTextLabel } from '../utils/cta-variant';
@@ -71,7 +71,6 @@ import { lockPageScroll, unlockPageScroll } from '../utils/scroll-lock';
 const MENU_SCROLL_LOCK_ID = 'header-mobile-menu';
 
 const menuOpen = ref(false);
-const viewportWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 1280);
 const currentPath = ref(typeof window !== 'undefined' ? window.location.pathname : '/');
 const currentHash = ref(typeof window !== 'undefined' ? window.location.hash : '');
 
@@ -85,11 +84,8 @@ const navItems = [
 
 const ctaLabel = getCtaTextLabel();
 
-const isCompactLogo = computed(() => viewportWidth.value <= 1024);
-
 const onResize = () => {
-  viewportWidth.value = window.innerWidth;
-  if (viewportWidth.value > 1120) {
+  if (window.innerWidth > 1120) {
     menuOpen.value = false;
   }
 };

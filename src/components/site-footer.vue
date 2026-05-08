@@ -6,7 +6,7 @@
         <section class="footer-brand">
           <h2 id="footer-heading" class="sr-only">Footer</h2>
           <div class="brand-logo-row">
-            <img class="brand-logo" src="/assets/logos/noek-logo-white.svg" alt="Noek" />
+            <img class="brand-logo" src="/assets/logos/noek-logo-white.svg" alt="Noek" width="49" height="63" />
             <span class="brand-name">Noek</span>
           </div>
           <div class="brand-content-row">
@@ -40,13 +40,13 @@
       </section>
       <div class="social-row" aria-label="socials">
         <a href="https://www.linkedin.com/company/noekmemorial/about/" aria-label="LinkedIn" class="social-icon" target="blank">
-          <img class="social-image" src="/assets/icons/Linkedin.svg" alt="" aria-hidden="true" />
+          <img class="social-image" src="/assets/icons/Linkedin.svg" alt="" aria-hidden="true" width="16" height="16" />
         </a>
         <a href="https://www.facebook.com/profile.php?id=61579523811833" aria-label="Facebook" class="social-icon" target="blank">
-          <img class="social-image" src="/assets/icons/Facebook.svg" alt="" aria-hidden="true" />
+          <img class="social-image" src="/assets/icons/Facebook.svg" alt="" aria-hidden="true" width="16" height="16" />
         </a>
         <a href="https://www.instagram.com/noekmemorial/" aria-label="Instagram" class="social-icon" target="blank">
-          <img class="social-image" src="/assets/icons/Instagram.svg" alt="" aria-hidden="true" />
+          <img class="social-image" src="/assets/icons/Instagram.svg" alt="" aria-hidden="true" width="16" height="16" />
         </a>
       </div>
       </div>

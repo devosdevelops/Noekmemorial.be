@@ -1,9 +1,9 @@
 <template>
-  <div class="site-logo" :class="{ 'is-compact': props.compact }">
-    <img v-if="hasMainLogo && !props.split" class="logo-image" :src="mainLogoSrc" alt="Noek" />
+  <div class="site-logo">
+    <img v-if="hasMainLogo && !props.split" class="logo-image" :src="mainLogoSrc" alt="Noek" width="160" height="200" />
 
     <template v-else>
-      <img v-if="hasMarkLogo" class="logo-mark-image" :src="markLogoSrc" alt="Noek" />
+      <img v-if="hasMarkLogo" class="logo-mark-image" :src="markLogoSrc" alt="Noek" width="160" height="200" />
       <span v-else class="logo-mark" aria-hidden="true">🦊</span>
       <span class="logo-wordmark">Noek</span>
     </template>
@@ -15,10 +15,6 @@ import { computed } from 'vue';
 import { assetPaths } from '../config/asset-paths';
 
 const props = defineProps({
-  compact: {
-    type: Boolean,
-    default: false
-  },
   src: {
     type: String,
     default: ''
@@ -49,10 +45,6 @@ const hasMarkLogo = computed(() => Boolean(markLogoSrc.value));
   object-fit: contain;
 }
 
-.is-compact .logo-image {
-  height: clamp(2.3rem, calc(1.9rem + 1.1vw), 3.2rem);
-}
-
 .logo-mark-image {
   width: auto;
   height: clamp(2.75rem, calc(2.2rem + 1.2vw), 3.45rem);
@@ -77,18 +69,24 @@ const hasMarkLogo = computed(() => Boolean(markLogoSrc.value));
   line-height: 1;
 }
 
-.is-compact .logo-mark {
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: 1.55rem;
-}
+@media (max-width: 64rem) {
+  .logo-image {
+    height: clamp(2.3rem, calc(1.9rem + 1.1vw), 3.2rem);
+  }
 
-.is-compact .logo-mark-image {
-  width: auto;
-  height: 3rem;
-}
+  .logo-mark {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.55rem;
+  }
 
-.is-compact .logo-wordmark {
-  font-size: clamp(1.9rem, calc(1.4rem + 0.8vw), 2.4rem);
+  .logo-mark-image {
+    width: auto;
+    height: 3rem;
+  }
+
+  .logo-wordmark {
+    font-size: clamp(1.9rem, calc(1.4rem + 0.8vw), 2.4rem);
+  }
 }
 </style>

@@ -5,7 +5,7 @@
 
     <div class="feature-row">
       <span class="feature-icon-wrap" aria-hidden="true">
-        <img v-if="icon" :src="icon" class="feature-icon" alt="" />
+        <img v-if="icon" :src="icon" class="feature-icon" alt="" width="80" height="80" />
         <span v-else class="feature-icon-fallback">{{ fallback }}</span>
       </span>
 

@@ -4,11 +4,74 @@ import App from './App.vue';
 import './assets/styles.css';
 import { scrollReveal } from './directives/scroll-reveal';
 import { routes, scrollBehavior } from './router';
-import { applyHeadingDigitFont } from './utils/apply-heading-digit-font';
-import { pushCtaVariantToDataLayer } from './utils/cta-variant';
 import { CONSENT_STATUS, hasAnalyticsConsent, initConsent, onConsentChange } from './utils/consent';
-import { initOverflowDebug } from './utils/debug-overflow';
 import { clearAllPageScrollLocks } from './utils/scroll-lock';
+
+const GTM_ID = 'GTM-PSS6J47R';
+let gtmLoaded = false;
+let applyHeadingDigitFontFn = null;
+
+const runWhenBrowserIdle = (task) => {
+	if (typeof window === 'undefined') {
+		return;
+	}
+
+	if ('requestIdleCallback' in window) {
+		window.requestIdleCallback(task, { timeout: 1500 });
+		return;
+	}
+
+	window.setTimeout(task, 0);
+};
+
+const loadGtm = () => {
+	if (typeof window === 'undefined' || gtmLoaded) {
+		return;
+	}
+
+	gtmLoaded = true;
+	window.dataLayer = window.dataLayer || [];
+	window.dataLayer.push({
+		'gtm.start': new Date().getTime(),
+		event: 'gtm.js'
+	});
+
+	const script = document.createElement('script');
+	script.async = true;
+	script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
+	document.head.appendChild(script);
+};
+
+const applyHeadingDigitFontDeferred = () => {
+	if (applyHeadingDigitFontFn) {
+		applyHeadingDigitFontFn();
+		return;
+	}
+
+	import('./utils/apply-heading-digit-font').then(({ applyHeadingDigitFont }) => {
+		applyHeadingDigitFontFn = applyHeadingDigitFont;
+		applyHeadingDigitFontFn();
+	});
+};
+
+const maybeInitOverflowDebug = () => {
+	if (typeof window === 'undefined') {
+		return;
+	}
+
+	const params = new URLSearchParams(window.location.search);
+	const fromQuery = params.get('debugOverflow');
+	const fromStorage = window.localStorage.getItem('noek:debugOverflow') === '1';
+	const shouldLoad = fromQuery === '1' || fromQuery === '0' || fromStorage;
+
+	if (!shouldLoad) {
+		return;
+	}
+
+	import('./utils/debug-overflow').then(({ initOverflowDebug }) => {
+		initOverflowDebug();
+	});
+};
 
 export const createApp = ViteSSG(
 	App,
@@ -20,11 +83,22 @@ export const createApp = ViteSSG(
 		app.directive('scroll-reveal', scrollReveal);
 
 		if (isClient) {
-			initConsent();
-			pushCtaVariantToDataLayer();
+			const initialConsentStatus = initConsent();
+
+			runWhenBrowserIdle(() => {
+				import('./utils/cta-variant').then(({ pushCtaVariantToDataLayer }) => {
+					pushCtaVariantToDataLayer();
+				});
+			});
+
+			if (initialConsentStatus === CONSENT_STATUS.ALL) {
+				runWhenBrowserIdle(() => {
+					loadGtm();
+				});
+			}
 
 			const startOverflowDebug = () => {
-				requestAnimationFrame(() => initOverflowDebug());
+				requestAnimationFrame(() => maybeInitOverflowDebug());
 			};
 
 			if (document.readyState === 'complete') {
@@ -58,20 +132,25 @@ export const createApp = ViteSSG(
 			router.afterEach((to) => {
 				nextTick(() => {
 					resetPageScrollState();
-					applyHeadingDigitFont();
+					runWhenBrowserIdle(() => {
+						applyHeadingDigitFontDeferred();
+					});
 					pushPageview(to);
 				});
 			});
 
 			onConsentChange(({ status }) => {
 				if (status === CONSENT_STATUS.ALL) {
+					loadGtm();
 					pushPageview(router.currentRoute.value);
 				}
 			});
 
 			nextTick(() => {
 				resetPageScrollState();
-				applyHeadingDigitFont();
+				runWhenBrowserIdle(() => {
+					applyHeadingDigitFontDeferred();
+				});
 			});
 		}
 	}
